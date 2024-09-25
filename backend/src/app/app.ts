@@ -6,7 +6,8 @@ dotenv.config();
 
 const app = express();
 const cors = require('cors');
-const PORT = process.env.PORT || 3000; // Porta a partir da variável de ambiente ou padrão
+const PORT = parseInt(process.env.PORT || '3000', 10); // Converte para número
+const HOST = '192.168.147.186'; // Adicione esta linha
 
 app.use(express.json()); // Para que o Express entenda JSON
 app.use(cors({
@@ -21,6 +22,6 @@ app.get('/', (req, res) => {
 
 app.use(router); // Usando as rotas definidas
 
-app.listen(PORT, () => {
-  console.log(`Server running on port http://localhost:${PORT}`); // Mensagem de inicialização
+app.listen(PORT, HOST, () => { // Adicione o HOST aqui
+  console.log(`Server running on http://${HOST}:${PORT}`); // Mensagem de inicialização
 });
