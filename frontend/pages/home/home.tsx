@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Button, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { useNavigation, NavigationProp } from '@react-navigation/native';
 import { RootStackParamList } from '../../App';
 
@@ -8,14 +8,18 @@ const Home: React.FC = () => {
 
   return (
     <View style={styles.container}>
-      <Button
-        title="Cadastrar receitas"
+      <TouchableOpacity
+        style={styles.button}
         onPress={() => navigation.navigate('CadastroReceita')}
-      />
-      <Button
-        title="Listar receitas"
+      >
+        <Text style={styles.buttonText}>Cadastrar receitas</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.button}
         onPress={() => navigation.navigate('ListagemReceitas')}
-      />
+      >
+        <Text style={styles.buttonText}>Listar receitas</Text>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -25,7 +29,20 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#fff',
+    backgroundColor: '#FFFAFB',
+  },
+  button: {
+    marginTop: 20,
+    backgroundColor: '#fc7493',
+    padding: 15,
+    borderRadius: 25,
+    alignItems: 'center',
+    width: 300,
+  },
+  buttonText: {
+    color: '#fff',
+    fontSize: 16,
+    fontWeight: 'bold',
   },
 });
 
