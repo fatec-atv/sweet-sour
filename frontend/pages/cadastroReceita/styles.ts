@@ -5,7 +5,7 @@ const styles = StyleSheet.create({
     flexGrow: 1,
     paddingRight: 25,
     paddingLeft: 25,
-    paddingTop: 50,
+    paddingTop: 20,
     paddingBottom: 30,
     backgroundColor: '#fff',
   },
@@ -85,6 +85,22 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
   },
+  imagePicker: {
+    backgroundColor: '#007bff',
+    padding: 10,
+    borderRadius: 5,
+    alignItems: 'center',
+    marginBottom: 16,
+  },
+  imagePickerText: {
+    color: '#fff',
+    fontWeight: 'bold',
+  },
+  image: {
+    width: '100%',
+    height: 200,
+    marginBottom: 16,
+  }
 });
 
 export default styles;

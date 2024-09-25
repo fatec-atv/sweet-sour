@@ -9,8 +9,12 @@ const Home: React.FC = () => {
   return (
     <View style={styles.container}>
       <Button
-        title="Cadastrar receita"
+        title="Cadastrar receitas"
         onPress={() => navigation.navigate('CadastroReceita')}
+      />
+      <Button
+        title="Listar receitas"
+        onPress={() => navigation.navigate('ListagemReceitas')}
       />
     </View>
   );

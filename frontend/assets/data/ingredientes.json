@@ -2983,5 +2983,170 @@
     "id": 597,
     "categoryId": 15,
     "name": "Noz, crua"
-  }
+  },
+    {
+      "id": 598,
+      "categoryId": 16,
+      "name": "Vodka"
+    },
+    {
+      "id": 599,
+      "categoryId": 16,
+      "name": "Rum"
+    },
+    {
+      "id": 600,
+      "categoryId": 16,
+      "name": "Gin"
+    },
+    {
+      "id": 601,
+      "categoryId": 16,
+      "name": "Tequila"
+    },
+    {
+      "id": 602,
+      "categoryId": 16,
+      "name": "Whiskey"
+    },
+    {
+      "id": 603,
+      "categoryId": 16,
+      "name": "Cachaça"
+    },
+    {
+      "id": 604,
+      "categoryId": 16,
+      "name": "Triple Sec"
+    },
+    {
+      "id": 605,
+      "categoryId": 16,
+      "name": "Vermute"
+    },
+    {
+      "id": 606,
+      "categoryId": 16,
+      "name": "Licor de Café"
+    },
+    {
+      "id": 607,
+      "categoryId": 16,
+      "name": "Licor de Amêndoa"
+    },
+    {
+      "id": 608,
+      "categoryId": 16,
+      "name": "Sake"
+    },
+    {
+      "id": 609,
+      "categoryId": 16,
+      "name": "Champagne"
+    },
+    {
+      "id": 610,
+      "categoryId": 16,
+      "name": "Vinho Tinto"
+    },
+    {
+      "id": 611,
+      "categoryId": 16,
+      "name": "Vinho Branco"
+    },
+    {
+      "id": 612,
+      "categoryId": 16,
+      "name": "Cerveja"
+    },
+    {
+      "id": 613,
+      "categoryId": 16,
+      "name": "Suco de Limão"
+    },
+    {
+      "id": 614,
+      "categoryId": 16,
+      "name": "Suco de Laranja"
+    },
+    {
+      "id": 615,
+      "categoryId": 16,
+      "name": "Suco de Abacaxi"
+    },
+    {
+      "id": 616,
+      "categoryId": 16,
+      "name": "Água"
+    },
+    {
+      "id": 617,
+      "categoryId": 16,
+      "name": "Água Tônica"
+    },
+    {
+      "id": 618,
+      "categoryId": 16,
+      "name": "Água com Gás"
+    },
+    {
+      "id": 619,
+      "categoryId": 16,
+      "name": "Suco de Maçã"
+    },
+    {
+      "id": 620,
+      "categoryId": 16,
+      "name": "Suco de Uva"
+    },
+    {
+      "id": 621,
+      "categoryId": 16,
+      "name": "Água de Coco"
+    },
+    {
+      "id": 622,
+      "categoryId": 16,
+      "name": "Soda"
+    },
+    {
+      "id": 623,
+      "categoryId": 16,
+      "name": "Guaraná"
+    },
+    {
+      "id": 624,
+      "categoryId": 16,
+      "name": "Café"
+    },
+    {
+      "id": 625,
+      "categoryId": 16,
+      "name": "Chá Preto"
+    },
+    {
+      "id": 626,
+      "categoryId": 16,
+      "name": "Chá Verde"
+    },
+    {
+      "id": 627,
+      "categoryId": 16,
+      "name": "Chá de Hortelã"
+    },
+    {
+      "id": 628,
+      "categoryId": 16,
+      "name": "Leite"
+    },
+    {
+      "id": 629,
+      "categoryId": 16,
+      "name": "Leite de Amêndoas"
+    },
+    {
+      "id": 630,
+      "categoryId": 16,
+      "name": "Leite de Coco"
+    } 
 ]
