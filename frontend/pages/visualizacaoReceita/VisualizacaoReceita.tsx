@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, Alert } from 'react-native';
+import { View, Text, StyleSheet, Alert, Image, ScrollView } from 'react-native';
 import axios from 'axios';
 import { API_URL } from '../../config/api';
 
@@ -14,6 +14,7 @@ interface Receita {
   restricoesAlimentares: string[];
   ingredientes: { id: string; name: string }[];
   modoPreparo: string;
+  imagem: string | null;
 }
 
 const VisualizacaoReceita: React.FC = ({ route }: any) => {
@@ -54,8 +55,13 @@ const VisualizacaoReceita: React.FC = ({ route }: any) => {
   }
 
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <Text style={styles.title}>{receita.titulo}</Text>
+      {receita.imagem ? (
+        <Image source={{ uri: receita.imagem }} style={styles.image} />
+      ) : (
+        <Text style={styles.detail}>Imagem não disponível</Text>
+      )}
       <Text style={styles.title2}>Categoria:</Text>
       <Text style={styles.detail}>{receita.categoria}</Text>
       <Text style={styles.title2}>Descrição:</Text>
@@ -64,7 +70,7 @@ const VisualizacaoReceita: React.FC = ({ route }: any) => {
       {receita.restricoesAlimentares.map((restricao, index) => (
         <Text style={styles.lista} key={`${restricao}-${index}`}>{restricao}</Text>
       ))}
-            <Text style={styles.title2}>Ingredientes:</Text>
+      <Text style={styles.title2}>Ingredientes:</Text>
       {receita.ingredientes.map((ingrediente) => (
         <Text style={styles.lista} key={ingrediente.id}>{ingrediente.name}</Text>
       ))}
@@ -76,7 +82,8 @@ const VisualizacaoReceita: React.FC = ({ route }: any) => {
       <Text style={styles.detail}>{receita.dificuldade}</Text>
       <Text style={styles.title2}>Modo de Preparo:</Text>
       <Text style={styles.detail}>{receita.modoPreparo}</Text>
-    </View>
+      <View style={styles.footerSpacing} />
+    </ScrollView>
   );
 };
 
@@ -120,6 +127,14 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold',
     textAlign: 'center',
+  },
+  image: {
+    width: '100%',
+    height: 200,
+    marginBottom: 12,
+  },
+  footerSpacing: {
+    paddingBottom: 20,
   },
 });
 

@@ -1,4 +1,5 @@
 import { Router } from "express";
+import multer from "multer";
 import {
   cadastrarReceita,
   listarReceitas,
@@ -8,12 +9,13 @@ import {
 } from "../controllers/cadastrarReceita";
 
 const router = Router();
+const upload = multer({ storage: multer.memoryStorage() });
 
 // Rotas de receitas
-router.post("/cadastrar/receitas", cadastrarReceita); // Cadastrar uma nova receita
-router.get("/listar/receitas", listarReceitas); // Listar todas as receitas
-router.get("/buscar/receitas/:id", obterReceita); // Obter uma receita específica
-router.put("/atualizar/receitas/:id", atualizarReceita); // Atualizar uma receita
-router.delete("/deletar/receitas/:id", deletarReceita); // Deletar uma receita
+router.post("/cadastrar/receitas", upload.single('imagem'), cadastrarReceita); 
+router.get("/listar/receitas", listarReceitas); 
+router.get("/buscar/receitas/:id", obterReceita); 
+router.put("/atualizar/receitas/:id", upload.single('imagem'), atualizarReceita); 
+router.delete("/deletar/receitas/:id", deletarReceita);
 
 export default router;

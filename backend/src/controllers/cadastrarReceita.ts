@@ -1,18 +1,51 @@
 import { Request, Response } from "express";
-import { db } from "../config";
+import { db, bucket } from "../config";
 import Receita from "../interfaces/receita";
+import { v4 as uuidv4 } from 'uuid';
 
 const colecaoReceitas = db.collection("receitas");
 
 export const cadastrarReceita = async (req: Request, res: Response) => {
   try {
-    const dados: Receita = req.body;
+    const dados: Receita = JSON.parse(req.body.dados); // Certifique-se de que os dados estão sendo parseados corretamente
+    const file = req.file;
 
     if (!dados.titulo || !dados.descricao || !dados.tempoPreparo || !dados.porcoes || !dados.dificuldade || !dados.categoria || !dados.ingredientes || !dados.modoPreparo)  {
       return res.status(400).json({ erro: "Dados incompletos!" });
     }
 
-    // Crie um novo objeto com apenas as propriedades necessárias
+    let imageUrl = null;
+    if (file) {
+      const blob = bucket.file(`images/${uuidv4()}_${file.originalname}`);
+      const blobStream = blob.createWriteStream({
+        metadata: {
+          contentType: file.mimetype,
+        },
+      });
+
+      await new Promise((resolve, reject) => {
+        blobStream.on('error', (err) => {
+          console.error(err);
+          reject(err);
+        });
+
+        blobStream.on('finish', async () => {
+          try {
+            imageUrl = await blob.getSignedUrl({
+              action: 'read',
+              expires: '03-01-2500',
+            });
+            resolve(imageUrl);
+          } catch (err) {
+            console.error(err);
+            reject(err);
+          }
+        });
+
+        blobStream.end(file.buffer);
+      });
+    }
+
     const receitaParaAdicionar = {
       titulo: dados.titulo,
       descricao: dados.descricao,
@@ -23,13 +56,14 @@ export const cadastrarReceita = async (req: Request, res: Response) => {
       restricoesAlimentares: dados.restricoesAlimentares,
       ingredientes: dados.ingredientes,
       modoPreparo: dados.modoPreparo,
+      imagem: imageUrl ? imageUrl[0] : null,
       created_at: new Date().toLocaleDateString('pt-BR'),
     };
 
     const novaReceita = await colecaoReceitas.add(receitaParaAdicionar);
     res.status(201).json({ id: novaReceita.id, ...receitaParaAdicionar });
   } catch (erro) {
-    console.error(erro); // Adicione um log para ver o erro
+    console.error(erro);
     res.status(500).json({ erro: "Falha ao cadastrar receita" });
   }
 };
@@ -44,7 +78,6 @@ export const listarReceitas = async (req: Request, res: Response) => {
   }
 };
 
-// Obter uma receita específica
 export const obterReceita = async (req: Request, res: Response) => {
   const { id } = req.params;
   try {
@@ -58,26 +91,63 @@ export const obterReceita = async (req: Request, res: Response) => {
   }
 };
 
-// Atualizar uma receita
 export const atualizarReceita = async (req: Request, res: Response) => {
   const { id } = req.params;
-  const dados: Receita = req.body;
+  const dados: Receita = JSON.parse(req.body.dados); // Certifique-se de que os dados estão sendo parseados corretamente
+  const file = req.file;
 
   try {
-    await colecaoReceitas.doc(id).update(dados as any); // Conversão explícita para 'any'
-    res.status(200).json({ id, ...dados });
+    let imageUrl = null;
+    if (file) {
+      const blob = bucket.file(`images/${uuidv4()}_${file.originalname}`);
+      const blobStream = blob.createWriteStream({
+        metadata: {
+          contentType: file.mimetype,
+        },
+      });
+
+      await new Promise((resolve, reject) => {
+        blobStream.on('error', (err) => {
+          console.error(err);
+          reject(err);
+        });
+
+        blobStream.on('finish', async () => {
+          try {
+            imageUrl = await blob.getSignedUrl({
+              action: 'read',
+              expires: '03-01-2500',
+            });
+            resolve(imageUrl);
+          } catch (err) {
+            console.error(err);
+            reject(err);
+          }
+        });
+
+        blobStream.end(file.buffer);
+      });
+    }
+
+    const receitaParaAtualizar = {
+      ...dados,
+      imagem: imageUrl ? imageUrl[0] : dados.imagem,
+    };
+
+    await colecaoReceitas.doc(id).update(receitaParaAtualizar as any);
+    res.status(200).json({ id, ...receitaParaAtualizar });
   } catch (erro) {
+    console.error(erro);
     res.status(500).json({ erro: "Falha ao atualizar receita" });
   }
 };
 
-// Deletar uma receita
 export const deletarReceita = async (req: Request, res: Response) => {
   const { id } = req.params;
 
   try {
     await colecaoReceitas.doc(id).delete();
-    res.status(204).send(); // 204 No Content
+    res.status(204).send();
   } catch (erro) {
     res.status(500).json({ erro: "Falha ao deletar receita" });
   }

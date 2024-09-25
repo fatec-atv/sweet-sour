@@ -6,10 +6,11 @@ dotenv.config();
 
 const app = express();
 const cors = require('cors');
-const PORT = parseInt(process.env.PORT || '3000', 10); // Converte para número
-const HOST = '192.168.15.15'; // Adicione esta linha
+const PORT = parseInt(process.env.PORT || '3000', 10); 
+const HOST = '192.168.15.15'; 
 
-app.use(express.json()); // Para que o Express entenda JSON
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(cors({
   origin: '*', // Permite acesso de qualquer origem
   methods: ['GET', 'POST', 'PUT', 'DELETE'], // Métodos permitidos

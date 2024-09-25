@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, TextInput, Button, ScrollView, TouchableOpacity, Alert, StyleSheet } from 'react-native';
+import { View, Text, TextInput, ScrollView, TouchableOpacity, Alert, StyleSheet, Platform, Image } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
 import ingredientesData from '../../assets/data/ingredientes.json';
 import axios from 'axios';
+import * as ImagePicker from 'expo-image-picker';
 import { API_URL } from '../../config/api';
 
 interface Ingrediente {
@@ -20,6 +21,7 @@ interface Receita {
   restricoesAlimentares: string[];
   ingredientes: Ingrediente[];
   modoPreparo: string;
+  imagem: string | null;
 }
 
 interface MultiSelectPickerProps {
@@ -88,17 +90,17 @@ const CadastroReceita: React.FC = () => {
     categoria: '',
     restricoesAlimentares: [],
     ingredientes: [],
-    modoPreparo: ''
+    modoPreparo: '',
+    imagem: null,
   });
 
   const [ingredientes, setIngredientes] = useState<{ label: string; value: string }[]>([]);
 
   useEffect(() => {
-    // Carregando os ingredientes do JSON local
     const fetchIngredientes = () => {
       const ingredientesDataFormatted = ingredientesData.map((produto) => ({
-        label: produto.name, // Usando a propriedade correta 'name'
-        value: produto.id.toString(), // Convertendo id para string
+        label: produto.name,
+        value: produto.id.toString(),
       }));
       setIngredientes(ingredientesDataFormatted);
     };
@@ -109,24 +111,68 @@ const CadastroReceita: React.FC = () => {
   const handleChange = (name: string, value: any) => {
     setReceita({
       ...receita,
-      [name]: value
+      [name]: value,
     });
   };
 
+  const pickImage = async () => {
+    if (Platform.OS !== 'web') {
+      const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
+      if (status !== 'granted') {
+        alert('Desculpe, precisamos da permissão para acessar a galeria!');
+        return;
+      }
+    }
+
+    let result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.Images,
+      allowsEditing: true,
+      aspect: [4, 4],
+      quality: 1,
+    });
+
+    if (!result.canceled) {
+      handleChange('imagem', result.assets[0].uri);
+    }
+  };
+
   const handleSubmit = async () => {
-    // Verificação dos campos obrigatórios
     if (!receita.titulo || !receita.descricao || !receita.tempoPreparo || !receita.porcoes || !receita.dificuldade || !receita.categoria || receita.ingredientes.length === 0 || !receita.modoPreparo) {
       Alert.alert('Erro', 'Por favor, preencha todos os campos obrigatórios.');
       return;
     }
 
     try {
-      console.log('URL da API:', `${API_URL}/cadastrar/receitas`);
-      console.log('Enviando dados da receita:', receita);
-      const response = await axios.post(`${API_URL}/cadastrar/receitas`, receita);
-      console.log('Resposta da API:', response.data);
-  
-      // Verificando se a resposta contém o ID da nova receita
+      const formData = new FormData();
+      formData.append('dados', JSON.stringify({
+        titulo: receita.titulo,
+        descricao: receita.descricao,
+        tempoPreparo: receita.tempoPreparo,
+        porcoes: receita.porcoes,
+        dificuldade: receita.dificuldade,
+        categoria: receita.categoria,
+        restricoesAlimentares: receita.restricoesAlimentares,
+        ingredientes: receita.ingredientes,
+        modoPreparo: receita.modoPreparo,
+      }));
+
+      if (receita.imagem) {
+        const filename = receita.imagem.split('/').pop()!;
+        const match = /\.(\w+)$/.exec(filename);
+        const type = match ? `image/${match[1]}` : `image`;
+        formData.append('imagem', {
+          uri: receita.imagem,
+          name: filename,
+          type: type,
+        } as any);
+      }
+
+      const response = await axios.post(`${API_URL}/cadastrar/receitas`, formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });
+
       if (response.data && response.data.id) {
         alert('Receita cadastrada com sucesso!');
       } else {
@@ -134,10 +180,8 @@ const CadastroReceita: React.FC = () => {
       }
     } catch (error) {
       if (axios.isAxiosError(error)) {
-        console.error('Erro ao cadastrar receita:', error.response ? error.response.data : error.message);
         alert('Erro ao cadastrar receita: ' + (error.response ? error.response.data.erro : error.message));
       } else {
-        console.error('Erro desconhecido ao cadastrar receita:', error);
         alert('Erro ao cadastrar receita: ' + (error instanceof Error ? error.message : 'Erro desconhecido'));
       }
     }
@@ -163,6 +207,16 @@ const CadastroReceita: React.FC = () => {
           multiline={true}
           numberOfLines={4}
         />
+        <Text style={styles.label}>Imagem:</Text>
+        <TouchableOpacity style={styles.imagePicker} onPress={pickImage}>
+          <Text style={styles.imagePickerText}>Escolher Imagem</Text>
+        </TouchableOpacity>
+        {receita.imagem && (
+          <Image
+            source={{ uri: receita.imagem }}
+            style={styles.selectedImage}
+          />
+        )}
         <Text style={styles.label}>Tempo de Preparo:</Text>
         <View style={styles.pickerContainer}>
           <Picker
@@ -220,25 +274,25 @@ const CadastroReceita: React.FC = () => {
           </Picker>
         </View>
         <MultiSelectPicker
-          label="Restrições Alimentares: "
+          label="Restrições Alimentares"
           items={[
             { label: 'Sem Glúten', value: 'Sem Glúten' },
             { label: 'Sem Lactose', value: 'Sem Lactose' },
             { label: 'Vegetariano', value: 'Vegetariano' },
-            { label: 'Vegano', value: 'Vegano' }
+            { label: 'Vegano', value: 'Vegano' },
           ]}
           selectedItems={receita.restricoesAlimentares}
           onValueChange={(selectedItems) => handleChange('restricoesAlimentares', selectedItems)}
         />
         <MultiSelectPicker
-          label="Ingredientes: "
+          label="Ingredientes"
           items={ingredientes}
-          selectedItems={receita.ingredientes.map(ing => ing.id)}
+          selectedItems={receita.ingredientes.map((ing) => ing.id)}
           onValueChange={(selectedItems) => {
-            const selectedIngredientes = selectedItems.map(itemId => {
-              const ingrediente = ingredientes.find(ing => ing.value === itemId);
-              return ingrediente ? { id: itemId, name: ingrediente.label } : null;
-            }).filter(Boolean) as Ingrediente[];
+            const selectedIngredientes = selectedItems.map((id) => ({
+              id: id,
+              name: ingredientes.find((ing) => ing.value === id)?.label || '',
+            }));
             handleChange('ingredientes', selectedIngredientes);
           }}
         />
@@ -347,6 +401,23 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: 16,
     fontWeight: 'bold',
+  },
+  imagePicker: {
+    backgroundColor: '#FC7493',
+    padding: 10,
+    borderRadius: 25,
+    alignItems: 'center',
+    marginBottom: 15,
+  },
+  imagePickerText: {
+    color: '#fff',
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+  selectedImage: {
+    width: 100,
+    height: 100,
+    marginBottom: 15,
   },
 });
 

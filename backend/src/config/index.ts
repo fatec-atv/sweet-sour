@@ -1,5 +1,5 @@
-import admin from "firebase-admin";
-import dotenv from "dotenv";
+import admin from 'firebase-admin';
+import dotenv from 'dotenv';
 
 dotenv.config();
 
@@ -10,7 +10,10 @@ admin.initializeApp({
     privateKey: process.env.FIREBASE_PRIVATE_KEY?.replace(/\\n/g, "\n"),
   }),
   databaseURL: process.env.FIREBASE_DATABASE_URL,
+  storageBucket: process.env.FIREBASE_STORAGE_BUCKET, 
 });
 
+const bucket = admin.storage().bucket();
 const db = admin.firestore();
-export { db };
+
+export { db, bucket };
