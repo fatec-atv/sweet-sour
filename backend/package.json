@@ -6,6 +6,7 @@
     "dev": "nodemon src/app/app.ts"
   },
   "dependencies": {
+    "axios": "^1.7.7",
     "cors": "^2.8.5",
     "dotenv": "^16.0.1",
     "express": "^4.17.1",

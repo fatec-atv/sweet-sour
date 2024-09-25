@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, TextInput, Button, ScrollView, TouchableOpacity } from 'react-native';
+import { View, Text, TextInput, Button, ScrollView, TouchableOpacity, Alert } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
 import ingredientesData from '../../assets/data/ingredientes.json';
 import styles from './styles';
@@ -8,7 +8,7 @@ import { API_URL } from '../../config/api';
 
 interface Ingrediente {
   id: string;
-  nome: string;
+  name: string;
 }
 
 interface Receita {
@@ -115,7 +115,14 @@ const CadastroReceita: React.FC = () => {
   };
 
   const handleSubmit = async () => {
+    // Verificação dos campos obrigatórios
+    if (!receita.titulo || !receita.descricao || !receita.tempoPreparo || !receita.porcoes || !receita.dificuldade || !receita.categoria || receita.ingredientes.length === 0 || !receita.modoPreparo) {
+      Alert.alert('Erro', 'Por favor, preencha todos os campos obrigatórios.');
+      return;
+    }
+
     try {
+      console.log('URL da API:', `${API_URL}/cadastrar/receitas`);
       console.log('Enviando dados da receita:', receita);
       const response = await axios.post(`${API_URL}/cadastrar/receitas`, receita);
       console.log('Resposta da API:', response.data);
@@ -214,7 +221,7 @@ const CadastroReceita: React.FC = () => {
           </Picker>
         </View>
         <MultiSelectPicker
-          label="Restrições Alimentares"
+          label="Restrições Alimentares: "
           items={[
             { label: 'Sem Glúten', value: 'Sem Glúten' },
             { label: 'Sem Lactose', value: 'Sem Lactose' },
@@ -225,13 +232,13 @@ const CadastroReceita: React.FC = () => {
           onValueChange={(selectedItems) => handleChange('restricoesAlimentares', selectedItems)}
         />
         <MultiSelectPicker
-          label="Ingredientes"
+          label="Ingredientes: "
           items={ingredientes}
           selectedItems={receita.ingredientes.map(ing => ing.id)}
           onValueChange={(selectedItems) => {
             const selectedIngredientes = selectedItems.map(itemId => {
               const ingrediente = ingredientes.find(ing => ing.value === itemId);
-              return ingrediente ? { id: itemId, nome: ingrediente.label } : null;
+              return ingrediente ? { id: itemId, name: ingrediente.label } : null;
             }).filter(Boolean) as Ingrediente[];
             handleChange('ingredientes', selectedIngredientes);
           }}

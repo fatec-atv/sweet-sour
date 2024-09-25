@@ -10,7 +10,7 @@ import {
 const router = Router();
 
 // Rotas de receitas
-router.post("/cadastrar/receitas", cadastrarReceita);
+router.post("/cadastrar/receitas", cadastrarReceita); // Cadastrar uma nova receita
 router.get("/listar/receitas", listarReceitas); // Listar todas as receitas
 router.get("/buscar/receitas/:id", obterReceita); // Obter uma receita específica
 router.put("/atualizar/receitas/:id", atualizarReceita); // Atualizar uma receita

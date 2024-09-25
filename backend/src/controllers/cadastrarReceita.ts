@@ -8,7 +8,7 @@ export const cadastrarReceita = async (req: Request, res: Response) => {
   try {
     const dados: Receita = req.body;
 
-    if (!dados.titulo || !dados.descricao || !dados.ingredientes) {
+    if (!dados.titulo || !dados.descricao || !dados.tempoPreparo || !dados.porcoes || !dados.dificuldade || !dados.categoria || !dados.ingredientes || !dados.modoPreparo)  {
       return res.status(400).json({ erro: "Dados incompletos!" });
     }
 
@@ -23,7 +23,7 @@ export const cadastrarReceita = async (req: Request, res: Response) => {
       restricoesAlimentares: dados.restricoesAlimentares,
       ingredientes: dados.ingredientes,
       modoPreparo: dados.modoPreparo,
-      created_at: new Date(),
+      created_at: new Date().toLocaleDateString('pt-BR'),
     };
 
     const novaReceita = await colecaoReceitas.add(receitaParaAdicionar);
