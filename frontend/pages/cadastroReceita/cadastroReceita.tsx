@@ -117,20 +117,23 @@ const CadastroReceita: React.FC = () => {
   const handleSubmit = async () => {
     try {
       console.log('Enviando dados da receita:', receita);
-      const response = await axios.post(`${API_URL}/receitas`, receita);
+      const response = await axios.post(`${API_URL}/cadastrar/receitas`, receita);
       console.log('Resposta da API:', response.data);
-      if (response.data && response.data.success) {
+  
+      // Verificando se a resposta contém o ID da nova receita
+      if (response.data && response.data.id) {
         alert('Receita cadastrada com sucesso!');
       } else {
-        alert('Erro ao cadastrar receita');
+        alert('Erro ao cadastrar receita: Dados inválidos ou incompletos.');
       }
     } catch (error) {
       if (axios.isAxiosError(error)) {
         console.error('Erro ao cadastrar receita:', error.response ? error.response.data : error.message);
+        alert('Erro ao cadastrar receita: ' + (error.response ? error.response.data.erro : error.message));
       } else {
         console.error('Erro desconhecido ao cadastrar receita:', error);
+        alert('Erro ao cadastrar receita: ' + (error instanceof Error ? error.message : 'Erro desconhecido'));
       }
-      alert('Erro ao cadastrar receita');
     }
   };
 
