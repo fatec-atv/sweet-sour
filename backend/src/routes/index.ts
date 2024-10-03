@@ -6,7 +6,7 @@ import {
   obterReceita,
   atualizarReceita,
   deletarReceita
-} from "../controllers/cadastrarReceita";
+} from "../controllers/receita";
 
 const router = Router();
 const upload = multer({ storage: multer.memoryStorage() });

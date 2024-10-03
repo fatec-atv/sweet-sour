@@ -23,6 +23,7 @@ interface Receita {
   ingredientes: Ingrediente[];
   modoPreparo: string;
   imagem: string | null;
+  userId: string | null;
 }
 
 interface MultiSelectPickerProps {
@@ -94,6 +95,7 @@ const CadastroReceita: React.FC = () => {
     ingredientes: [],
     modoPreparo: '',
     imagem: null,
+    userId: null,
   });
 
   const [ingredientes, setIngredientes] = useState<{ label: string; value: string }[]>([]);
@@ -112,10 +114,10 @@ const CadastroReceita: React.FC = () => {
         console.error('Erro ao recuperar o userId:', error);
       }
     };
-  
+
     fetchUserId();
   }, []);
-  
+
 
   useEffect(() => {
     const fetchIngredientes = () => {
@@ -163,6 +165,8 @@ const CadastroReceita: React.FC = () => {
       return;
     }
 
+    console.log('userId:', userId); // Adicione esta linha
+
     try {
       const formData = new FormData();
       formData.append('dados', JSON.stringify({
@@ -175,7 +179,7 @@ const CadastroReceita: React.FC = () => {
         restricoesAlimentares: receita.restricoesAlimentares,
         ingredientes: receita.ingredientes,
         modoPreparo: receita.modoPreparo,
-        userId: userId, // Adicionando o userId
+        uid: userId,
       }));
 
       if (receita.imagem) {

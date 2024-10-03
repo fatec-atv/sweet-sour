@@ -7,16 +7,25 @@ const colecaoReceitas = db.collection("receitas");
 
 export const cadastrarReceita = async (req: Request, res: Response) => {
   try {
-    const dados: Receita = JSON.parse(req.body.dados);
+    // Verifica se req.body.dados é uma string JSON ou um objeto já parseado
+    const dados: Receita = typeof req.body.dados === 'string' ? JSON.parse(req.body.dados) : req.body.dados;
     const file = req.file;
 
-    const userId = req.body.userId; 
+    // Aqui trocamos para uid em vez de userId
 
-    if (!userId || !dados.titulo || !dados.descricao || !dados.tempoPreparo || !dados.porcoes || !dados.dificuldade || !dados.categoria || !dados.ingredientes || !dados.modoPreparo)  {
-      console.log('Dados incompletos:', { userId, ...dados });
-      return res.status(400).json({ erro: "Dados incompletos!" });
-    }
+    // Log detalhado para verificar cada campo individualmente
+    console.log('uid:', dados.uid);
+    console.log('titulo:', dados.titulo);
+    console.log('descricao:', dados.descricao);
+    console.log('tempoPreparo:', dados.tempoPreparo);
+    console.log('porcoes:', dados.porcoes);
+    console.log('dificuldade:', dados.dificuldade);
+    console.log('categoria:', dados.categoria);
+    console.log('restricoesAlimentares:', dados.restricoesAlimentares);
+    console.log('ingredientes:', dados.ingredientes);
+    console.log('modoPreparo:', dados.modoPreparo);
 
+    // Lógica para upload da imagem (se houver)
     let imageUrl = null;
     if (file) {
       const blob = bucket.file(`images/${uuidv4()}_${file.originalname}`);
@@ -26,6 +35,7 @@ export const cadastrarReceita = async (req: Request, res: Response) => {
         },
       });
 
+      // Processa o upload da imagem
       await new Promise((resolve, reject) => {
         blobStream.on('error', (err) => {
           console.error(err);
@@ -49,6 +59,7 @@ export const cadastrarReceita = async (req: Request, res: Response) => {
       });
     }
 
+    // Monta a receita para adicionar no banco de dados
     const receitaParaAdicionar = {
       titulo: dados.titulo,
       descricao: dados.descricao,
@@ -61,16 +72,20 @@ export const cadastrarReceita = async (req: Request, res: Response) => {
       modoPreparo: dados.modoPreparo,
       imagem: imageUrl ? imageUrl[0] : null,
       created_at: new Date().toLocaleDateString('pt-BR'),
-      userId
+      uid: dados.uid, 
     };
 
+    // Adiciona a receita ao banco de dados
     const novaReceita = await colecaoReceitas.add(receitaParaAdicionar);
     res.status(201).json({ id: novaReceita.id, ...receitaParaAdicionar });
+
   } catch (erro) {
+    // Tratamento de erros
     console.error(erro);
     res.status(500).json({ erro: "Falha ao cadastrar receita" });
   }
 };
+
 
 export const listarReceitas = async (req: Request, res: Response) => {
   try {

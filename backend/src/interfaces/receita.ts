@@ -9,5 +9,6 @@ export default interface Receita {
   ingredientes: { id: string; name: string }[]; 
   modoPreparo: string;
   imagem: string | null;
+  uid: string
   created_at?: Date; 
 }
