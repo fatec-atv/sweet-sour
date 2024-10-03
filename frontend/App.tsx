@@ -2,10 +2,12 @@ import 'react-native-gesture-handler';
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import Home from './pages/home/Home';
-import CadastroReceita from './pages/cadastroReceita/CadastroReceita';
 import ListagemReceitas from './pages/listagemReceita/ListagemReceita';
 import VisualizacaoReceita from './pages/visualizacaoReceita/VisualizacaoReceita';
+import CadastroReceita from './pages/cadastroReceita/cadastroReceita';
+import Home from './pages/home/home';
+import CadastroUsuario from './pages/cadastroUsuario/cadastroUsuario';
+import Login from './pages/login/login';
 
 export type RootStackParamList = {
   Home: undefined;
@@ -24,6 +26,8 @@ const App: React.FC = () => {
         <Stack.Screen name="CadastroReceita" component={CadastroReceita} />
         <Stack.Screen name="ListagemReceitas" component={ListagemReceitas} />
         <Stack.Screen name="VisualizacaoReceita" component={VisualizacaoReceita} /> 
+        <Stack.Screen name="CadastroUsuario" component={CadastroUsuario} />
+        <Stack.Screen name="Login" component={Login} />
       </Stack.Navigator>
     </NavigationContainer>
   );

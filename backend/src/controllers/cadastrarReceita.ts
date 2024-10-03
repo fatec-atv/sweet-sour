@@ -7,10 +7,13 @@ const colecaoReceitas = db.collection("receitas");
 
 export const cadastrarReceita = async (req: Request, res: Response) => {
   try {
-    const dados: Receita = JSON.parse(req.body.dados); // Certifique-se de que os dados estão sendo parseados corretamente
+    const dados: Receita = JSON.parse(req.body.dados);
     const file = req.file;
 
-    if (!dados.titulo || !dados.descricao || !dados.tempoPreparo || !dados.porcoes || !dados.dificuldade || !dados.categoria || !dados.ingredientes || !dados.modoPreparo)  {
+    const userId = req.body.userId; 
+
+    if (!userId || !dados.titulo || !dados.descricao || !dados.tempoPreparo || !dados.porcoes || !dados.dificuldade || !dados.categoria || !dados.ingredientes || !dados.modoPreparo)  {
+      console.log('Dados incompletos:', { userId, ...dados });
       return res.status(400).json({ erro: "Dados incompletos!" });
     }
 
@@ -58,6 +61,7 @@ export const cadastrarReceita = async (req: Request, res: Response) => {
       modoPreparo: dados.modoPreparo,
       imagem: imageUrl ? imageUrl[0] : null,
       created_at: new Date().toLocaleDateString('pt-BR'),
+      userId
     };
 
     const novaReceita = await colecaoReceitas.add(receitaParaAdicionar);

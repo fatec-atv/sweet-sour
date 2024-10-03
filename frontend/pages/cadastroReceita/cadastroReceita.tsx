@@ -5,6 +5,7 @@ import ingredientesData from '../../assets/data/ingredientes.json';
 import axios from 'axios';
 import * as ImagePicker from 'expo-image-picker';
 import { API_URL } from '../../config/api';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 interface Ingrediente {
   id: string;
@@ -81,6 +82,7 @@ const MultiSelectPicker: React.FC<MultiSelectPickerProps> = ({ label, items, sel
 };
 
 const CadastroReceita: React.FC = () => {
+  const [userId, setUserId] = useState<string | null>(null);
   const [receita, setReceita] = useState<Receita>({
     titulo: '',
     descricao: '',
@@ -95,6 +97,25 @@ const CadastroReceita: React.FC = () => {
   });
 
   const [ingredientes, setIngredientes] = useState<{ label: string; value: string }[]>([]);
+
+  useEffect(() => {
+    const fetchUserId = async () => {
+      try {
+        const storedUserId = await AsyncStorage.getItem('uid');
+        if (storedUserId) {
+          setUserId(storedUserId);
+          console.log('userId recuperado:', storedUserId); // Adicione esta linha
+        } else {
+          console.log('userId não encontrado no AsyncStorage');
+        }
+      } catch (error) {
+        console.error('Erro ao recuperar o userId:', error);
+      }
+    };
+  
+    fetchUserId();
+  }, []);
+  
 
   useEffect(() => {
     const fetchIngredientes = () => {
@@ -154,6 +175,7 @@ const CadastroReceita: React.FC = () => {
         restricoesAlimentares: receita.restricoesAlimentares,
         ingredientes: receita.ingredientes,
         modoPreparo: receita.modoPreparo,
+        userId: userId, // Adicionando o userId
       }));
 
       if (receita.imagem) {
@@ -316,14 +338,13 @@ const CadastroReceita: React.FC = () => {
 const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
-    paddingRight: 25,
-    paddingLeft: 25,
-    paddingVertical: 20,
+    padding: 20,
     backgroundColor: '#FFFAFB',
   },
   title: {
-    fontSize: 24,
+    fontSize: 28,
     fontWeight: 'bold',
+    color: '#2E282A',
     marginBottom: 20,
     textAlign: 'center',
   },
@@ -335,16 +356,17 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
     marginBottom: 5,
-    marginTop: 5,
+    color: '#A1A1A1',
   },
   input: {
-    height: 40,
-    borderColor: '#ccc',
+    height: 50,
+    borderColor: '#C5C5C5',
     borderWidth: 1,
-    marginBottom: 15,
+    borderRadius: 10,
     paddingHorizontal: 15,
-    borderRadius: 25,
-    backgroundColor: '#fff',
+    marginBottom: 10,
+    fontSize: 16,
+    backgroundColor: '#F5F5F5',
   },
   textArea: {
     height: 100,
