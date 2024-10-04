@@ -50,6 +50,18 @@ const Home: React.FC = () => {
       >
         <Text style={styles.buttonText}>Login</Text>
       </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => navigation.navigate('MeuPerfil')}
+      >
+        <Text style={styles.buttonText}>Meu perfil</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => navigation.navigate('MinhasReceitas')}
+      >
+        <Text style={styles.buttonText}>Minhas receitas</Text>
+      </TouchableOpacity>
       {/* Botão de Logout */}
       <TouchableOpacity
         style={styles.logoutButton}

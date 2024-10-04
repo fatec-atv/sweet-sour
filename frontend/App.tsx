@@ -8,6 +8,8 @@ import CadastroReceita from './pages/cadastroReceita/cadastroReceita';
 import Home from './pages/home/home';
 import CadastroUsuario from './pages/cadastroUsuario/cadastroUsuario';
 import Login from './pages/login/login';
+import MeuPerfil from './pages/meuPerfil/meuPerfil';
+import MinhasReceitas from './pages/minhasReceitas/minhasReceitas';
 
 export type RootStackParamList = {
   Home: undefined;
@@ -28,6 +30,8 @@ const App: React.FC = () => {
         <Stack.Screen name="VisualizacaoReceita" component={VisualizacaoReceita} /> 
         <Stack.Screen name="CadastroUsuario" component={CadastroUsuario} />
         <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="MeuPerfil" component={MeuPerfil} />
+        <Stack.Screen name="MinhasReceitas" component={MinhasReceitas} />
       </Stack.Navigator>
     </NavigationContainer>
   );

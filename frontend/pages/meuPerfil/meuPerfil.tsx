@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, TextInput, StyleSheet, Alert, ScrollView } from 'react-native';
 import { collection, query, where, getDocs } from 'firebase/firestore';
-import { authFirebase, db } from '../../config';
+import { db } from '../../config'; // Certifique-se de importar corretamente
+import AsyncStorage from '@react-native-async-storage/async-storage'; // Para pegar o UID armazenado
+
 interface Usuario {
   nome: string;
   email: string;
@@ -19,30 +21,29 @@ const MeuPerfil: React.FC = () => {
   useEffect(() => {
     const fetchUserProfile = async () => {
       try {
-        // Obtendo o usuário autenticado
-        const user = authFirebase.currentUser;
-        if (!user) {
-          console.log('Nenhum usuário autenticado.');
-          Alert.alert('Erro', 'Nenhum usuário autenticado.');
+        // Recuperar o UID do AsyncStorage
+        const storedUserId = await AsyncStorage.getItem('uid');
+        if (!storedUserId) {
+          console.log('UID do usuário não encontrado no AsyncStorage.');
+          Alert.alert('Erro', 'UID do usuário não encontrado.');
           return;
         }
 
-        console.log('UID do usuário autenticado:', user.uid);
+        console.log('UID do usuário recuperado:', storedUserId);
 
         // Query para encontrar o documento do usuário onde o campo `uid` corresponde
         const usuariosRef = collection(db, 'usuarios');
-        const q = query(usuariosRef, where('uid', '==', user.uid));
+        const q = query(usuariosRef, where('uid', '==', storedUserId));
         const querySnapshot = await getDocs(q);
 
         // Verificando se algum documento foi encontrado
         if (!querySnapshot.empty) {
-          // Iterando sobre os resultados (mesmo que só tenha um)
           querySnapshot.forEach((doc) => {
             console.log('Usuário encontrado:', doc.data());
             setUsuario(doc.data() as Usuario);
           });
         } else {
-          console.log('Nenhum usuário encontrado com o UID:', user.uid);
+          console.log('Nenhum usuário encontrado com o UID:', storedUserId);
           Alert.alert('Erro', 'Nenhum usuário encontrado com o UID.');
           setUsuario(null);
         }
@@ -138,6 +139,7 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: 'bold',
     marginBottom: 20,
+    textAlign: 'center',
   },
   field: {
     marginBottom: 15,
@@ -147,13 +149,14 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   input: {
-    fontSize: 16,
-    padding: 10,
-    backgroundColor: '#fff',
+    height: 50,
+    borderColor: '#C5C5C5',
     borderWidth: 1,
-    borderColor: '#ddd',
-    borderRadius: 5,
-    marginTop: 5,
+    borderRadius: 10,
+    paddingHorizontal: 15,
+    marginBottom: 10,
+    fontSize: 16,
+    backgroundColor: '#F5F5F5',
   },
   restricao: {
     fontSize: 14,

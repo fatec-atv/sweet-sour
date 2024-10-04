@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, Alert, Image, ScrollView } from 'react-native';
 import { doc, getDoc } from 'firebase/firestore';
 import { db } from '../../config';
+import { collection, query, where, getDocs } from 'firebase/firestore';
 
 interface Receita {
   id: string;
@@ -34,7 +35,7 @@ const VisualizacaoReceita: React.FC = ({ route }: any) => {
           const receitaData = receitaSnap.data() as Receita;
           setReceita(receitaData);
 
-          console.log('UID do usuário:', receitaData.uid);
+          console.log('UID do usuário na receita:', receitaData.uid);
 
           if (!receitaData.uid) {
             console.log('UID do usuário não encontrado na receita.');
@@ -42,21 +43,23 @@ const VisualizacaoReceita: React.FC = ({ route }: any) => {
             return;
           }
 
-          const usuarioRef = doc(db, 'usuarios', receitaData.uid);
-          console.log('Buscando usuário com UID:', receitaData.uid);
+          // Query para encontrar o documento do usuário onde o campo `uid` corresponde
+          const usuariosRef = collection(db, 'usuarios');
+          const q = query(usuariosRef, where('uid', '==', receitaData.uid));
+          const querySnapshot = await getDocs(q);
 
-          const usuarioSnap = await getDoc(usuarioRef);
-
-          if (usuarioSnap.exists()) {
-            console.log("Usuário encontrado:", usuarioSnap.data());
-            setUsuarioNome(usuarioSnap.data().nome);
+          if (!querySnapshot.empty) {
+            querySnapshot.forEach((doc) => {
+              console.log("Usuário encontrado:", doc.data());
+              setUsuarioNome(doc.data().nome);
+            });
           } else {
-            console.log("Usuário não encontrado");
+            console.log("Nenhum usuário encontrado com o UID:", receitaData.uid);
             setUsuarioNome(null);
           }
 
         } else {
-          console.log("Receita não encontrada");
+          console.log("Receita não encontrada com o ID:", id);
         }
       } catch (error) {
         console.error('Erro ao buscar receita:', error);
@@ -67,6 +70,7 @@ const VisualizacaoReceita: React.FC = ({ route }: any) => {
     };
     fetchReceita();
   }, [id]);
+
 
   if (loading) {
     return (

@@ -5,6 +5,8 @@ import Home from '../pages/home/Home';
 import ListagemReceita from '../pages/listagemReceita/ListagemReceita';
 import CadastroUsuario from '../pages/cadastroUsuario/cadastroUsuario';
 import Login from '../pages/login/login';
+import MeuPerfil from '../pages/meuPerfil/meuPerfil';
+import MinhasReceitas from '../pages/minhasReceitas/minhasReceitas';
 
 const AppRoutes: React.FC = () => {
   return (
@@ -15,6 +17,8 @@ const AppRoutes: React.FC = () => {
         <Route path="/" element={<Home />} />
         <Route path="/cadastro-usuario" element={<CadastroUsuario />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/meu-perfil" element={<MeuPerfil />} />
+        <Route path="/minhas-receitas" element={<MinhasReceitas />} />
       </Routes>
     </NativeRouter>
   );

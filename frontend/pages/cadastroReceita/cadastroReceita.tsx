@@ -6,6 +6,7 @@ import axios from 'axios';
 import * as ImagePicker from 'expo-image-picker';
 import { API_URL } from '../../config/api';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useNavigation, NavigationProp } from '@react-navigation/native';
 
 interface Ingrediente {
   id: string;
@@ -99,6 +100,7 @@ const CadastroReceita: React.FC = () => {
   });
 
   const [ingredientes, setIngredientes] = useState<{ label: string; value: string }[]>([]);
+  const navigation = useNavigation<NavigationProp<RootStackParamList>>();
 
   useEffect(() => {
     const fetchUserId = async () => {
@@ -200,7 +202,12 @@ const CadastroReceita: React.FC = () => {
       });
 
       if (response.data && response.data.id) {
-        alert('Receita cadastrada com sucesso!');
+        Alert.alert(
+          'Sucesso', 
+          'Receita cadastrada com sucesso', 
+          [{ text: 'OK',
+            onPress: () => navigation.navigate('MinhasReceitas') }] 
+        );
       } else {
         alert('Erro ao cadastrar receita: Dados inválidos ou incompletos.');
       }
