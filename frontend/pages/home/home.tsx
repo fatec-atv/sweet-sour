@@ -1,74 +1,61 @@
-import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Alert } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, StyleSheet, TouchableOpacity, Dimensions, Image } from 'react-native';
 import { useNavigation, NavigationProp } from '@react-navigation/native';
 import { RootStackParamList } from '../../App';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import SweetSour from '../../assets/images/sweet_sour.png';
+import Logo from '../../assets/images/logo.png';
+
+const { width } = Dimensions.get('window');
 
 const Home: React.FC = () => {
   const navigation = useNavigation<NavigationProp<RootStackParamList>>();
+  const [menuVisible, setMenuVisible] = useState(false);
 
-  // Função de logout
-  const handleLogout = async () => {
-    try {
-      await AsyncStorage.removeItem('uid'); // Remove o userId do AsyncStorage
-      const userId = await AsyncStorage.getItem('uid'); // Verifica se foi removido
-      if (!userId) {
-        Alert.alert('Logout', 'Você foi desconectado com sucesso!');
-        navigation.navigate('Login'); // Redireciona para a tela de login
-      } else {
-        Alert.alert('Erro', 'Erro ao desconectar. Tente novamente.');
-      }
-    } catch (error) {
-      Alert.alert('Erro', 'Ocorreu um erro ao fazer logout.');
-      console.error('Erro ao fazer logout:', error);
-    }
+  const toggleMenu = () => {
+    setMenuVisible(!menuVisible);
   };
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity
-        style={styles.button}
-        onPress={() => navigation.navigate('CadastroReceita')}
-      >
-        <Text style={styles.buttonText}>Cadastrar receitas</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        style={styles.button}
-        onPress={() => navigation.navigate('ListagemReceitas')}
-      >
-        <Text style={styles.buttonText}>Listar receitas</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        style={styles.button}
-        onPress={() => navigation.navigate('CadastroUsuario')}
-      >
-        <Text style={styles.buttonText}>Cadastrar usuário</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        style={styles.button}
-        onPress={() => navigation.navigate('Login')}
-      >
-        <Text style={styles.buttonText}>Login</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        style={styles.button}
-        onPress={() => navigation.navigate('MeuPerfil')}
-      >
-        <Text style={styles.buttonText}>Meu perfil</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        style={styles.button}
-        onPress={() => navigation.navigate('MinhasReceitas')}
-      >
-        <Text style={styles.buttonText}>Minhas receitas</Text>
-      </TouchableOpacity>
-      {/* Botão de Logout */}
-      <TouchableOpacity
-        style={styles.logoutButton}
-        onPress={handleLogout} // Chama a função de logout
-      >
-        <Text style={styles.buttonText}>Logout</Text>
-      </TouchableOpacity>
+      <View style={styles.header}>
+        <TouchableOpacity onPress={toggleMenu} style={styles.menuButton}>
+          <Icon name="bars" size={30} color="black" />
+        </TouchableOpacity>
+        <Image source={SweetSour} style={styles.imageText} />
+      </View>
+      {menuVisible && (
+        <View style={styles.menu}>
+          <TouchableOpacity onPress={toggleMenu} style={styles.closeButton}>
+            <Icon name="close" size={30} color="white" />
+          </TouchableOpacity>
+          <View style={styles.menuItemsContainer}>
+            <TouchableOpacity style={styles.menuItem} onPress={() => navigation.navigate('ListagemReceitas')}>
+              <Icon name="list" size={20} color="#fff" />
+              <Text style={styles.menuItemText}>Listagem Receitas</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.menuItem} onPress={() => navigation.navigate('Login')}>
+              <Icon name="sign-in" size={20} color="#fff" />
+              <Text style={styles.menuItemText}>Login</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.menuItem} onPress={() => navigation.navigate('MeuPerfil')}>
+              <Icon name="user" size={20} color="#fff" />
+              <Text style={styles.menuItemText}>Meu Perfil</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.menuItem} onPress={() => navigation.navigate('MinhasReceitas')}>
+              <Icon name="book" size={20} color="#fff" />
+              <Text style={styles.menuItemText}>Minhas Receitas</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.menuItem} onPress={() => navigation.navigate('Logout')}>
+              <Icon name="sign-out" size={20} color="#fff" />
+              <Text style={styles.menuItemText}>Logout</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      )}
+      <View style={styles.logoContainer}>
+        <Image source={Logo} style={styles.image} />
+      </View>
     </View>
   );
 };
@@ -80,26 +67,65 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#FFFAFB',
   },
-  button: {
-    marginTop: 20,
+  header: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center', // Centraliza os itens horizontalmente
+    position: 'absolute',
+    top: 40,
+    left: 0,
+    right: 0,
+    zIndex: 1,
+  },
+  menuButton: {
+    position: 'absolute',
+    left: 20,
+    zIndex: 2, // Garante que o botão de menu esteja acima da imagem
+  },
+  menu: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    width: width * 0.8,
+    height: '100%',
     backgroundColor: '#fc7493',
-    padding: 15,
-    borderRadius: 25,
-    alignItems: 'center',
-    width: 300,
+    padding: 20,
+    zIndex: 1,
+    elevation: 5,
   },
-  buttonText: {
+  closeButton: {
+    position: 'absolute',
+    top: 40,
+    left: 20,
+    zIndex: 2,
+  },
+  menuItemsContainer: {
+    marginTop: 80, // Adiciona margem superior ao container dos itens do menu
+  },
+  menuItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingVertical: 15,
+  },
+  menuItemText: {
+    marginLeft: 10,
+    fontSize: 18,
     color: '#fff',
-    fontSize: 16,
-    fontWeight: 'bold',
   },
-  logoutButton: {
-    marginTop: 20,
-    backgroundColor: '#555', // Cor diferente para o botão de logout
-    padding: 15,
-    borderRadius: 25,
+  logoContainer: {
+    justifyContent: 'center',
     alignItems: 'center',
-    width: 300,
+    marginBottom: 550, // Puxa o logo mais para cima
+  },
+  image: {
+    width: 100,
+    height: 100,
+    marginBottom: 20,
+  },
+  imageText: {
+    height: 40,
+    marginBottom: 10,
+    marginLeft: 30, // Move a imagem mais para a esquerda
   },
 });
 

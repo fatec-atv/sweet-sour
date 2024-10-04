@@ -1,3152 +1,3890 @@
 [
   {
     "id": 1,
-    "categoryId": 1,
-    "name": "Arroz, integral, cozido"
+    "nome": "Amido de Milho (Maizena)",
+    "categoria_id": 1,
+    "categoria_nome": "Grãos e Farinhas"
   },
   {
     "id": 2,
-    "categoryId": 1,
-    "name": "Arroz, integral, cru"
+    "nome": "Arroz Basmati",
+    "categoria_id": 1,
+    "categoria_nome": "Grãos e Farinhas"
   },
   {
     "id": 3,
-    "categoryId": 1,
-    "name": "Arroz, tipo 1, cozido"
+    "nome": "Arroz Branco",
+    "categoria_id": 1,
+    "categoria_nome": "Grãos e Farinhas"
   },
   {
     "id": 4,
-    "categoryId": 1,
-    "name": "Arroz, tipo 1, cru"
+    "nome": "Arroz Integral",
+    "categoria_id": 1,
+    "categoria_nome": "Grãos e Farinhas"
   },
   {
     "id": 5,
-    "categoryId": 1,
-    "name": "Arroz, tipo 2, cozido"
+    "nome": "Arroz Jasmine",
+    "categoria_id": 1,
+    "categoria_nome": "Grãos e Farinhas"
   },
   {
     "id": 6,
-    "categoryId": 1,
-    "name": "Arroz, tipo 2, cru"
+    "nome": "Aveia em Flocos",
+    "categoria_id": 1,
+    "categoria_nome": "Grãos e Farinhas"
   },
   {
     "id": 7,
-    "categoryId": 1,
-    "name": "Aveia, flocos, crua"
+    "nome": "Cevada em Grão",
+    "categoria_id": 1,
+    "categoria_nome": "Grãos e Farinhas"
   },
   {
     "id": 8,
-    "categoryId": 1,
-    "name": "Biscoito, doce, maisena"
+    "nome": "Farinha de Amêndoa",
+    "categoria_id": 1,
+    "categoria_nome": "Grãos e Farinhas"
   },
   {
     "id": 9,
-    "categoryId": 1,
-    "name": "Biscoito, doce, recheado com chocolate"
+    "nome": "Farinha de Arroz",
+    "categoria_id": 1,
+    "categoria_nome": "Grãos e Farinhas"
   },
   {
     "id": 10,
-    "categoryId": 1,
-    "name": "Biscoito, doce, recheado com morango"
+    "nome": "Farinha de Aveia",
+    "categoria_id": 1,
+    "categoria_nome": "Grãos e Farinhas"
   },
   {
     "id": 11,
-    "categoryId": 1,
-    "name": "Biscoito, doce, wafer, recheado de chocolate"
+    "nome": "Farinha de Centeio",
+    "categoria_id": 1,
+    "categoria_nome": "Grãos e Farinhas"
   },
   {
     "id": 12,
-    "categoryId": 1,
-    "name": "Biscoito, doce, wafer, recheado de morango"
+    "nome": "Farinha de Coco",
+    "categoria_id": 1,
+    "categoria_nome": "Grãos e Farinhas"
   },
   {
     "id": 13,
-    "categoryId": 1,
-    "name": "Biscoito, salgado, cream cracker"
+    "nome": "Farinha de Grão-de-Bico",
+    "categoria_id": 1,
+    "categoria_nome": "Grãos e Farinhas"
   },
   {
     "id": 14,
-    "categoryId": 1,
-    "name": "Bolo, mistura para"
+    "nome": "Farinha de Linhaça",
+    "categoria_id": 1,
+    "categoria_nome": "Grãos e Farinhas"
   },
   {
     "id": 15,
-    "categoryId": 1,
-    "name": "Bolo, pronto, aipim"
+    "nome": "Farinha de Mandioca",
+    "categoria_id": 1,
+    "categoria_nome": "Grãos e Farinhas"
   },
   {
     "id": 16,
-    "categoryId": 1,
-    "name": "Bolo, pronto, chocolate"
+    "nome": "Farinha de Milho",
+    "categoria_id": 1,
+    "categoria_nome": "Grãos e Farinhas"
   },
   {
     "id": 17,
-    "categoryId": 1,
-    "name": "Bolo, pronto, coco"
+    "nome": "Farinha de Soja",
+    "categoria_id": 1,
+    "categoria_nome": "Grãos e Farinhas"
   },
   {
     "id": 18,
-    "categoryId": 1,
-    "name": "Bolo, pronto, milho"
+    "nome": "Farinha de Tapioca",
+    "categoria_id": 1,
+    "categoria_nome": "Grãos e Farinhas"
   },
   {
     "id": 19,
-    "categoryId": 1,
-    "name": "Canjica, branca, crua"
+    "nome": "Farinha de Trigo",
+    "categoria_id": 1,
+    "categoria_nome": "Grãos e Farinhas"
   },
   {
     "id": 20,
-    "categoryId": 1,
-    "name": "Canjica, com leite integral"
+    "nome": "Farinha Integral",
+    "categoria_id": 1,
+    "categoria_nome": "Grãos e Farinhas"
   },
   {
     "id": 21,
-    "categoryId": 1,
-    "name": "Cereais, milho, flocos, com sal"
+    "nome": "Farinha de Castanha de Caju",
+    "categoria_id": 1,
+    "categoria_nome": "Grãos e Farinhas"
   },
   {
     "id": 22,
-    "categoryId": 1,
-    "name": "Cereais, milho, flocos, sem sal"
+    "nome": "Farinha de Espelta",
+    "categoria_id": 1,
+    "categoria_nome": "Grãos e Farinhas"
   },
   {
     "id": 23,
-    "categoryId": 1,
-    "name": "Cereais, mingau, milho, infantil"
+    "nome": "Fubá",
+    "categoria_id": 1,
+    "categoria_nome": "Grãos e Farinhas"
   },
   {
     "id": 24,
-    "categoryId": 1,
-    "name": "Cereais, mistura para vitamina, trigo, cevada e aveia"
+    "nome": "Milho para Pipoca",
+    "categoria_id": 1,
+    "categoria_nome": "Grãos e Farinhas"
   },
   {
     "id": 25,
-    "categoryId": 1,
-    "name": "Cereal matinal, milho"
+    "nome": "Polenta (Farinha de Milho Grossa)",
+    "categoria_id": 1,
+    "categoria_nome": "Grãos e Farinhas"
   },
   {
     "id": 26,
-    "categoryId": 1,
-    "name": "Cereal matinal, milho, açúcar"
+    "nome": "Quinoa Branca",
+    "categoria_id": 1,
+    "categoria_nome": "Grãos e Farinhas"
   },
   {
     "id": 27,
-    "categoryId": 1,
-    "name": "Creme de arroz, pó"
+    "nome": "Quinoa Vermelha",
+    "categoria_id": 1,
+    "categoria_nome": "Grãos e Farinhas"
   },
   {
     "id": 28,
-    "categoryId": 1,
-    "name": "Creme de milho, pó"
+    "nome": "Sagu",
+    "categoria_id": 1,
+    "categoria_nome": "Grãos e Farinhas"
   },
   {
     "id": 29,
-    "categoryId": 1,
-    "name": "Curau, milho verde"
+    "nome": "Semolina de Trigo",
+    "categoria_id": 1,
+    "categoria_nome": "Grãos e Farinhas"
   },
   {
     "id": 30,
-    "categoryId": 1,
-    "name": "Curau, milho verde, mistura para"
+    "nome": "Trigo para Kibe",
+    "categoria_id": 1,
+    "categoria_nome": "Grãos e Farinhas"
   },
   {
     "id": 31,
-    "categoryId": 1,
-    "name": "Farinha, de arroz, enriquecida"
+    "nome": "Amaranto em Grãos",
+    "categoria_id": 1,
+    "categoria_nome": "Grãos e Farinhas"
   },
   {
     "id": 32,
-    "categoryId": 1,
-    "name": "Farinha, de centeio, integral"
+    "nome": "Farinha de Teff",
+    "categoria_id": 1,
+    "categoria_nome": "Grãos e Farinhas"
   },
   {
     "id": 33,
-    "categoryId": 1,
-    "name": "Farinha, de milho, amarela"
+    "nome": "Farinha de Araruta",
+    "categoria_id": 1,
+    "categoria_nome": "Grãos e Farinhas"
   },
   {
     "id": 34,
-    "categoryId": 1,
-    "name": "Farinha, de rosca"
+    "nome": "Farinha de Painço",
+    "categoria_id": 1,
+    "categoria_nome": "Grãos e Farinhas"
   },
   {
     "id": 35,
-    "categoryId": 1,
-    "name": "Farinha, de trigo"
+    "nome": "Farinha de Kamut",
+    "categoria_id": 1,
+    "categoria_nome": "Grãos e Farinhas"
   },
   {
     "id": 36,
-    "categoryId": 1,
-    "name": "Farinha, láctea, de cereais"
+    "nome": "Amaranto",
+    "categoria_id": 2,
+    "categoria_nome": "Cereais e Leguminosas"
   },
   {
     "id": 37,
-    "categoryId": 1,
-    "name": "Lasanha, massa fresca, cozida"
+    "nome": "Aveia",
+    "categoria_id": 2,
+    "categoria_nome": "Cereais e Leguminosas"
   },
   {
     "id": 38,
-    "categoryId": 1,
-    "name": "Lasanha, massa fresca, crua"
+    "nome": "Canjica",
+    "categoria_id": 2,
+    "categoria_nome": "Cereais e Leguminosas"
   },
   {
     "id": 39,
-    "categoryId": 1,
-    "name": "Macarrão, instantâneo"
+    "nome": "Cevada",
+    "categoria_id": 2,
+    "categoria_nome": "Cereais e Leguminosas"
   },
   {
     "id": 40,
-    "categoryId": 1,
-    "name": "Macarrão, trigo, cru"
+    "nome": "Chia",
+    "categoria_id": 2,
+    "categoria_nome": "Cereais e Leguminosas"
   },
   {
     "id": 41,
-    "categoryId": 1,
-    "name": "Macarrão, trigo, cru, com ovos"
+    "nome": "Ervilha",
+    "categoria_id": 2,
+    "categoria_nome": "Cereais e Leguminosas"
   },
   {
     "id": 42,
-    "categoryId": 1,
-    "name": "Milho, amido, cru"
+    "nome": "Ervilha Partida",
+    "categoria_id": 2,
+    "categoria_nome": "Cereais e Leguminosas"
   },
   {
     "id": 43,
-    "categoryId": 1,
-    "name": "Milho, fubá, cru"
+    "nome": "Farro",
+    "categoria_id": 2,
+    "categoria_nome": "Cereais e Leguminosas"
   },
   {
     "id": 44,
-    "categoryId": 1,
-    "name": "Milho, verde, cru"
+    "nome": "Feijão Andu",
+    "categoria_id": 2,
+    "categoria_nome": "Cereais e Leguminosas"
   },
   {
     "id": 45,
-    "categoryId": 1,
-    "name": "Milho, verde, enlatado, drenado"
+    "nome": "Feijão Azuki",
+    "categoria_id": 2,
+    "categoria_nome": "Cereais e Leguminosas"
   },
   {
     "id": 46,
-    "categoryId": 1,
-    "name": "Mingau tradicional, pó"
+    "nome": "Feijão Branco",
+    "categoria_id": 2,
+    "categoria_nome": "Cereais e Leguminosas"
   },
   {
     "id": 47,
-    "categoryId": 1,
-    "name": "Pamonha, barra para cozimento, pré-cozida"
+    "nome": "Feijão Carioca",
+    "categoria_id": 2,
+    "categoria_nome": "Cereais e Leguminosas"
   },
   {
     "id": 48,
-    "categoryId": 1,
-    "name": "Pão, aveia, forma"
+    "nome": "Feijão Fradinho",
+    "categoria_id": 2,
+    "categoria_nome": "Cereais e Leguminosas"
   },
   {
     "id": 49,
-    "categoryId": 1,
-    "name": "Pão, de soja"
+    "nome": "Feijão Jalo",
+    "categoria_id": 2,
+    "categoria_nome": "Cereais e Leguminosas"
   },
   {
     "id": 50,
-    "categoryId": 1,
-    "name": "Pão, glúten, forma"
+    "nome": "Feijão Preto",
+    "categoria_id": 2,
+    "categoria_nome": "Cereais e Leguminosas"
   },
   {
     "id": 51,
-    "categoryId": 1,
-    "name": "Pão, milho, forma"
+    "nome": "Feijão Rosinha",
+    "categoria_id": 2,
+    "categoria_nome": "Cereais e Leguminosas"
   },
   {
     "id": 52,
-    "categoryId": 1,
-    "name": "Pão, trigo, forma, integral"
+    "nome": "Feijão Roxinho",
+    "categoria_id": 2,
+    "categoria_nome": "Cereais e Leguminosas"
   },
   {
     "id": 53,
-    "categoryId": 1,
-    "name": "Pão, trigo, francês"
+    "nome": "Feijão Verde",
+    "categoria_id": 2,
+    "categoria_nome": "Cereais e Leguminosas"
   },
   {
     "id": 54,
-    "categoryId": 1,
-    "name": "Pão, trigo, sovado"
+    "nome": "Feijão-de-Corda",
+    "categoria_id": 2,
+    "categoria_nome": "Cereais e Leguminosas"
   },
   {
     "id": 55,
-    "categoryId": 1,
-    "name": "Pastel, de carne, cru"
+    "nome": "Grão-de-Bico",
+    "categoria_id": 2,
+    "categoria_nome": "Cereais e Leguminosas"
   },
   {
     "id": 56,
-    "categoryId": 1,
-    "name": "Pastel, de carne, frito"
+    "nome": "Lentilha",
+    "categoria_id": 2,
+    "categoria_nome": "Cereais e Leguminosas"
   },
   {
     "id": 57,
-    "categoryId": 1,
-    "name": "Pastel, de queijo, cru"
+    "nome": "Lentilha Vermelha",
+    "categoria_id": 2,
+    "categoria_nome": "Cereais e Leguminosas"
   },
   {
     "id": 58,
-    "categoryId": 1,
-    "name": "Pastel, de queijo, frito"
+    "nome": "Lupino",
+    "categoria_id": 2,
+    "categoria_nome": "Cereais e Leguminosas"
   },
   {
     "id": 59,
-    "categoryId": 1,
-    "name": "Pastel, massa, crua"
+    "nome": "Milho",
+    "categoria_id": 2,
+    "categoria_nome": "Cereais e Leguminosas"
   },
   {
     "id": 60,
-    "categoryId": 1,
-    "name": "Pastel, massa, frita"
+    "nome": "Milho de Pipoca",
+    "categoria_id": 2,
+    "categoria_nome": "Cereais e Leguminosas"
   },
   {
     "id": 61,
-    "categoryId": 1,
-    "name": "Pipoca, com óleo de soja, sem sal"
+    "nome": "Mung Dal (Feijão Mungo)",
+    "categoria_id": 2,
+    "categoria_nome": "Cereais e Leguminosas"
   },
   {
     "id": 62,
-    "categoryId": 1,
-    "name": "Polenta, pré-cozida"
+    "nome": "Painço",
+    "categoria_id": 2,
+    "categoria_nome": "Cereais e Leguminosas"
   },
   {
     "id": 63,
-    "categoryId": 1,
-    "name": "Torrada, pão francês"
+    "nome": "Quinoa",
+    "categoria_id": 2,
+    "categoria_nome": "Cereais e Leguminosas"
   },
   {
     "id": 64,
-    "categoryId": 2,
-    "name": "Abóbora, cabotian, cozida"
+    "nome": "Soja",
+    "categoria_id": 2,
+    "categoria_nome": "Cereais e Leguminosas"
   },
   {
     "id": 65,
-    "categoryId": 2,
-    "name": "Abóbora, cabotian, crua"
+    "nome": "Sorgo",
+    "categoria_id": 2,
+    "categoria_nome": "Cereais e Leguminosas"
   },
   {
     "id": 66,
-    "categoryId": 2,
-    "name": "Abóbora, menina brasileira, crua"
+    "nome": "Tremoço",
+    "categoria_id": 2,
+    "categoria_nome": "Cereais e Leguminosas"
   },
   {
     "id": 67,
-    "categoryId": 2,
-    "name": "Abóbora, moranga, crua"
+    "nome": "Trigo",
+    "categoria_id": 2,
+    "categoria_nome": "Cereais e Leguminosas"
   },
   {
     "id": 68,
-    "categoryId": 2,
-    "name": "Abóbora, moranga, refogada"
+    "nome": "Trigo Sarraceno",
+    "categoria_id": 2,
+    "categoria_nome": "Cereais e Leguminosas"
   },
   {
     "id": 69,
-    "categoryId": 2,
-    "name": "Abóbora, pescoço, crua"
+    "nome": "Vagem",
+    "categoria_id": 2,
+    "categoria_nome": "Cereais e Leguminosas"
   },
   {
     "id": 70,
-    "categoryId": 2,
-    "name": "Abobrinha, italiana, cozida"
+    "nome": "Alfarroba",
+    "categoria_id": 2,
+    "categoria_nome": "Cereais e Leguminosas"
   },
   {
     "id": 71,
-    "categoryId": 2,
-    "name": "Abobrinha, italiana, crua"
+    "nome": "Fava",
+    "categoria_id": 2,
+    "categoria_nome": "Cereais e Leguminosas"
   },
   {
     "id": 72,
-    "categoryId": 2,
-    "name": "Abobrinha, italiana, refogada"
+    "nome": "Freekeh (Trigo Verde)",
+    "categoria_id": 2,
+    "categoria_nome": "Cereais e Leguminosas"
   },
   {
     "id": 73,
-    "categoryId": 2,
-    "name": "Abobrinha, paulista, crua"
+    "nome": "Grão de Teff",
+    "categoria_id": 2,
+    "categoria_nome": "Cereais e Leguminosas"
   },
   {
     "id": 74,
-    "categoryId": 2,
-    "name": "Acelga, crua"
+    "nome": "Centeio",
+    "categoria_id": 2,
+    "categoria_nome": "Cereais e Leguminosas"
   },
   {
     "id": 75,
-    "categoryId": 2,
-    "name": "Agrião, cru"
+    "nome": "Teff",
+    "categoria_id": 2,
+    "categoria_nome": "Cereais e Leguminosas"
   },
   {
     "id": 76,
-    "categoryId": 2,
-    "name": "Aipo, cru"
+    "nome": "Arroz Selvagem",
+    "categoria_id": 2,
+    "categoria_nome": "Cereais e Leguminosas"
   },
   {
     "id": 77,
-    "categoryId": 2,
-    "name": "Alface, americana, crua"
+    "nome": "Ervilha Torta",
+    "categoria_id": 2,
+    "categoria_nome": "Cereais e Leguminosas"
   },
   {
     "id": 78,
-    "categoryId": 2,
-    "name": "Alface, crespa, crua"
+    "nome": "Atum",
+    "categoria_id": 3,
+    "categoria_nome": "Carnes e Proteínas"
   },
   {
     "id": 79,
-    "categoryId": 2,
-    "name": "Alface, lisa, crua"
+    "nome": "Bacon",
+    "categoria_id": 3,
+    "categoria_nome": "Carnes e Proteínas"
   },
   {
     "id": 80,
-    "categoryId": 2,
-    "name": "Alface, roxa, crua"
+    "nome": "Bife de Ancho",
+    "categoria_id": 3,
+    "categoria_nome": "Carnes e Proteínas"
   },
   {
     "id": 81,
-    "categoryId": 2,
-    "name": "Alfavaca, crua"
+    "nome": "Bife de Chorizo",
+    "categoria_id": 3,
+    "categoria_nome": "Carnes e Proteínas"
   },
   {
     "id": 82,
-    "categoryId": 2,
-    "name": "Alho, cru"
+    "nome": "Cação",
+    "categoria_id": 3,
+    "categoria_nome": "Carnes e Proteínas"
   },
   {
     "id": 83,
-    "categoryId": 2,
-    "name": "Alho-poró, cru"
+    "nome": "Carne de Cordeiro",
+    "categoria_id": 3,
+    "categoria_nome": "Carnes e Proteínas"
   },
   {
     "id": 84,
-    "categoryId": 2,
-    "name": "Almeirão, cru"
+    "nome": "Carne de Porco",
+    "categoria_id": 3,
+    "categoria_nome": "Carnes e Proteínas"
   },
   {
     "id": 85,
-    "categoryId": 2,
-    "name": "Almeirão, refogado"
+    "nome": "Carne de Vaca",
+    "categoria_id": 3,
+    "categoria_nome": "Carnes e Proteínas"
   },
   {
     "id": 86,
-    "categoryId": 2,
-    "name": "Batata, baroa, cozida"
+    "nome": "Carne Moída",
+    "categoria_id": 3,
+    "categoria_nome": "Carnes e Proteínas"
   },
   {
     "id": 87,
-    "categoryId": 2,
-    "name": "Batata, baroa, crua"
+    "nome": "Coração de Galinha",
+    "categoria_id": 3,
+    "categoria_nome": "Carnes e Proteínas"
   },
   {
     "id": 88,
-    "categoryId": 2,
-    "name": "Batata, doce, cozida"
+    "nome": "Costela de Boi",
+    "categoria_id": 3,
+    "categoria_nome": "Carnes e Proteínas"
   },
   {
     "id": 89,
-    "categoryId": 2,
-    "name": "Batata, doce, crua"
+    "nome": "Costela de Porco",
+    "categoria_id": 3,
+    "categoria_nome": "Carnes e Proteínas"
   },
   {
     "id": 90,
-    "categoryId": 2,
-    "name": "Batata, frita, tipo chips, industrializada"
+    "nome": "Coxa de Frango",
+    "categoria_id": 3,
+    "categoria_nome": "Carnes e Proteínas"
   },
   {
     "id": 91,
-    "categoryId": 2,
-    "name": "Batata, inglesa, cozida"
+    "nome": "Filé de Frango",
+    "categoria_id": 3,
+    "categoria_nome": "Carnes e Proteínas"
   },
   {
     "id": 92,
-    "categoryId": 2,
-    "name": "Batata, inglesa, crua"
+    "nome": "Filé Mignon",
+    "categoria_id": 3,
+    "categoria_nome": "Carnes e Proteínas"
   },
   {
     "id": 93,
-    "categoryId": 2,
-    "name": "Batata, inglesa, frita"
+    "nome": "Frango Inteiro",
+    "categoria_id": 3,
+    "categoria_nome": "Carnes e Proteínas"
   },
   {
     "id": 94,
-    "categoryId": 2,
-    "name": "Batata, inglesa, sauté"
+    "nome": "Frango Orgânico",
+    "categoria_id": 3,
+    "categoria_nome": "Carnes e Proteínas"
   },
   {
     "id": 95,
-    "categoryId": 2,
-    "name": "Berinjela, cozida"
+    "nome": "Hambúrguer de Carne",
+    "categoria_id": 3,
+    "categoria_nome": "Carnes e Proteínas"
   },
   {
     "id": 96,
-    "categoryId": 2,
-    "name": "Berinjela, crua"
+    "nome": "Hambúrguer de Frango",
+    "categoria_id": 3,
+    "categoria_nome": "Carnes e Proteínas"
   },
   {
     "id": 97,
-    "categoryId": 2,
-    "name": "Beterraba, cozida"
+    "nome": "Hambúrguer Vegetal",
+    "categoria_id": 3,
+    "categoria_nome": "Carnes e Proteínas"
   },
   {
     "id": 98,
-    "categoryId": 2,
-    "name": "Beterraba, crua"
+    "nome": "Iscas de Peixe",
+    "categoria_id": 3,
+    "categoria_nome": "Carnes e Proteínas"
   },
   {
     "id": 99,
-    "categoryId": 2,
-    "name": "Biscoito, polvilho doce"
+    "nome": "Linguiça de Frango",
+    "categoria_id": 3,
+    "categoria_nome": "Carnes e Proteínas"
   },
   {
     "id": 100,
-    "categoryId": 2,
-    "name": "Brócolis, cozido"
+    "nome": "Linguiça de Porco",
+    "categoria_id": 3,
+    "categoria_nome": "Carnes e Proteínas"
   },
   {
     "id": 101,
-    "categoryId": 2,
-    "name": "Brócolis, cru"
+    "nome": "Lombinho de Porco",
+    "categoria_id": 3,
+    "categoria_nome": "Carnes e Proteínas"
   },
   {
     "id": 102,
-    "categoryId": 2,
-    "name": "Cará, cozido"
+    "nome": "Ovos",
+    "categoria_id": 3,
+    "categoria_nome": "Carnes e Proteínas"
   },
   {
     "id": 103,
-    "categoryId": 2,
-    "name": "Cará, cru"
+    "nome": "Peito de Frango",
+    "categoria_id": 3,
+    "categoria_nome": "Carnes e Proteínas"
   },
   {
     "id": 104,
-    "categoryId": 2,
-    "name": "Caruru, cru"
+    "nome": "Peito de Peru",
+    "categoria_id": 3,
+    "categoria_nome": "Carnes e Proteínas"
   },
   {
     "id": 105,
-    "categoryId": 2,
-    "name": "Catalonha, crua"
+    "nome": "Peixe Branco",
+    "categoria_id": 3,
+    "categoria_nome": "Carnes e Proteínas"
   },
   {
     "id": 106,
-    "categoryId": 2,
-    "name": "Catalonha, refogada"
+    "nome": "Picanha",
+    "categoria_id": 3,
+    "categoria_nome": "Carnes e Proteínas"
   },
   {
     "id": 107,
-    "categoryId": 2,
-    "name": "Cebola, crua"
+    "nome": "Picanha Suína",
+    "categoria_id": 3,
+    "categoria_nome": "Carnes e Proteínas"
   },
   {
     "id": 108,
-    "categoryId": 2,
-    "name": "Cebolinha, crua"
+    "nome": "Salsicha",
+    "categoria_id": 3,
+    "categoria_nome": "Carnes e Proteínas"
   },
   {
     "id": 109,
-    "categoryId": 2,
-    "name": "Cenoura, cozida"
+    "nome": "Salmão",
+    "categoria_id": 3,
+    "categoria_nome": "Carnes e Proteínas"
   },
   {
     "id": 110,
-    "categoryId": 2,
-    "name": "Cenoura, crua"
+    "nome": "Sardinha",
+    "categoria_id": 3,
+    "categoria_nome": "Carnes e Proteínas"
   },
   {
     "id": 111,
-    "categoryId": 2,
-    "name": "Chicória, crua"
+    "nome": "Tofu",
+    "categoria_id": 3,
+    "categoria_nome": "Carnes e Proteínas"
   },
   {
     "id": 112,
-    "categoryId": 2,
-    "name": "Chuchu, cozido"
+    "nome": "Tilápia",
+    "categoria_id": 3,
+    "categoria_nome": "Carnes e Proteínas"
   },
   {
     "id": 113,
-    "categoryId": 2,
-    "name": "Chuchu, cru"
+    "nome": "Camarão",
+    "categoria_id": 3,
+    "categoria_nome": "Carnes e Proteínas"
   },
   {
     "id": 114,
-    "categoryId": 2,
-    "name": "Coentro, folhas desidratadas"
+    "nome": "Carne de Cabrito",
+    "categoria_id": 3,
+    "categoria_nome": "Carnes e Proteínas"
   },
   {
     "id": 115,
-    "categoryId": 2,
-    "name": "Couve, manteiga, crua"
+    "nome": "Carne Seca",
+    "categoria_id": 3,
+    "categoria_nome": "Carnes e Proteínas"
   },
   {
     "id": 116,
-    "categoryId": 2,
-    "name": "Couve, manteiga, refogada"
+    "nome": "Costeleta de Cordeiro",
+    "categoria_id": 3,
+    "categoria_nome": "Carnes e Proteínas"
   },
   {
     "id": 117,
-    "categoryId": 2,
-    "name": "Couve-flor, crua"
+    "nome": "Lagosta",
+    "categoria_id": 3,
+    "categoria_nome": "Carnes e Proteínas"
   },
   {
     "id": 118,
-    "categoryId": 2,
-    "name": "Couve-flor, cozida"
+    "nome": "Mexilhão",
+    "categoria_id": 3,
+    "categoria_nome": "Carnes e Proteínas"
   },
   {
     "id": 119,
-    "categoryId": 2,
-    "name": "Espinafre, Nova Zelândia, cru"
+    "nome": "Ostra",
+    "categoria_id": 3,
+    "categoria_nome": "Carnes e Proteínas"
   },
   {
     "id": 120,
-    "categoryId": 2,
-    "name": "Espinafre, Nova Zelândia, refogado"
+    "nome": "Pato",
+    "categoria_id": 3,
+    "categoria_nome": "Carnes e Proteínas"
   },
   {
     "id": 121,
-    "categoryId": 2,
-    "name": "Farinha, de mandioca, crua"
+    "nome": "Polvo",
+    "categoria_id": 3,
+    "categoria_nome": "Carnes e Proteínas"
   },
   {
     "id": 122,
-    "categoryId": 2,
-    "name": "Farinha, de mandioca, torrada"
+    "nome": "Abacate",
+    "categoria_id": 4,
+    "categoria_nome": "Frutas"
   },
   {
     "id": 123,
-    "categoryId": 2,
-    "name": "Farinha, de puba"
+    "nome": "Abacaxi",
+    "categoria_id": 4,
+    "categoria_nome": "Frutas"
   },
   {
     "id": 124,
-    "categoryId": 2,
-    "name": "Fécula, de mandioca"
+    "nome": "Açaí",
+    "categoria_id": 4,
+    "categoria_nome": "Frutas"
   },
   {
     "id": 125,
-    "categoryId": 2,
-    "name": "Feijão, broto, cru"
+    "nome": "Acerola",
+    "categoria_id": 4,
+    "categoria_nome": "Frutas"
   },
   {
     "id": 126,
-    "categoryId": 2,
-    "name": "Inhame, cru"
+    "nome": "Amora",
+    "categoria_id": 4,
+    "categoria_nome": "Frutas"
   },
   {
     "id": 127,
-    "categoryId": 2,
-    "name": "Jiló, cru"
+    "nome": "Banana",
+    "categoria_id": 4,
+    "categoria_nome": "Frutas"
   },
   {
     "id": 128,
-    "categoryId": 2,
-    "name": "Jurubeba, crua"
+    "nome": "Cacau",
+    "categoria_id": 4,
+    "categoria_nome": "Frutas"
   },
   {
     "id": 129,
-    "categoryId": 2,
-    "name": "Mandioca, cozida"
+    "nome": "Caju",
+    "categoria_id": 4,
+    "categoria_nome": "Frutas"
   },
   {
     "id": 130,
-    "categoryId": 2,
-    "name": "Mandioca, crua"
+    "nome": "Caqui",
+    "categoria_id": 4,
+    "categoria_nome": "Frutas"
   },
   {
     "id": 131,
-    "categoryId": 2,
-    "name": "Mandioca, farofa, temperada"
+    "nome": "Carambola",
+    "categoria_id": 4,
+    "categoria_nome": "Frutas"
   },
   {
     "id": 132,
-    "categoryId": 2,
-    "name": "Mandioca, frita"
+    "nome": "Cereja",
+    "categoria_id": 4,
+    "categoria_nome": "Frutas"
   },
   {
     "id": 133,
-    "categoryId": 2,
-    "name": "Manjericão, cru"
+    "nome": "Coco",
+    "categoria_id": 4,
+    "categoria_nome": "Frutas"
   },
   {
     "id": 134,
-    "categoryId": 2,
-    "name": "Maxixe, cru"
+    "nome": "Cupuaçu",
+    "categoria_id": 4,
+    "categoria_nome": "Frutas"
   },
   {
     "id": 135,
-    "categoryId": 2,
-    "name": "Mostarda, folha, crua"
+    "nome": "Damasco",
+    "categoria_id": 4,
+    "categoria_nome": "Frutas"
   },
   {
     "id": 136,
-    "categoryId": 2,
-    "name": "Nhoque, batata, cozido"
+    "nome": "Figo",
+    "categoria_id": 4,
+    "categoria_nome": "Frutas"
   },
   {
     "id": 137,
-    "categoryId": 2,
-    "name": "Nabo, cru"
+    "nome": "Framboesa",
+    "categoria_id": 4,
+    "categoria_nome": "Frutas"
   },
   {
     "id": 138,
-    "categoryId": 2,
-    "name": "Palmito, juçara, em conserva"
+    "nome": "Goiaba",
+    "categoria_id": 4,
+    "categoria_nome": "Frutas"
   },
   {
     "id": 139,
-    "categoryId": 2,
-    "name": "Palmito, pupunha, em conserva"
+    "nome": "Jabuticaba",
+    "categoria_id": 4,
+    "categoria_nome": "Frutas"
   },
   {
     "id": 140,
-    "categoryId": 2,
-    "name": "Pão, de queijo, assado"
+    "nome": "Jaca",
+    "categoria_id": 4,
+    "categoria_nome": "Frutas"
   },
   {
     "id": 141,
-    "categoryId": 2,
-    "name": "Pão, de queijo, cru"
+    "nome": "Kiwi",
+    "categoria_id": 4,
+    "categoria_nome": "Frutas"
   },
   {
     "id": 142,
-    "categoryId": 2,
-    "name": "Pepino, cru"
+    "nome": "Laranja",
+    "categoria_id": 4,
+    "categoria_nome": "Frutas"
   },
   {
     "id": 143,
-    "categoryId": 2,
-    "name": "Pimentão, amarelo, cru"
+    "nome": "Limão",
+    "categoria_id": 4,
+    "categoria_nome": "Frutas"
   },
   {
     "id": 144,
-    "categoryId": 2,
-    "name": "Pimentão, verde, cru"
+    "nome": "Lichia",
+    "categoria_id": 4,
+    "categoria_nome": "Frutas"
   },
   {
     "id": 145,
-    "categoryId": 2,
-    "name": "Pimentão, vermelho, cru"
+    "nome": "Maçã",
+    "categoria_id": 4,
+    "categoria_nome": "Frutas"
   },
   {
     "id": 146,
-    "categoryId": 2,
-    "name": "Polvilho, doce"
+    "nome": "Mamão",
+    "categoria_id": 4,
+    "categoria_nome": "Frutas"
   },
   {
     "id": 147,
-    "categoryId": 2,
-    "name": "Quiabo, cru"
+    "nome": "Manga",
+    "categoria_id": 4,
+    "categoria_nome": "Frutas"
   },
   {
     "id": 148,
-    "categoryId": 2,
-    "name": "Rabanete, cru"
+    "nome": "Maracujá",
+    "categoria_id": 4,
+    "categoria_nome": "Frutas"
   },
   {
     "id": 149,
-    "categoryId": 2,
-    "name": "Repolho, branco, cru"
+    "nome": "Melancia",
+    "categoria_id": 4,
+    "categoria_nome": "Frutas"
   },
   {
     "id": 150,
-    "categoryId": 2,
-    "name": "Repolho, roxo, cru"
+    "nome": "Melão",
+    "categoria_id": 4,
+    "categoria_nome": "Frutas"
   },
   {
     "id": 151,
-    "categoryId": 2,
-    "name": "Repolho, roxo, refogado"
+    "nome": "Mirtilo (Blueberry)",
+    "categoria_id": 4,
+    "categoria_nome": "Frutas"
   },
   {
     "id": 152,
-    "categoryId": 2,
-    "name": "Rúcula, crua"
+    "nome": "Morango",
+    "categoria_id": 4,
+    "categoria_nome": "Frutas"
   },
   {
     "id": 153,
-    "categoryId": 2,
-    "name": "Salsa, crua"
+    "nome": "Nêspera",
+    "categoria_id": 4,
+    "categoria_nome": "Frutas"
   },
   {
     "id": 154,
-    "categoryId": 2,
-    "name": "Seleta de legumes, enlatada"
+    "nome": "Nectarina",
+    "categoria_id": 4,
+    "categoria_nome": "Frutas"
   },
   {
     "id": 155,
-    "categoryId": 2,
-    "name": "Serralha, crua"
+    "nome": "Pera",
+    "categoria_id": 4,
+    "categoria_nome": "Frutas"
   },
   {
     "id": 156,
-    "categoryId": 2,
-    "name": "Taioba, crua"
+    "nome": "Pêssego",
+    "categoria_id": 4,
+    "categoria_nome": "Frutas"
   },
   {
     "id": 157,
-    "categoryId": 2,
-    "name": "Tomate, com semente, cru"
+    "nome": "Pitanga",
+    "categoria_id": 4,
+    "categoria_nome": "Frutas"
   },
   {
     "id": 158,
-    "categoryId": 2,
-    "name": "Tomate, extrato"
+    "nome": "Pitaya",
+    "categoria_id": 4,
+    "categoria_nome": "Frutas"
   },
   {
     "id": 159,
-    "categoryId": 2,
-    "name": "Tomate, molho industrializado"
+    "nome": "Romã",
+    "categoria_id": 4,
+    "categoria_nome": "Frutas"
   },
   {
     "id": 160,
-    "categoryId": 2,
-    "name": "Tomate, purê"
+    "nome": "Tangerina",
+    "categoria_id": 4,
+    "categoria_nome": "Frutas"
   },
   {
     "id": 161,
-    "categoryId": 2,
-    "name": "Tomate, salada"
+    "nome": "Tamarindo",
+    "categoria_id": 4,
+    "categoria_nome": "Frutas"
   },
   {
     "id": 162,
-    "categoryId": 2,
-    "name": "Vagem, crua"
+    "nome": "Toranja (Grapefruit)",
+    "categoria_id": 4,
+    "categoria_nome": "Frutas"
   },
   {
     "id": 163,
-    "categoryId": 3,
-    "name": "Abacate, cru"
+    "nome": "Uva",
+    "categoria_id": 4,
+    "categoria_nome": "Frutas"
   },
   {
     "id": 164,
-    "categoryId": 3,
-    "name": "Abacaxi, cru"
+    "nome": "Uva Passa",
+    "categoria_id": 4,
+    "categoria_nome": "Frutas"
   },
   {
     "id": 165,
-    "categoryId": 3,
-    "name": "Abacaxi, polpa, congelada"
+    "nome": "Graviola",
+    "categoria_id": 4,
+    "categoria_nome": "Frutas"
   },
   {
     "id": 166,
-    "categoryId": 3,
-    "name": "Abiu, cru"
+    "nome": "Mangostão",
+    "categoria_id": 4,
+    "categoria_nome": "Frutas"
   },
   {
     "id": 167,
-    "categoryId": 3,
-    "name": "Açaí, polpa, com xarope de guaraná e glucose"
+    "nome": "Noni",
+    "categoria_id": 4,
+    "categoria_nome": "Frutas"
   },
   {
     "id": 168,
-    "categoryId": 3,
-    "name": "Açaí, polpa, congelada"
+    "nome": "Abiu",
+    "categoria_id": 4,
+    "categoria_nome": "Frutas"
   },
   {
     "id": 169,
-    "categoryId": 3,
-    "name": "Acerola, crua"
+    "nome": "Ameixa",
+    "categoria_id": 4,
+    "categoria_nome": "Frutas"
   },
   {
     "id": 170,
-    "categoryId": 3,
-    "name": "Acerola, polpa, congelada"
+    "nome": "Cabeludinha",
+    "categoria_id": 4,
+    "categoria_nome": "Frutas"
   },
   {
     "id": 171,
-    "categoryId": 3,
-    "name": "Ameixa, calda, enlatada"
+    "nome": "Cambuci",
+    "categoria_id": 4,
+    "categoria_nome": "Frutas"
   },
   {
     "id": 172,
-    "categoryId": 3,
-    "name": "Ameixa, crua"
+    "nome": "Cagaita",
+    "categoria_id": 4,
+    "categoria_nome": "Frutas"
   },
   {
     "id": 173,
-    "categoryId": 3,
-    "name": "Ameixa, em calda, enlatada, drenada"
+    "nome": "Cumaru",
+    "categoria_id": 4,
+    "categoria_nome": "Frutas"
   },
   {
     "id": 174,
-    "categoryId": 3,
-    "name": "Atemóia, crua"
+    "nome": "Fruta-do-Conde (Pinha)",
+    "categoria_id": 4,
+    "categoria_nome": "Frutas"
   },
   {
     "id": 175,
-    "categoryId": 3,
-    "name": "Banana, da terra, crua"
+    "nome": "Guaraná",
+    "categoria_id": 4,
+    "categoria_nome": "Frutas"
   },
   {
     "id": 176,
-    "categoryId": 3,
-    "name": "Banana, doce em barra"
+    "nome": "Ingá",
+    "categoria_id": 4,
+    "categoria_nome": "Frutas"
   },
   {
     "id": 177,
-    "categoryId": 3,
-    "name": "Banana, figo, crua"
+    "nome": "Jenipapo",
+    "categoria_id": 4,
+    "categoria_nome": "Frutas"
   },
   {
     "id": 178,
-    "categoryId": 3,
-    "name": "Banana, maçã, crua"
+    "nome": "Jambo",
+    "categoria_id": 4,
+    "categoria_nome": "Frutas"
   },
   {
     "id": 179,
-    "categoryId": 3,
-    "name": "Banana, nanica, crua"
+    "nome": "Murici",
+    "categoria_id": 4,
+    "categoria_nome": "Frutas"
   },
   {
     "id": 180,
-    "categoryId": 3,
-    "name": "Banana, ouro, crua"
+    "nome": "Sapoti",
+    "categoria_id": 4,
+    "categoria_nome": "Frutas"
   },
   {
     "id": 181,
-    "categoryId": 3,
-    "name": "Banana, pacova, crua"
+    "nome": "Seriguela",
+    "categoria_id": 4,
+    "categoria_nome": "Frutas"
   },
   {
     "id": 182,
-    "categoryId": 3,
-    "name": "Banana, prata, crua"
+    "nome": "Tucumã",
+    "categoria_id": 4,
+    "categoria_nome": "Frutas"
   },
   {
     "id": 183,
-    "categoryId": 3,
-    "name": "Cacau, cru"
+    "nome": "Acelga",
+    "categoria_id": 5,
+    "categoria_nome": "Vegetais e Verduras"
   },
   {
     "id": 184,
-    "categoryId": 3,
-    "name": "Cajá-Manga, cru"
+    "nome": "Agrião",
+    "categoria_id": 5,
+    "categoria_nome": "Vegetais e Verduras"
   },
   {
     "id": 185,
-    "categoryId": 3,
-    "name": "Cajá, polpa, congelada"
+    "nome": "Alface",
+    "categoria_id": 5,
+    "categoria_nome": "Vegetais e Verduras"
   },
   {
     "id": 186,
-    "categoryId": 3,
-    "name": "Caju, cru"
+    "nome": "Alho-poró",
+    "categoria_id": 5,
+    "categoria_nome": "Vegetais e Verduras"
   },
   {
     "id": 187,
-    "categoryId": 3,
-    "name": "Caju, polpa, congelada"
+    "nome": "Aspargo",
+    "categoria_id": 5,
+    "categoria_nome": "Vegetais e Verduras"
   },
   {
     "id": 188,
-    "categoryId": 3,
-    "name": "Caju, suco concentrado, envasado"
+    "nome": "Azeitona",
+    "categoria_id": 5,
+    "categoria_nome": "Vegetais e Verduras"
   },
   {
     "id": 189,
-    "categoryId": 3,
-    "name": "Caqui, chocolate, cru"
+    "nome": "Aipo (Salsão)",
+    "categoria_id": 5,
+    "categoria_nome": "Vegetais e Verduras"
   },
   {
     "id": 190,
-    "categoryId": 3,
-    "name": "Carambola, crua"
+    "nome": "Batata",
+    "categoria_id": 5,
+    "categoria_nome": "Vegetais e Verduras"
   },
   {
     "id": 191,
-    "categoryId": 3,
-    "name": "Ciriguela, crua"
+    "nome": "Batata-doce",
+    "categoria_id": 5,
+    "categoria_nome": "Vegetais e Verduras"
   },
   {
     "id": 192,
-    "categoryId": 3,
-    "name": "Cupuaçu, cru"
+    "nome": "Berinjela",
+    "categoria_id": 5,
+    "categoria_nome": "Vegetais e Verduras"
   },
   {
     "id": 193,
-    "categoryId": 3,
-    "name": "Cupuaçu, polpa, congelada"
+    "nome": "Beterraba",
+    "categoria_id": 5,
+    "categoria_nome": "Vegetais e Verduras"
   },
   {
     "id": 194,
-    "categoryId": 3,
-    "name": "Figo, cru"
+    "nome": "Brócolis",
+    "categoria_id": 5,
+    "categoria_nome": "Vegetais e Verduras"
   },
   {
     "id": 195,
-    "categoryId": 3,
-    "name": "Figo, enlatado, em calda"
+    "nome": "Cebola",
+    "categoria_id": 5,
+    "categoria_nome": "Vegetais e Verduras"
   },
   {
     "id": 196,
-    "categoryId": 3,
-    "name": "Fruta-pão, crua"
+    "nome": "Cenoura",
+    "categoria_id": 5,
+    "categoria_nome": "Vegetais e Verduras"
   },
   {
     "id": 197,
-    "categoryId": 3,
-    "name": "Goiaba, branca, com casca, crua"
+    "nome": "Chuchu",
+    "categoria_id": 5,
+    "categoria_nome": "Vegetais e Verduras"
   },
   {
     "id": 198,
-    "categoryId": 3,
-    "name": "Goiaba, doce em pasta"
+    "nome": "Couve",
+    "categoria_id": 5,
+    "categoria_nome": "Vegetais e Verduras"
   },
   {
     "id": 199,
-    "categoryId": 3,
-    "name": "Goiaba, doce, cascão"
+    "nome": "Couve-de-bruxelas",
+    "categoria_id": 5,
+    "categoria_nome": "Vegetais e Verduras"
   },
   {
     "id": 200,
-    "categoryId": 3,
-    "name": "Goiaba, vermelha, com casca, crua"
+    "nome": "Couve-flor",
+    "categoria_id": 5,
+    "categoria_nome": "Vegetais e Verduras"
   },
   {
     "id": 201,
-    "categoryId": 3,
-    "name": "Graviola, crua"
+    "nome": "Espinafre",
+    "categoria_id": 5,
+    "categoria_nome": "Vegetais e Verduras"
   },
   {
     "id": 202,
-    "categoryId": 3,
-    "name": "Graviola, polpa, congelada"
+    "nome": "Jiló",
+    "categoria_id": 5,
+    "categoria_nome": "Vegetais e Verduras"
   },
   {
     "id": 203,
-    "categoryId": 3,
-    "name": "Jabuticaba, crua"
+    "nome": "Mandioca (Aipim)",
+    "categoria_id": 5,
+    "categoria_nome": "Vegetais e Verduras"
   },
   {
     "id": 204,
-    "categoryId": 3,
-    "name": "Jaca, crua"
+    "nome": "Mandioquinha (Batata-baroa)",
+    "categoria_id": 5,
+    "categoria_nome": "Vegetais e Verduras"
   },
   {
     "id": 205,
-    "categoryId": 3,
-    "name": "Jambo, cru"
+    "nome": "Maxixe",
+    "categoria_id": 5,
+    "categoria_nome": "Vegetais e Verduras"
   },
   {
     "id": 206,
-    "categoryId": 3,
-    "name": "Jamelão, cru"
+    "nome": "Milho Verde",
+    "categoria_id": 5,
+    "categoria_nome": "Vegetais e Verduras"
   },
   {
     "id": 207,
-    "categoryId": 3,
-    "name": "Kiwi, cru"
+    "nome": "Nabo",
+    "categoria_id": 5,
+    "categoria_nome": "Vegetais e Verduras"
   },
   {
     "id": 208,
-    "categoryId": 3,
-    "name": "Laranja, baía, crua"
+    "nome": "Palmito",
+    "categoria_id": 5,
+    "categoria_nome": "Vegetais e Verduras"
   },
   {
     "id": 209,
-    "categoryId": 3,
-    "name": "Laranja, baía, suco"
+    "nome": "Pepino",
+    "categoria_id": 5,
+    "categoria_nome": "Vegetais e Verduras"
   },
   {
     "id": 210,
-    "categoryId": 3,
-    "name": "Laranja, da terra, crua"
+    "nome": "Pimentão",
+    "categoria_id": 5,
+    "categoria_nome": "Vegetais e Verduras"
   },
   {
     "id": 211,
-    "categoryId": 3,
-    "name": "Laranja, da terra, suco"
+    "nome": "Quiabo",
+    "categoria_id": 5,
+    "categoria_nome": "Vegetais e Verduras"
   },
   {
     "id": 212,
-    "categoryId": 3,
-    "name": "Laranja, lima, crua"
+    "nome": "Rabanete",
+    "categoria_id": 5,
+    "categoria_nome": "Vegetais e Verduras"
   },
   {
     "id": 213,
-    "categoryId": 3,
-    "name": "Laranja, lima, suco"
+    "nome": "Repolho",
+    "categoria_id": 5,
+    "categoria_nome": "Vegetais e Verduras"
   },
   {
     "id": 214,
-    "categoryId": 3,
-    "name": "Laranja, pêra, crua"
+    "nome": "Rúcula",
+    "categoria_id": 5,
+    "categoria_nome": "Vegetais e Verduras"
   },
   {
     "id": 215,
-    "categoryId": 3,
-    "name": "Laranja, pêra, suco"
+    "nome": "Tomate",
+    "categoria_id": 5,
+    "categoria_nome": "Vegetais e Verduras"
   },
   {
     "id": 216,
-    "categoryId": 3,
-    "name": "Laranja, valência, crua"
+    "nome": "Vagem",
+    "categoria_id": 5,
+    "categoria_nome": "Vegetais e Verduras"
   },
   {
     "id": 217,
-    "categoryId": 3,
-    "name": "Laranja, valência, suco"
+    "nome": "Abóbora",
+    "categoria_id": 5,
+    "categoria_nome": "Vegetais e Verduras"
   },
   {
     "id": 218,
-    "categoryId": 3,
-    "name": "Limão, cravo, suco"
+    "nome": "Abobrinha",
+    "categoria_id": 5,
+    "categoria_nome": "Vegetais e Verduras"
   },
   {
     "id": 219,
-    "categoryId": 3,
-    "name": "Limão, galego, suco"
+    "nome": "Almeirão",
+    "categoria_id": 5,
+    "categoria_nome": "Vegetais e Verduras"
   },
   {
     "id": 220,
-    "categoryId": 3,
-    "name": "Limão, tahiti, cru"
+    "nome": "Alcachofra",
+    "categoria_id": 5,
+    "categoria_nome": "Vegetais e Verduras"
   },
   {
     "id": 221,
-    "categoryId": 3,
-    "name": "Maçã, Argentina, com casca, crua"
+    "nome": "Bardana",
+    "categoria_id": 5,
+    "categoria_nome": "Vegetais e Verduras"
   },
   {
     "id": 222,
-    "categoryId": 3,
-    "name": "Maçã, Fuji, com casca, crua"
+    "nome": "Beldroega",
+    "categoria_id": 5,
+    "categoria_nome": "Vegetais e Verduras"
   },
   {
     "id": 223,
-    "categoryId": 3,
-    "name": "Macaúba, crua"
+    "nome": "Cebolinha",
+    "categoria_id": 5,
+    "categoria_nome": "Vegetais e Verduras"
   },
   {
     "id": 224,
-    "categoryId": 3,
-    "name": "Mamão, doce em calda, drenado"
+    "nome": "Chicória",
+    "categoria_id": 5,
+    "categoria_nome": "Vegetais e Verduras"
   },
   {
     "id": 225,
-    "categoryId": 3,
-    "name": "Mamão, Formosa, cru"
+    "nome": "Cogumelo Champignon",
+    "categoria_id": 5,
+    "categoria_nome": "Vegetais e Verduras"
   },
   {
     "id": 226,
-    "categoryId": 3,
-    "name": "Mamão, Papaia, cru"
+    "nome": "Cogumelo Shitake",
+    "categoria_id": 5,
+    "categoria_nome": "Vegetais e Verduras"
   },
   {
     "id": 227,
-    "categoryId": 3,
-    "name": "Mamão verde, doce em calda, drenado"
+    "nome": "Cogumelo Shimeji",
+    "categoria_id": 5,
+    "categoria_nome": "Vegetais e Verduras"
   },
   {
     "id": 228,
-    "categoryId": 3,
-    "name": "Manga, Haden, crua"
+    "nome": "Cogumelo Portobello",
+    "categoria_id": 5,
+    "categoria_nome": "Vegetais e Verduras"
   },
   {
     "id": 229,
-    "categoryId": 3,
-    "name": "Manga, Palmer, crua"
+    "nome": "Couve-galega",
+    "categoria_id": 5,
+    "categoria_nome": "Vegetais e Verduras"
   },
   {
     "id": 230,
-    "categoryId": 3,
-    "name": "Manga, polpa, congelada"
+    "nome": "Ervilha-torta",
+    "categoria_id": 5,
+    "categoria_nome": "Vegetais e Verduras"
   },
   {
     "id": 231,
-    "categoryId": 3,
-    "name": "Manga, Tommy Atkins, crua"
+    "nome": "Funcho (Erva-doce)",
+    "categoria_id": 5,
+    "categoria_nome": "Vegetais e Verduras"
   },
   {
     "id": 232,
-    "categoryId": 3,
-    "name": "Maracujá, cru"
+    "nome": "Hortelã",
+    "categoria_id": 5,
+    "categoria_nome": "Vegetais e Verduras"
   },
   {
     "id": 233,
-    "categoryId": 3,
-    "name": "Maracujá, polpa, congelada"
+    "nome": "Jambu",
+    "categoria_id": 5,
+    "categoria_nome": "Vegetais e Verduras"
   },
   {
     "id": 234,
-    "categoryId": 3,
-    "name": "Maracujá, suco concentrado, envasado"
+    "nome": "Mostarda",
+    "categoria_id": 5,
+    "categoria_nome": "Vegetais e Verduras"
   },
   {
     "id": 235,
-    "categoryId": 3,
-    "name": "Melancia, crua"
+    "nome": "Ora-pro-nóbis",
+    "categoria_id": 5,
+    "categoria_nome": "Vegetais e Verduras"
   },
   {
     "id": 236,
-    "categoryId": 3,
-    "name": "Melão, cru"
+    "nome": "Rabanete",
+    "categoria_id": 5,
+    "categoria_nome": "Vegetais e Verduras"
   },
   {
     "id": 237,
-    "categoryId": 3,
-    "name": "Mexerica, Murcote, crua"
+    "nome": "Salsa (Salsinha)",
+    "categoria_id": 5,
+    "categoria_nome": "Vegetais e Verduras"
   },
   {
     "id": 238,
-    "categoryId": 3,
-    "name": "Mexerica, Rio, crua"
+    "nome": "Taioba",
+    "categoria_id": 5,
+    "categoria_nome": "Vegetais e Verduras"
   },
   {
     "id": 239,
-    "categoryId": 3,
-    "name": "Morango, cru"
+    "nome": "Bebida Láctea Fermentada",
+    "categoria_id": 6,
+    "categoria_nome": "Laticínios"
   },
   {
     "id": 240,
-    "categoryId": 3,
-    "name": "Nêspera, crua"
+    "nome": "Buttercream (Creme de Manteiga)",
+    "categoria_id": 6,
+    "categoria_nome": "Laticínios"
   },
   {
     "id": 241,
-    "categoryId": 3,
-    "name": "Pequi, cru"
+    "nome": "Buttermilk (Leitelho)",
+    "categoria_id": 6,
+    "categoria_nome": "Laticínios"
   },
   {
     "id": 242,
-    "categoryId": 3,
-    "name": "Pêra, Park, crua"
+    "nome": "Coalhada",
+    "categoria_id": 6,
+    "categoria_nome": "Laticínios"
   },
   {
     "id": 243,
-    "categoryId": 3,
-    "name": "Pêra, Williams, crua"
+    "nome": "Coalho (Queijo Coalho)",
+    "categoria_id": 6,
+    "categoria_nome": "Laticínios"
   },
   {
     "id": 244,
-    "categoryId": 3,
-    "name": "Pêssego, Aurora, cru"
+    "nome": "Creme de Leite",
+    "categoria_id": 6,
+    "categoria_nome": "Laticínios"
   },
   {
     "id": 245,
-    "categoryId": 3,
-    "name": "Pêssego, enlatado, em calda"
+    "nome": "Creme Fraîche",
+    "categoria_id": 6,
+    "categoria_nome": "Laticínios"
   },
   {
     "id": 246,
-    "categoryId": 3,
-    "name": "Pinha, crua"
+    "nome": "Iogurte Natural",
+    "categoria_id": 6,
+    "categoria_nome": "Laticínios"
   },
   {
     "id": 247,
-    "categoryId": 3,
-    "name": "Pitanga, crua"
+    "nome": "Iogurte Grego",
+    "categoria_id": 6,
+    "categoria_nome": "Laticínios"
   },
   {
     "id": 248,
-    "categoryId": 3,
-    "name": "Pitanga, polpa, congelada"
+    "nome": "Kefir",
+    "categoria_id": 6,
+    "categoria_nome": "Laticínios"
   },
   {
     "id": 249,
-    "categoryId": 3,
-    "name": "Romã, crua"
+    "nome": "Leite Condensado",
+    "categoria_id": 6,
+    "categoria_nome": "Laticínios"
   },
   {
     "id": 250,
-    "categoryId": 3,
-    "name": "Tamarindo, cru"
+    "nome": "Leite de Cabra",
+    "categoria_id": 6,
+    "categoria_nome": "Laticínios"
   },
   {
     "id": 251,
-    "categoryId": 3,
-    "name": "Tangerina, Poncã, crua"
+    "nome": "Leite de Vaca",
+    "categoria_id": 6,
+    "categoria_nome": "Laticínios"
   },
   {
     "id": 252,
-    "categoryId": 3,
-    "name": "Tangerina, Poncã, suco"
+    "nome": "Leite Evaporado",
+    "categoria_id": 6,
+    "categoria_nome": "Laticínios"
   },
   {
     "id": 253,
-    "categoryId": 3,
-    "name": "Tucumã, cru"
+    "nome": "Leite Fermentado",
+    "categoria_id": 6,
+    "categoria_nome": "Laticínios"
   },
   {
     "id": 254,
-    "categoryId": 3,
-    "name": "Umbu, cru"
+    "nome": "Leite Integral",
+    "categoria_id": 6,
+    "categoria_nome": "Laticínios"
   },
   {
     "id": 255,
-    "categoryId": 3,
-    "name": "Umbu, polpa, congelada"
+    "nome": "Leite Pasteurizado",
+    "categoria_id": 6,
+    "categoria_nome": "Laticínios"
   },
   {
     "id": 256,
-    "categoryId": 3,
-    "name": "Uva, Itália, crua"
+    "nome": "Leite Semi-desnatado",
+    "categoria_id": 6,
+    "categoria_nome": "Laticínios"
   },
   {
     "id": 257,
-    "categoryId": 3,
-    "name": "Uva, Rubi, crua"
+    "nome": "Leite em Pó",
+    "categoria_id": 6,
+    "categoria_nome": "Laticínios"
   },
   {
     "id": 258,
-    "categoryId": 3,
-    "name": "Uva, suco concentrado, envasado"
+    "nome": "Manteiga",
+    "categoria_id": 6,
+    "categoria_nome": "Laticínios"
   },
   {
     "id": 259,
-    "categoryId": 4,
-    "name": "Azeite, de dendê"
+    "nome": "Margarina",
+    "categoria_id": 6,
+    "categoria_nome": "Laticínios"
   },
   {
     "id": 260,
-    "categoryId": 4,
-    "name": "Azeite, de oliva, extra virgem"
+    "nome": "Mascarpone",
+    "categoria_id": 6,
+    "categoria_nome": "Laticínios"
   },
   {
     "id": 261,
-    "categoryId": 4,
-    "name": "Manteiga, com sal"
+    "nome": "Nata",
+    "categoria_id": 6,
+    "categoria_nome": "Laticínios"
   },
   {
     "id": 262,
-    "categoryId": 4,
-    "name": "Manteiga, sem sal"
+    "nome": "Queijo Brie",
+    "categoria_id": 6,
+    "categoria_nome": "Laticínios"
   },
   {
     "id": 263,
-    "categoryId": 4,
-    "name": "Margarina, com óleo hidrogenado, com sal (65% de lipídeos)"
+    "nome": "Queijo Camembert",
+    "categoria_id": 6,
+    "categoria_nome": "Laticínios"
   },
   {
     "id": 264,
-    "categoryId": 4,
-    "name": "Margarina, com óleo hidrogenado, sem sal (80% de lipídeos)"
+    "nome": "Queijo Cheddar",
+    "categoria_id": 6,
+    "categoria_nome": "Laticínios"
   },
   {
     "id": 265,
-    "categoryId": 4,
-    "name": "Margarina, com óleo interesterificado, com sal (65%de lipídeos)"
+    "nome": "Queijo Cottage",
+    "categoria_id": 6,
+    "categoria_nome": "Laticínios"
   },
   {
     "id": 266,
-    "categoryId": 4,
-    "name": "Margarina, com óleo interesterificado, sem sal (65% de lipídeos)"
+    "nome": "Queijo Cream Cheese",
+    "categoria_id": 6,
+    "categoria_nome": "Laticínios"
   },
   {
     "id": 267,
-    "categoryId": 4,
-    "name": "Óleo, de babaçu"
+    "nome": "Queijo Gorgonzola",
+    "categoria_id": 6,
+    "categoria_nome": "Laticínios"
   },
   {
     "id": 268,
-    "categoryId": 4,
-    "name": "Óleo, de canola"
+    "nome": "Queijo Minas Frescal",
+    "categoria_id": 6,
+    "categoria_nome": "Laticínios"
   },
   {
     "id": 269,
-    "categoryId": 4,
-    "name": "Óleo, de girassol"
+    "nome": "Queijo Minas Padrão",
+    "categoria_id": 6,
+    "categoria_nome": "Laticínios"
   },
   {
     "id": 270,
-    "categoryId": 4,
-    "name": "Óleo, de milho"
+    "nome": "Queijo Mozzarella",
+    "categoria_id": 6,
+    "categoria_nome": "Laticínios"
   },
   {
     "id": 271,
-    "categoryId": 4,
-    "name": "Óleo, de pequi"
+    "nome": "Queijo Parmesão",
+    "categoria_id": 6,
+    "categoria_nome": "Laticínios"
   },
   {
     "id": 272,
-    "categoryId": 4,
-    "name": "Óleo, de soja"
+    "nome": "Queijo Provolone",
+    "categoria_id": 6,
+    "categoria_nome": "Laticínios"
   },
   {
     "id": 273,
-    "categoryId": 5,
-    "name": "Abadejo, filé, congelado, assado"
+    "nome": "Queijo Ricota",
+    "categoria_id": 6,
+    "categoria_nome": "Laticínios"
   },
   {
     "id": 274,
-    "categoryId": 5,
-    "name": "Abadejo, filé, congelado,cozido"
+    "nome": "Queijo Roquefort",
+    "categoria_id": 6,
+    "categoria_nome": "Laticínios"
   },
   {
     "id": 275,
-    "categoryId": 5,
-    "name": "Abadejo, filé, congelado, cru"
+    "nome": "Queijo Suíço (Emmental)",
+    "categoria_id": 6,
+    "categoria_nome": "Laticínios"
   },
   {
     "id": 276,
-    "categoryId": 5,
-    "name": "Abadejo, filé, congelado, grelhado"
+    "nome": "Requeijão",
+    "categoria_id": 6,
+    "categoria_nome": "Laticínios"
   },
   {
     "id": 277,
-    "categoryId": 5,
-    "name": "Atum, conserva em óleo"
+    "nome": "Ricota Fresca",
+    "categoria_id": 6,
+    "categoria_nome": "Laticínios"
   },
   {
     "id": 278,
-    "categoryId": 5,
-    "name": "Atum, fresco, cru"
+    "nome": "Sour Cream (Creme Azedo)",
+    "categoria_id": 6,
+    "categoria_nome": "Laticínios"
   },
   {
     "id": 279,
-    "categoryId": 5,
-    "name": "Bacalhau, salgado, cru"
+    "nome": "Whey Protein",
+    "categoria_id": 6,
+    "categoria_nome": "Laticínios"
   },
   {
     "id": 280,
-    "categoryId": 5,
-    "name": "Bacalhau, salgado, refogado"
+    "nome": "Azeite de Oliva",
+    "categoria_id": 7,
+    "categoria_nome": "Óleos e Gorduras"
   },
   {
     "id": 281,
-    "categoryId": 5,
-    "name": "Cação, posta, com farinha de trigo, frita"
+    "nome": "Banha de Porco",
+    "categoria_id": 7,
+    "categoria_nome": "Óleos e Gorduras"
   },
   {
     "id": 282,
-    "categoryId": 5,
-    "name": "Cação, posta, cozida"
+    "nome": "Creme de Leite",
+    "categoria_id": 7,
+    "categoria_nome": "Óleos e Gorduras"
   },
   {
     "id": 283,
-    "categoryId": 5,
-    "name": "Cação, posta, crua"
+    "nome": "Ghee (Manteiga Clarificada)",
+    "categoria_id": 7,
+    "categoria_nome": "Óleos e Gorduras"
   },
   {
     "id": 284,
-    "categoryId": 5,
-    "name": "Camarão, Rio Grande, grande, cozido"
+    "nome": "Manteiga",
+    "categoria_id": 7,
+    "categoria_nome": "Óleos e Gorduras"
   },
   {
     "id": 285,
-    "categoryId": 5,
-    "name": "Camarão, Rio Grande, grande, cru"
+    "nome": "Margarina",
+    "categoria_id": 7,
+    "categoria_nome": "Óleos e Gorduras"
   },
   {
     "id": 286,
-    "categoryId": 5,
-    "name": "Camarão, Sete Barbas, sem cabeça, com casca, frito"
+    "nome": "Manteiga de Amendoim",
+    "categoria_id": 7,
+    "categoria_nome": "Óleos e Gorduras"
   },
   {
     "id": 287,
-    "categoryId": 5,
-    "name": "Caranguejo, cozido"
+    "nome": "Manteiga de Cacau",
+    "categoria_id": 7,
+    "categoria_nome": "Óleos e Gorduras"
   },
   {
     "id": 288,
-    "categoryId": 5,
-    "name": "Corimba, cru"
+    "nome": "Manteiga de Coco",
+    "categoria_id": 7,
+    "categoria_nome": "Óleos e Gorduras"
   },
   {
     "id": 289,
-    "categoryId": 5,
-    "name": "Corimbatá, assado"
+    "nome": "Manteiga de Karité",
+    "categoria_id": 7,
+    "categoria_nome": "Óleos e Gorduras"
   },
   {
     "id": 290,
-    "categoryId": 5,
-    "name": "Corimbatá, cozido"
+    "nome": "Manteiga de Murumuru",
+    "categoria_id": 7,
+    "categoria_nome": "Óleos e Gorduras"
   },
   {
     "id": 291,
-    "categoryId": 5,
-    "name": "Corvina de água doce, crua"
+    "nome": "Manteiga de Tucumã",
+    "categoria_id": 7,
+    "categoria_nome": "Óleos e Gorduras"
   },
   {
     "id": 292,
-    "categoryId": 5,
-    "name": "Corvina do mar, crua"
+    "nome": "Óleo de Abacate",
+    "categoria_id": 7,
+    "categoria_nome": "Óleos e Gorduras"
   },
   {
     "id": 293,
-    "categoryId": 5,
-    "name": "Corvina grande, assada"
+    "nome": "Óleo de Amendoim",
+    "categoria_id": 7,
+    "categoria_nome": "Óleos e Gorduras"
   },
   {
     "id": 294,
-    "categoryId": 5,
-    "name": "Corvina grande, cozida"
+    "nome": "Óleo de Canola",
+    "categoria_id": 7,
+    "categoria_nome": "Óleos e Gorduras"
   },
   {
     "id": 295,
-    "categoryId": 5,
-    "name": "Dourada de água doce, fresca"
+    "nome": "Óleo de Cártamo",
+    "categoria_id": 7,
+    "categoria_nome": "Óleos e Gorduras"
   },
   {
     "id": 296,
-    "categoryId": 5,
-    "name": "Lambari, congelado, cru"
+    "nome": "Óleo de Coco",
+    "categoria_id": 7,
+    "categoria_nome": "Óleos e Gorduras"
   },
   {
     "id": 297,
-    "categoryId": 5,
-    "name": "Lambari, congelado, frito"
+    "nome": "Óleo de Girassol",
+    "categoria_id": 7,
+    "categoria_nome": "Óleos e Gorduras"
   },
   {
     "id": 298,
-    "categoryId": 5,
-    "name": "Lambari, fresco, cru"
+    "nome": "Óleo de Gergelim",
+    "categoria_id": 7,
+    "categoria_nome": "Óleos e Gorduras"
   },
   {
     "id": 299,
-    "categoryId": 5,
-    "name": "Manjuba, com farinha de trigo, frita"
+    "nome": "Óleo de Linhaça",
+    "categoria_id": 7,
+    "categoria_nome": "Óleos e Gorduras"
   },
   {
     "id": 300,
-    "categoryId": 5,
-    "name": "Manjuba, frita"
+    "nome": "Óleo de Milho",
+    "categoria_id": 7,
+    "categoria_nome": "Óleos e Gorduras"
   },
   {
     "id": 301,
-    "categoryId": 5,
-    "name": "Merluza, filé, assado"
+    "nome": "Óleo de Noz-pecã",
+    "categoria_id": 7,
+    "categoria_nome": "Óleos e Gorduras"
   },
   {
     "id": 302,
-    "categoryId": 5,
-    "name": "Merluza, filé, cru"
+    "nome": "Óleo de Palma (Dendê)",
+    "categoria_id": 7,
+    "categoria_nome": "Óleos e Gorduras"
   },
   {
     "id": 303,
-    "categoryId": 5,
-    "name": "Merluza, filé, frito"
+    "nome": "Óleo de Peixe",
+    "categoria_id": 7,
+    "categoria_nome": "Óleos e Gorduras"
   },
   {
     "id": 304,
-    "categoryId": 5,
-    "name": "Pescada, branca, crua"
+    "nome": "Óleo de Semente de Abóbora",
+    "categoria_id": 7,
+    "categoria_nome": "Óleos e Gorduras"
   },
   {
     "id": 305,
-    "categoryId": 5,
-    "name": "Pescada, branca, frita"
+    "nome": "Óleo de Semente de Uva",
+    "categoria_id": 7,
+    "categoria_nome": "Óleos e Gorduras"
   },
   {
     "id": 306,
-    "categoryId": 5,
-    "name": "Pescada, filé, com farinha de trigo, frito"
+    "nome": "Óleo de Soja",
+    "categoria_id": 7,
+    "categoria_nome": "Óleos e Gorduras"
   },
   {
     "id": 307,
-    "categoryId": 5,
-    "name": "Pescada, filé, cru"
+    "nome": "Óleo de Sucupira",
+    "categoria_id": 7,
+    "categoria_nome": "Óleos e Gorduras"
   },
   {
     "id": 308,
-    "categoryId": 5,
-    "name": "Pescada, filé, frito"
+    "nome": "Óleo de Uva",
+    "categoria_id": 7,
+    "categoria_nome": "Óleos e Gorduras"
   },
   {
     "id": 309,
-    "categoryId": 5,
-    "name": "Pescada, filé, molho escabeche"
+    "nome": "Óleo de Rícino (Mamona)",
+    "categoria_id": 7,
+    "categoria_nome": "Óleos e Gorduras"
   },
   {
     "id": 310,
-    "categoryId": 5,
-    "name": "Pescadinha, crua"
+    "nome": "Óleo de Pracaxi",
+    "categoria_id": 7,
+    "categoria_nome": "Óleos e Gorduras"
   },
   {
     "id": 311,
-    "categoryId": 5,
-    "name": "Pintado, assado"
+    "nome": "Óleo de Macadâmia",
+    "categoria_id": 7,
+    "categoria_nome": "Óleos e Gorduras"
   },
   {
     "id": 312,
-    "categoryId": 5,
-    "name": "Pintado, cru"
+    "nome": "Óleo de Argan",
+    "categoria_id": 7,
+    "categoria_nome": "Óleos e Gorduras"
   },
   {
     "id": 313,
-    "categoryId": 5,
-    "name": "Pintado, grelhado"
+    "nome": "Sebo Bovino",
+    "categoria_id": 7,
+    "categoria_nome": "Óleos e Gorduras"
   },
   {
     "id": 314,
-    "categoryId": 5,
-    "name": "Porquinho, cru"
+    "nome": "Tocopherol (Vitamina E)",
+    "categoria_id": 7,
+    "categoria_nome": "Óleos e Gorduras"
   },
   {
     "id": 315,
-    "categoryId": 5,
-    "name": "Salmão, filé, com pele, fresco,  grelhado"
+    "nome": "Açafrão",
+    "categoria_id": 8,
+    "categoria_nome": "Temperos e Especiarias"
   },
   {
     "id": 316,
-    "categoryId": 5,
-    "name": "Salmão, sem pele, fresco, cru"
+    "nome": "Açafrão-da-terra (Cúrcuma)",
+    "categoria_id": 8,
+    "categoria_nome": "Temperos e Especiarias"
   },
   {
     "id": 317,
-    "categoryId": 5,
-    "name": "Salmão, sem pele, fresco, grelhado"
+    "nome": "Alecrim",
+    "categoria_id": 8,
+    "categoria_nome": "Temperos e Especiarias"
   },
   {
     "id": 318,
-    "categoryId": 5,
-    "name": "Sardinha, assada"
+    "nome": "Alho",
+    "categoria_id": 8,
+    "categoria_nome": "Temperos e Especiarias"
   },
   {
     "id": 319,
-    "categoryId": 5,
-    "name": "Sardinha, conserva em óleo"
+    "nome": "Alho em Pó",
+    "categoria_id": 8,
+    "categoria_nome": "Temperos e Especiarias"
   },
   {
     "id": 320,
-    "categoryId": 5,
-    "name": "Sardinha, frita"
+    "nome": "Anis-estrelado",
+    "categoria_id": 8,
+    "categoria_nome": "Temperos e Especiarias"
   },
   {
     "id": 321,
-    "categoryId": 5,
-    "name": "Sardinha, inteira, crua"
+    "nome": "Baunilha",
+    "categoria_id": 8,
+    "categoria_nome": "Temperos e Especiarias"
   },
   {
     "id": 322,
-    "categoryId": 5,
-    "name": "Tucunaré, filé, congelado, cru"
+    "nome": "Canela",
+    "categoria_id": 8,
+    "categoria_nome": "Temperos e Especiarias"
   },
   {
     "id": 323,
-    "categoryId": 6,
-    "name": "Apresuntado"
+    "nome": "Cardamomo",
+    "categoria_id": 8,
+    "categoria_nome": "Temperos e Especiarias"
   },
   {
     "id": 324,
-    "categoryId": 6,
-    "name": "Caldo de carne, tablete"
+    "nome": "Cebolinha",
+    "categoria_id": 8,
+    "categoria_nome": "Temperos e Especiarias"
   },
   {
     "id": 325,
-    "categoryId": 6,
-    "name": "Caldo de galinha, tablete"
+    "nome": "Cebolinha Desidratada",
+    "categoria_id": 8,
+    "categoria_nome": "Temperos e Especiarias"
   },
   {
     "id": 326,
-    "categoryId": 6,
-    "name": "Carne, bovina, acém, moído, cozido"
+    "nome": "Chimichurri",
+    "categoria_id": 8,
+    "categoria_nome": "Temperos e Especiarias"
   },
   {
     "id": 327,
-    "categoryId": 6,
-    "name": "Carne, bovina, acém, moído, cru"
+    "nome": "Cominho",
+    "categoria_id": 8,
+    "categoria_nome": "Temperos e Especiarias"
   },
   {
     "id": 328,
-    "categoryId": 6,
-    "name": "Carne, bovina, acém, sem gordura, cozido"
+    "nome": "Coentro",
+    "categoria_id": 8,
+    "categoria_nome": "Temperos e Especiarias"
   },
   {
     "id": 329,
-    "categoryId": 6,
-    "name": "Carne, bovina, acém, sem gordura, cru"
+    "nome": "Cravo-da-Índia",
+    "categoria_id": 8,
+    "categoria_nome": "Temperos e Especiarias"
   },
   {
     "id": 330,
-    "categoryId": 6,
-    "name": "Carne, bovina, almôndegas, cruas"
+    "nome": "Curry",
+    "categoria_id": 8,
+    "categoria_nome": "Temperos e Especiarias"
   },
   {
     "id": 331,
-    "categoryId": 6,
-    "name": "Carne, bovina, almôndegas, fritas"
+    "nome": "Erva-doce",
+    "categoria_id": 8,
+    "categoria_nome": "Temperos e Especiarias"
   },
   {
     "id": 332,
-    "categoryId": 6,
-    "name": "Carne, bovina, bucho, cozido"
+    "nome": "Estragão",
+    "categoria_id": 8,
+    "categoria_nome": "Temperos e Especiarias"
   },
   {
     "id": 333,
-    "categoryId": 6,
-    "name": "Carne, bovina, bucho, cru"
+    "nome": "Feno-grego",
+    "categoria_id": 8,
+    "categoria_nome": "Temperos e Especiarias"
   },
   {
     "id": 334,
-    "categoryId": 6,
-    "name": "Carne, bovina, capa de contra-filé, com gordura, crua"
+    "nome": "Gengibre",
+    "categoria_id": 8,
+    "categoria_nome": "Temperos e Especiarias"
   },
   {
     "id": 335,
-    "categoryId": 6,
-    "name": "Carne, bovina, capa de contra-filé, com gordura, grelhada"
+    "nome": "Gengibre em Pó",
+    "categoria_id": 8,
+    "categoria_nome": "Temperos e Especiarias"
   },
   {
     "id": 336,
-    "categoryId": 6,
-    "name": "Carne, bovina, capa de contra-filé, sem gordura, crua"
+    "nome": "Lemon Pepper",
+    "categoria_id": 8,
+    "categoria_nome": "Temperos e Especiarias"
   },
   {
     "id": 337,
-    "categoryId": 6,
-    "name": "Carne, bovina, capa de contra-filé, sem gordura, grelhada"
+    "nome": "Louro",
+    "categoria_id": 8,
+    "categoria_nome": "Temperos e Especiarias"
   },
   {
     "id": 338,
-    "categoryId": 6,
-    "name": "Carne, bovina, charque, cozido"
+    "nome": "Manjericão",
+    "categoria_id": 8,
+    "categoria_nome": "Temperos e Especiarias"
   },
   {
     "id": 339,
-    "categoryId": 6,
-    "name": "Carne, bovina, charque, cru"
+    "nome": "Manjerona",
+    "categoria_id": 8,
+    "categoria_nome": "Temperos e Especiarias"
   },
   {
     "id": 340,
-    "categoryId": 6,
-    "name": "Carne, bovina, contra-filé, à milanesa"
+    "nome": "Mostarda em Grão",
+    "categoria_id": 8,
+    "categoria_nome": "Temperos e Especiarias"
   },
   {
     "id": 341,
-    "categoryId": 6,
-    "name": "Carne, bovina, contra-filé de costela, cru"
+    "nome": "Noz-moscada",
+    "categoria_id": 8,
+    "categoria_nome": "Temperos e Especiarias"
   },
   {
     "id": 342,
-    "categoryId": 6,
-    "name": "Carne, bovina, contra-filé de costela, grelhado"
+    "nome": "Orégano",
+    "categoria_id": 8,
+    "categoria_nome": "Temperos e Especiarias"
   },
   {
     "id": 343,
-    "categoryId": 6,
-    "name": "Carne, bovina, contra-filé, com gordura, cru"
+    "nome": "Páprica Doce",
+    "categoria_id": 8,
+    "categoria_nome": "Temperos e Especiarias"
   },
   {
     "id": 344,
-    "categoryId": 6,
-    "name": "Carne, bovina, contra-filé, com gordura, grelhado"
+    "nome": "Páprica Defumada",
+    "categoria_id": 8,
+    "categoria_nome": "Temperos e Especiarias"
   },
   {
     "id": 345,
-    "categoryId": 6,
-    "name": "Carne, bovina, contra-filé, sem gordura, cru"
+    "nome": "Pimenta Branca",
+    "categoria_id": 8,
+    "categoria_nome": "Temperos e Especiarias"
   },
   {
     "id": 346,
-    "categoryId": 6,
-    "name": "Carne, bovina, contra-filé, sem gordura, grelhado"
+    "nome": "Pimenta Caiena",
+    "categoria_id": 8,
+    "categoria_nome": "Temperos e Especiarias"
   },
   {
     "id": 347,
-    "categoryId": 6,
-    "name": "Carne, bovina, costela, assada"
+    "nome": "Pimenta Calabresa",
+    "categoria_id": 8,
+    "categoria_nome": "Temperos e Especiarias"
   },
   {
     "id": 348,
-    "categoryId": 6,
-    "name": "Carne, bovina, costela, crua"
+    "nome": "Pimenta-do-Reino",
+    "categoria_id": 8,
+    "categoria_nome": "Temperos e Especiarias"
   },
   {
     "id": 349,
-    "categoryId": 6,
-    "name": "Carne, bovina, coxão duro, sem gordura, cozido"
+    "nome": "Pimenta Rosa",
+    "categoria_id": 8,
+    "categoria_nome": "Temperos e Especiarias"
   },
   {
     "id": 350,
-    "categoryId": 6,
-    "name": "Carne, bovina, coxão duro, sem gordura, cru"
+    "nome": "Pimenta Síria",
+    "categoria_id": 8,
+    "categoria_nome": "Temperos e Especiarias"
   },
   {
     "id": 351,
-    "categoryId": 6,
-    "name": "Carne, bovina, coxão mole, sem gordura, cozido"
+    "nome": "Pimentão em Pó",
+    "categoria_id": 8,
+    "categoria_nome": "Temperos e Especiarias"
   },
   {
     "id": 352,
-    "categoryId": 6,
-    "name": "Carne, bovina, coxão mole, sem gordura, cru"
+    "nome": "Sal",
+    "categoria_id": 8,
+    "categoria_nome": "Temperos e Especiarias"
   },
   {
     "id": 353,
-    "categoryId": 6,
-    "name": "Carne, bovina, cupim, assado"
+    "nome": "Sal Grosso",
+    "categoria_id": 8,
+    "categoria_nome": "Temperos e Especiarias"
   },
   {
     "id": 354,
-    "categoryId": 6,
-    "name": "Carne, bovina, cupim, cru"
+    "nome": "Salsa (Salsinha)",
+    "categoria_id": 8,
+    "categoria_nome": "Temperos e Especiarias"
   },
   {
     "id": 355,
-    "categoryId": 6,
-    "name": "Carne, bovina, fígado, cru"
+    "nome": "Sálvia",
+    "categoria_id": 8,
+    "categoria_nome": "Temperos e Especiarias"
   },
   {
     "id": 356,
-    "categoryId": 6,
-    "name": "Carne, bovina, fígado, grelhado"
+    "nome": "Tomilho",
+    "categoria_id": 8,
+    "categoria_nome": "Temperos e Especiarias"
   },
   {
     "id": 357,
-    "categoryId": 6,
-    "name": "Carne, bovina, filé mingnon, sem gordura, cru"
+    "nome": "Zaatar",
+    "categoria_id": 8,
+    "categoria_nome": "Temperos e Especiarias"
   },
   {
     "id": 358,
-    "categoryId": 6,
-    "name": "Carne, bovina, filé mingnon, sem gordura, grelhado"
+    "nome": "Semente de Coentro",
+    "categoria_id": 8,
+    "categoria_nome": "Temperos e Especiarias"
   },
   {
     "id": 359,
-    "categoryId": 6,
-    "name": "Carne, bovina, flanco, sem gordura, cozido"
+    "nome": "Semente de Mostarda",
+    "categoria_id": 8,
+    "categoria_nome": "Temperos e Especiarias"
   },
   {
     "id": 360,
-    "categoryId": 6,
-    "name": "Carne, bovina, flanco, sem gordura, cru"
+    "nome": "Semente de Endro",
+    "categoria_id": 8,
+    "categoria_nome": "Temperos e Especiarias"
   },
   {
     "id": 361,
-    "categoryId": 6,
-    "name": "Carne, bovina, fraldinha, com gordura, cozida"
+    "nome": "Urucum (Colorau)",
+    "categoria_id": 8,
+    "categoria_nome": "Temperos e Especiarias"
   },
   {
     "id": 362,
-    "categoryId": 6,
-    "name": "Carne, bovina, fraldinha, com gordura, crua"
+    "nome": "Wasabi",
+    "categoria_id": 8,
+    "categoria_nome": "Temperos e Especiarias"
   },
   {
     "id": 363,
-    "categoryId": 6,
-    "name": "Carne, bovina, lagarto, cozido"
+    "nome": "Alecrim",
+    "categoria_id": 9,
+    "categoria_nome": "Ervas Frescas"
   },
   {
     "id": 364,
-    "categoryId": 6,
-    "name": "Carne, bovina, lagarto, cru"
+    "nome": "Alfavaca (Manjericão)",
+    "categoria_id": 9,
+    "categoria_nome": "Ervas Frescas"
   },
   {
     "id": 365,
-    "categoryId": 6,
-    "name": "Carne, bovina, língua, cozida"
+    "nome": "Cebolinha",
+    "categoria_id": 9,
+    "categoria_nome": "Ervas Frescas"
   },
   {
     "id": 366,
-    "categoryId": 6,
-    "name": "Carne, bovina, língua, crua"
+    "nome": "Coentro",
+    "categoria_id": 9,
+    "categoria_nome": "Ervas Frescas"
   },
   {
     "id": 367,
-    "categoryId": 6,
-    "name": "Carne, bovina, maminha, crua"
+    "nome": "Dill (Endro)",
+    "categoria_id": 9,
+    "categoria_nome": "Ervas Frescas"
   },
   {
     "id": 368,
-    "categoryId": 6,
-    "name": "Carne, bovina, maminha, grelhada"
+    "nome": "Estragão",
+    "categoria_id": 9,
+    "categoria_nome": "Ervas Frescas"
   },
   {
     "id": 369,
-    "categoryId": 6,
-    "name": "Carne, bovina, miolo de alcatra, sem gordura, cru"
+    "nome": "Hortelã",
+    "categoria_id": 9,
+    "categoria_nome": "Ervas Frescas"
   },
   {
     "id": 370,
-    "categoryId": 6,
-    "name": "Carne, bovina, miolo de alcatra, sem gordura, grelhado"
+    "nome": "Manjericão",
+    "categoria_id": 9,
+    "categoria_nome": "Ervas Frescas"
   },
   {
     "id": 371,
-    "categoryId": 6,
-    "name": "Carne, bovina, músculo, sem gordura, cozido"
+    "nome": "Manjerona",
+    "categoria_id": 9,
+    "categoria_nome": "Ervas Frescas"
   },
   {
     "id": 372,
-    "categoryId": 6,
-    "name": "Carne, bovina, músculo, sem gordura, cru"
+    "nome": "Orégano",
+    "categoria_id": 9,
+    "categoria_nome": "Ervas Frescas"
   },
   {
     "id": 373,
-    "categoryId": 6,
-    "name": "Carne, bovina, paleta, com gordura, crua"
+    "nome": "Salsa (Salsinha)",
+    "categoria_id": 9,
+    "categoria_nome": "Ervas Frescas"
   },
   {
     "id": 374,
-    "categoryId": 6,
-    "name": "Carne, bovina, paleta, sem gordura, cozida"
+    "nome": "Sálvia",
+    "categoria_id": 9,
+    "categoria_nome": "Ervas Frescas"
   },
   {
     "id": 375,
-    "categoryId": 6,
-    "name": "Carne, bovina, paleta, sem gordura, crua"
+    "nome": "Tomilho",
+    "categoria_id": 9,
+    "categoria_nome": "Ervas Frescas"
   },
   {
     "id": 376,
-    "categoryId": 6,
-    "name": "Carne, bovina, patinho, sem gordura, cru"
+    "nome": "Louro",
+    "categoria_id": 9,
+    "categoria_nome": "Ervas Frescas"
   },
   {
     "id": 377,
-    "categoryId": 6,
-    "name": "Carne, bovina, patinho, sem gordura, grelhado"
+    "nome": "Funcho (Erva-doce)",
+    "categoria_id": 9,
+    "categoria_nome": "Ervas Frescas"
   },
   {
     "id": 378,
-    "categoryId": 6,
-    "name": "Carne, bovina, peito, sem gordura, cozido"
+    "nome": "Jambú",
+    "categoria_id": 9,
+    "categoria_nome": "Ervas Frescas"
   },
   {
     "id": 379,
-    "categoryId": 6,
-    "name": "Carne, bovina, peito, sem gordura, cru"
+    "nome": "Raiz de Coentro",
+    "categoria_id": 9,
+    "categoria_nome": "Ervas Frescas"
   },
   {
     "id": 380,
-    "categoryId": 6,
-    "name": "Carne, bovina, picanha, com gordura, crua"
+    "nome": "Rúcula",
+    "categoria_id": 9,
+    "categoria_nome": "Ervas Frescas"
   },
   {
     "id": 381,
-    "categoryId": 6,
-    "name": "Carne, bovina, picanha, com gordura, grelhada"
+    "nome": "Agrião",
+    "categoria_id": 9,
+    "categoria_nome": "Ervas Frescas"
   },
   {
     "id": 382,
-    "categoryId": 6,
-    "name": "Carne, bovina, picanha, sem gordura, crua"
+    "nome": "Erva-cidreira",
+    "categoria_id": 9,
+    "categoria_nome": "Ervas Frescas"
   },
   {
     "id": 383,
-    "categoryId": 6,
-    "name": "Carne, bovina, picanha, sem gordura, grelhada"
+    "nome": "Erva-de-Santa-Maria",
+    "categoria_id": 9,
+    "categoria_nome": "Ervas Frescas"
   },
   {
     "id": 384,
-    "categoryId": 6,
-    "name": "Carne, bovina, seca, cozida"
+    "nome": "Erva-doce",
+    "categoria_id": 9,
+    "categoria_nome": "Ervas Frescas"
   },
   {
     "id": 385,
-    "categoryId": 6,
-    "name": "Carne, bovina, seca, crua"
+    "nome": "Tanchagem",
+    "categoria_id": 9,
+    "categoria_nome": "Ervas Frescas"
   },
   {
     "id": 386,
-    "categoryId": 6,
-    "name": "Coxinha de frango, frita"
+    "nome": "Agrião",
+    "categoria_id": 9,
+    "categoria_nome": "Ervas Frescas"
   },
   {
     "id": 387,
-    "categoryId": 6,
-    "name": "Croquete, de carne, cru"
+    "nome": "Anis-doce",
+    "categoria_id": 9,
+    "categoria_nome": "Ervas Frescas"
   },
   {
     "id": 388,
-    "categoryId": 6,
-    "name": "Croquete, de carne, frito"
+    "nome": "Capim-limão",
+    "categoria_id": 9,
+    "categoria_nome": "Ervas Frescas"
   },
   {
     "id": 389,
-    "categoryId": 6,
-    "name": "Empada de frango, pré-cozida, assada"
+    "nome": "Caruru",
+    "categoria_id": 9,
+    "categoria_nome": "Ervas Frescas"
   },
   {
     "id": 390,
-    "categoryId": 6,
-    "name": "Empada, de frango, pré-cozida"
+    "nome": "Coentro-gordo",
+    "categoria_id": 9,
+    "categoria_nome": "Ervas Frescas"
   },
   {
     "id": 391,
-    "categoryId": 6,
-    "name": "Frango, asa, com pele, crua"
+    "nome": "Hissopo",
+    "categoria_id": 9,
+    "categoria_nome": "Ervas Frescas"
   },
   {
     "id": 392,
-    "categoryId": 6,
-    "name": "Frango, caipira, inteiro, com pele, cozido"
+    "nome": "Mostarda Verde",
+    "categoria_id": 9,
+    "categoria_nome": "Ervas Frescas"
   },
   {
     "id": 393,
-    "categoryId": 6,
-    "name": "Frango, caipira, inteiro, sem pele, cozido"
+    "nome": "Pimenta de Cheiro",
+    "categoria_id": 9,
+    "categoria_nome": "Ervas Frescas"
   },
   {
     "id": 394,
-    "categoryId": 6,
-    "name": "Frango, coração, cru"
+    "nome": "Sálvia Ananás",
+    "categoria_id": 9,
+    "categoria_nome": "Ervas Frescas"
   },
   {
     "id": 395,
-    "categoryId": 6,
-    "name": "Frango, coração, grelhado"
+    "nome": "Melisa (Erva-cidreira)",
+    "categoria_id": 9,
+    "categoria_nome": "Ervas Frescas"
   },
   {
     "id": 396,
-    "categoryId": 6,
-    "name": "Frango, coxa, com pele, assada"
+    "nome": "Alho-poró",
+    "categoria_id": 9,
+    "categoria_nome": "Ervas Frescas"
   },
   {
     "id": 397,
-    "categoryId": 6,
-    "name": "Frango, coxa, com pele, crua"
+    "nome": "Folha de Louro",
+    "categoria_id": 9,
+    "categoria_nome": "Ervas Frescas"
   },
   {
     "id": 398,
-    "categoryId": 6,
-    "name": "Frango, coxa, sem pele, cozida"
+    "nome": "Azedinha",
+    "categoria_id": 9,
+    "categoria_nome": "Ervas Frescas"
   },
   {
     "id": 399,
-    "categoryId": 6,
-    "name": "Frango, coxa, sem pele, crua"
+    "nome": "Pepino do Mar",
+    "categoria_id": 9,
+    "categoria_nome": "Ervas Frescas"
   },
   {
     "id": 400,
-    "categoryId": 6,
-    "name": "Frango, fígado, cru"
+    "nome": "Rabo de Galo",
+    "categoria_id": 9,
+    "categoria_nome": "Ervas Frescas"
   },
   {
     "id": 401,
-    "categoryId": 6,
-    "name": "Frango, filé, à milanesa"
+    "nome": "Amêndoas",
+    "categoria_id": 10,
+    "categoria_nome": "Nozes e Sementes"
   },
   {
     "id": 402,
-    "categoryId": 6,
-    "name": "Frango, inteiro, com pele, cru"
+    "nome": "Castanha-do-Brasil (Castanha do Pará)",
+    "categoria_id": 10,
+    "categoria_nome": "Nozes e Sementes"
   },
   {
     "id": 403,
-    "categoryId": 6,
-    "name": "Frango, inteiro, sem pele, assado"
+    "nome": "Castanha-de-Caju",
+    "categoria_id": 10,
+    "categoria_nome": "Nozes e Sementes"
   },
   {
     "id": 404,
-    "categoryId": 6,
-    "name": "Frango, inteiro, sem pele, cozido"
+    "nome": "Avelã",
+    "categoria_id": 10,
+    "categoria_nome": "Nozes e Sementes"
   },
   {
     "id": 405,
-    "categoryId": 6,
-    "name": "Frango, inteiro, sem pele, cru"
+    "nome": "Berinjela (Semente de Berinjela)",
+    "categoria_id": 10,
+    "categoria_nome": "Nozes e Sementes"
   },
   {
     "id": 406,
-    "categoryId": 6,
-    "name": "Frango, peito, com pele, assado"
+    "nome": "Centeio (Semente de Centeio)",
+    "categoria_id": 10,
+    "categoria_nome": "Nozes e Sementes"
   },
   {
     "id": 407,
-    "categoryId": 6,
-    "name": "Frango, peito, com pele, cru"
+    "nome": "Chia",
+    "categoria_id": 10,
+    "categoria_nome": "Nozes e Sementes"
   },
   {
     "id": 408,
-    "categoryId": 6,
-    "name": "Frango, peito, sem pele, cozido"
+    "nome": "Cocô (Semente de Cocô)",
+    "categoria_id": 10,
+    "categoria_nome": "Nozes e Sementes"
   },
   {
     "id": 409,
-    "categoryId": 6,
-    "name": "Frango, peito, sem pele, cru"
+    "nome": "Gergelim",
+    "categoria_id": 10,
+    "categoria_nome": "Nozes e Sementes"
   },
   {
     "id": 410,
-    "categoryId": 6,
-    "name": "Frango, peito, sem pele, grelhado"
+    "nome": "Girassol (Semente de Girassol)",
+    "categoria_id": 10,
+    "categoria_nome": "Nozes e Sementes"
   },
   {
     "id": 411,
-    "categoryId": 6,
-    "name": "Frango, sobrecoxa, com pele, assada"
+    "nome": "Linhaça",
+    "categoria_id": 10,
+    "categoria_nome": "Nozes e Sementes"
   },
   {
     "id": 412,
-    "categoryId": 6,
-    "name": "Frango, sobrecoxa, com pele, crua"
+    "nome": "Macadâmia",
+    "categoria_id": 10,
+    "categoria_nome": "Nozes e Sementes"
   },
   {
     "id": 413,
-    "categoryId": 6,
-    "name": "Frango, sobrecoxa, sem pele, assada"
+    "nome": "Noz de Pecan",
+    "categoria_id": 10,
+    "categoria_nome": "Nozes e Sementes"
   },
   {
     "id": 414,
-    "categoryId": 6,
-    "name": "Frango, sobrecoxa, sem pele, crua"
+    "nome": "Noz-moscada",
+    "categoria_id": 10,
+    "categoria_nome": "Nozes e Sementes"
   },
   {
     "id": 415,
-    "categoryId": 6,
-    "name": "Hambúrguer, bovino, cru"
+    "nome": "Nozes",
+    "categoria_id": 10,
+    "categoria_nome": "Nozes e Sementes"
   },
   {
     "id": 416,
-    "categoryId": 6,
-    "name": "Hambúrguer, bovino, frito"
+    "nome": "Pepitas (Sementes de Abóbora)",
+    "categoria_id": 10,
+    "categoria_nome": "Nozes e Sementes"
   },
   {
     "id": 417,
-    "categoryId": 6,
-    "name": "Hambúrguer, bovino, grelhado"
+    "nome": "Pinhão",
+    "categoria_id": 10,
+    "categoria_nome": "Nozes e Sementes"
   },
   {
     "id": 418,
-    "categoryId": 6,
-    "name": "Lingüiça, frango, crua"
+    "nome": "Pimenta (Semente de Pimenta)",
+    "categoria_id": 10,
+    "categoria_nome": "Nozes e Sementes"
   },
   {
     "id": 419,
-    "categoryId": 6,
-    "name": "Lingüiça, frango, frita"
+    "nome": "Quinoa (Semente de Quinoa)",
+    "categoria_id": 10,
+    "categoria_nome": "Nozes e Sementes"
   },
   {
     "id": 420,
-    "categoryId": 6,
-    "name": "Lingüiça, frango, grelhada"
+    "nome": "Semente de Algodão",
+    "categoria_id": 10,
+    "categoria_nome": "Nozes e Sementes"
   },
   {
     "id": 421,
-    "categoryId": 6,
-    "name": "Lingüiça, porco, crua"
+    "nome": "Semente de Chia",
+    "categoria_id": 10,
+    "categoria_nome": "Nozes e Sementes"
   },
   {
     "id": 422,
-    "categoryId": 6,
-    "name": "Lingüiça, porco, frita"
+    "nome": "Semente de Dente-de-leão",
+    "categoria_id": 10,
+    "categoria_nome": "Nozes e Sementes"
   },
   {
     "id": 423,
-    "categoryId": 6,
-    "name": "Lingüiça, porco, grelhada"
+    "nome": "Semente de Linhaça",
+    "categoria_id": 10,
+    "categoria_nome": "Nozes e Sementes"
   },
   {
     "id": 424,
-    "categoryId": 6,
-    "name": "Mortadela"
+    "nome": "Semente de Pinha",
+    "categoria_id": 10,
+    "categoria_nome": "Nozes e Sementes"
   },
   {
     "id": 425,
-    "categoryId": 6,
-    "name": "Peru, congelado, assado"
+    "nome": "Semente de Rúcula",
+    "categoria_id": 10,
+    "categoria_nome": "Nozes e Sementes"
   },
   {
     "id": 426,
-    "categoryId": 6,
-    "name": "Peru, congelado, cru"
+    "nome": "Semente de Tomate",
+    "categoria_id": 10,
+    "categoria_nome": "Nozes e Sementes"
   },
   {
     "id": 427,
-    "categoryId": 6,
-    "name": "Porco, bisteca, crua"
+    "nome": "Semente de Uva",
+    "categoria_id": 10,
+    "categoria_nome": "Nozes e Sementes"
   },
   {
     "id": 428,
-    "categoryId": 6,
-    "name": "Porco, bisteca, frita"
+    "nome": "Sementes de Papoula",
+    "categoria_id": 10,
+    "categoria_nome": "Nozes e Sementes"
   },
   {
     "id": 429,
-    "categoryId": 6,
-    "name": "Porco, bisteca, grelhada"
+    "nome": "Sementes de Mostarda",
+    "categoria_id": 10,
+    "categoria_nome": "Nozes e Sementes"
   },
   {
     "id": 430,
-    "categoryId": 6,
-    "name": "Porco, costela, assada"
+    "nome": "Sementes de Girassol",
+    "categoria_id": 10,
+    "categoria_nome": "Nozes e Sementes"
   },
   {
     "id": 431,
-    "categoryId": 6,
-    "name": "Porco, costela, crua"
+    "nome": "Sementes de Framboesa",
+    "categoria_id": 10,
+    "categoria_nome": "Nozes e Sementes"
   },
   {
     "id": 432,
-    "categoryId": 6,
-    "name": "Porco, lombo, assado"
+    "nome": "Sementes de Melancia",
+    "categoria_id": 10,
+    "categoria_nome": "Nozes e Sementes"
   },
   {
     "id": 433,
-    "categoryId": 6,
-    "name": "Porco, lombo, cru"
+    "nome": "Sementes de Melão",
+    "categoria_id": 10,
+    "categoria_nome": "Nozes e Sementes"
   },
   {
     "id": 434,
-    "categoryId": 6,
-    "name": "Porco, orelha, salgada, crua"
+    "nome": "Sementes de Pera",
+    "categoria_id": 10,
+    "categoria_nome": "Nozes e Sementes"
   },
   {
     "id": 435,
-    "categoryId": 6,
-    "name": "Porco, pernil, assado"
+    "nome": "Sementes de Kiwi",
+    "categoria_id": 10,
+    "categoria_nome": "Nozes e Sementes"
   },
   {
     "id": 436,
-    "categoryId": 6,
-    "name": "Porco, pernil, cru"
+    "nome": "Pães",
+    "categoria_id": 11,
+    "categoria_nome": "Pães e Massas"
   },
   {
     "id": 437,
-    "categoryId": 6,
-    "name": "Porco, rabo, salgado, cru"
+    "nome": "Bagel",
+    "categoria_id": 11,
+    "categoria_nome": "Pães e Massas"
   },
   {
     "id": 438,
-    "categoryId": 6,
-    "name": "Presunto, com capa de gordura"
+    "nome": "Baguete",
+    "categoria_id": 11,
+    "categoria_nome": "Pães e Massas"
   },
   {
     "id": 439,
-    "categoryId": 6,
-    "name": "Presunto, sem capa de gordura"
+    "nome": "Broa de Milho",
+    "categoria_id": 11,
+    "categoria_nome": "Pães e Massas"
   },
   {
     "id": 440,
-    "categoryId": 6,
-    "name": "Quibe, assado"
+    "nome": "Ciabatta",
+    "categoria_id": 11,
+    "categoria_nome": "Pães e Massas"
   },
   {
     "id": 441,
-    "categoryId": 6,
-    "name": "Quibe, cru"
+    "nome": "Pão de Alho",
+    "categoria_id": 11,
+    "categoria_nome": "Pães e Massas"
   },
   {
     "id": 442,
-    "categoryId": 6,
-    "name": "Quibe, frito"
+    "nome": "Pão de Batata",
+    "categoria_id": 11,
+    "categoria_nome": "Pães e Massas"
   },
   {
     "id": 443,
-    "categoryId": 6,
-    "name": "Salame"
+    "nome": "Pão de Centeio",
+    "categoria_id": 11,
+    "categoria_nome": "Pães e Massas"
   },
   {
     "id": 444,
-    "categoryId": 6,
-    "name": "Toucinho, cru"
+    "nome": "Pão de Forma",
+    "categoria_id": 11,
+    "categoria_nome": "Pães e Massas"
   },
   {
     "id": 445,
-    "categoryId": 6,
-    "name": "Toucinho, frito"
+    "nome": "Pão Francês",
+    "categoria_id": 11,
+    "categoria_nome": "Pães e Massas"
   },
   {
     "id": 446,
-    "categoryId": 7,
-    "name": "Bebida láctea, pêssego"
+    "nome": "Pão Integral",
+    "categoria_id": 11,
+    "categoria_nome": "Pães e Massas"
   },
   {
     "id": 447,
-    "categoryId": 7,
-    "name": "Creme de Leite"
+    "nome": "Pão de Ló",
+    "categoria_id": 11,
+    "categoria_nome": "Pães e Massas"
   },
   {
     "id": 448,
-    "categoryId": 7,
-    "name": "Iogurte, natural"
+    "nome": "Pão de Queijo",
+    "categoria_id": 11,
+    "categoria_nome": "Pães e Massas"
   },
   {
     "id": 449,
-    "categoryId": 7,
-    "name": "Iogurte, natural, desnatado"
+    "nome": "Pão Sírio",
+    "categoria_id": 11,
+    "categoria_nome": "Pães e Massas"
   },
   {
     "id": 450,
-    "categoryId": 7,
-    "name": "Iogurte, sabor abacaxi"
+    "nome": "Pão de Hambúrguer",
+    "categoria_id": 11,
+    "categoria_nome": "Pães e Massas"
   },
   {
     "id": 451,
-    "categoryId": 7,
-    "name": "Iogurte, sabor morango"
+    "nome": "Pão de Hot Dog",
+    "categoria_id": 11,
+    "categoria_nome": "Pães e Massas"
   },
   {
     "id": 452,
-    "categoryId": 7,
-    "name": "Iogurte, sabor pêssego"
+    "nome": "Pão Australiano",
+    "categoria_id": 11,
+    "categoria_nome": "Pães e Massas"
   },
   {
     "id": 453,
-    "categoryId": 7,
-    "name": "Leite, condensado"
+    "nome": "Pão de Milho",
+    "categoria_id": 11,
+    "categoria_nome": "Pães e Massas"
   },
   {
     "id": 454,
-    "categoryId": 7,
-    "name": "Leite, de cabra"
+    "nome": "Pão de Azeitona",
+    "categoria_id": 11,
+    "categoria_nome": "Pães e Massas"
   },
   {
     "id": 455,
-    "categoryId": 7,
-    "name": "Leite, de vaca, achocolatado"
+    "nome": "Massas",
+    "categoria_id": 11,
+    "categoria_nome": "Pães e Massas"
   },
   {
     "id": 456,
-    "categoryId": 7,
-    "name": "Leite, de vaca, desnatado, pó"
+    "nome": "Fettuccine",
+    "categoria_id": 11,
+    "categoria_nome": "Pães e Massas"
   },
   {
     "id": 457,
-    "categoryId": 7,
-    "name": "Leite, de vaca, desnatado, UHT"
+    "nome": "Lasanha",
+    "categoria_id": 11,
+    "categoria_nome": "Pães e Massas"
   },
   {
     "id": 458,
-    "categoryId": 7,
-    "name": "Leite, de vaca, integral"
+    "nome": "Macarrão",
+    "categoria_id": 11,
+    "categoria_nome": "Pães e Massas"
   },
   {
     "id": 459,
-    "categoryId": 7,
-    "name": "Leite, de vaca, integral, pó"
+    "nome": "Nhoque",
+    "categoria_id": 11,
+    "categoria_nome": "Pães e Massas"
   },
   {
     "id": 460,
-    "categoryId": 7,
-    "name": "Leite, fermentado"
+    "nome": "Penne",
+    "categoria_id": 11,
+    "categoria_nome": "Pães e Massas"
   },
   {
     "id": 461,
-    "categoryId": 7,
-    "name": "Queijo, minas, frescal"
+    "nome": "Ravioli",
+    "categoria_id": 11,
+    "categoria_nome": "Pães e Massas"
   },
   {
     "id": 462,
-    "categoryId": 7,
-    "name": "Queijo, minas, meia cura"
+    "nome": "Rigatoni",
+    "categoria_id": 11,
+    "categoria_nome": "Pães e Massas"
   },
   {
     "id": 463,
-    "categoryId": 7,
-    "name": "Queijo, mozarela"
+    "nome": "Spaghetti",
+    "categoria_id": 11,
+    "categoria_nome": "Pães e Massas"
   },
   {
     "id": 464,
-    "categoryId": 7,
-    "name": "Queijo, parmesão"
+    "nome": "Talharim",
+    "categoria_id": 11,
+    "categoria_nome": "Pães e Massas"
   },
   {
     "id": 465,
-    "categoryId": 7,
-    "name": "Queijo, pasteurizado"
+    "nome": "Tortellini",
+    "categoria_id": 11,
+    "categoria_nome": "Pães e Massas"
   },
   {
     "id": 466,
-    "categoryId": 7,
-    "name": "Queijo, petit suisse, morango"
+    "nome": "Conchiglioni",
+    "categoria_id": 11,
+    "categoria_nome": "Pães e Massas"
   },
   {
     "id": 467,
-    "categoryId": 7,
-    "name": "Queijo, prato"
+    "nome": "Gnocchi",
+    "categoria_id": 11,
+    "categoria_nome": "Pães e Massas"
   },
   {
     "id": 468,
-    "categoryId": 7,
-    "name": "Queijo, requeijão, cremoso"
+    "nome": "Massas Frescas (ex: Massa para Pizza)",
+    "categoria_id": 11,
+    "categoria_nome": "Pães e Massas"
   },
   {
     "id": 469,
-    "categoryId": 7,
-    "name": "Queijo, ricota"
+    "nome": "Massas de Polenta",
+    "categoria_id": 11,
+    "categoria_nome": "Pães e Massas"
   },
   {
     "id": 470,
-    "categoryId": 8,
-    "name": "Bebida isotônica, sabores variados"
+    "nome": "Massa de Pastel",
+    "categoria_id": 11,
+    "categoria_nome": "Pães e Massas"
   },
   {
     "id": 471,
-    "categoryId": 8,
-    "name": "Café, infusão 10%"
+    "nome": "Massa de Crepe",
+    "categoria_id": 11,
+    "categoria_nome": "Pães e Massas"
   },
   {
     "id": 472,
-    "categoryId": 8,
-    "name": "Cana, aguardente 1"
+    "nome": "Massa de Sopa",
+    "categoria_id": 11,
+    "categoria_nome": "Pães e Massas"
   },
   {
     "id": 473,
-    "categoryId": 8,
-    "name": "Cana, caldo de"
+    "nome": "Pêssego em calda",
+    "categoria_id": 12,
+    "categoria_nome": "Enlatados e Conservas"
   },
   {
     "id": 474,
-    "categoryId": 8,
-    "name": "Cerveja, pilsen 2"
+    "nome": "Feijão Carioca em conserva",
+    "categoria_id": 12,
+    "categoria_nome": "Enlatados e Conservas"
   },
   {
     "id": 475,
-    "categoryId": 8,
-    "name": "Chá, erva-doce, infusão 5%"
+    "nome": "Atum",
+    "categoria_id": 12,
+    "categoria_nome": "Enlatados e Conservas"
   },
   {
     "id": 476,
-    "categoryId": 8,
-    "name": "Chá, mate, infusão 5%"
+    "nome": "Berinjela em Conserva",
+    "categoria_id": 12,
+    "categoria_nome": "Enlatados e Conservas"
   },
   {
     "id": 477,
-    "categoryId": 8,
-    "name": "Chá, preto, infusão 5%"
+    "nome": "Feijão Preto em conserva",
+    "categoria_id": 12,
+    "categoria_nome": "Enlatados e Conservas"
   },
   {
     "id": 478,
-    "categoryId": 8,
-    "name": "Coco, água de"
+    "nome": "Milho Verde",
+    "categoria_id": 12,
+    "categoria_nome": "Enlatados e Conservas"
   },
   {
     "id": 479,
-    "categoryId": 8,
-    "name": "Refrigerante, tipo água tônica"
+    "nome": "Sardinha",
+    "categoria_id": 12,
+    "categoria_nome": "Enlatados e Conservas"
   },
   {
     "id": 480,
-    "categoryId": 8,
-    "name": "Refrigerante, tipo cola"
+    "nome": "Tomate Pelado",
+    "categoria_id": 12,
+    "categoria_nome": "Enlatados e Conservas"
   },
   {
     "id": 481,
-    "categoryId": 8,
-    "name": "Refrigerante, tipo guaraná"
+    "nome": "Abacaxi em Calda",
+    "categoria_id": 12,
+    "categoria_nome": "Enlatados e Conservas"
   },
   {
     "id": 482,
-    "categoryId": 8,
-    "name": "Refrigerante, tipo laranja"
+    "nome": "Molho de Tomate",
+    "categoria_id": 12,
+    "categoria_nome": "Enlatados e Conservas"
   },
   {
     "id": 483,
-    "categoryId": 8,
-    "name": "Refrigerante, tipo limão"
+    "nome": "Grão-de-bico",
+    "categoria_id": 12,
+    "categoria_nome": "Enlatados e Conservas"
   },
   {
     "id": 484,
-    "categoryId": 9,
-    "name": "Omelete, de queijo"
+    "nome": "Azeitona",
+    "categoria_id": 12,
+    "categoria_nome": "Enlatados e Conservas"
   },
   {
     "id": 485,
-    "categoryId": 9,
-    "name": "Ovo, de codorna, inteiro, cru"
+    "nome": "Ervilha",
+    "categoria_id": 12,
+    "categoria_nome": "Enlatados e Conservas"
   },
   {
     "id": 486,
-    "categoryId": 9,
-    "name": "Ovo, de galinha, clara, cozida/10minutos"
+    "nome": "Palmito",
+    "categoria_id": 12,
+    "categoria_nome": "Enlatados e Conservas"
   },
   {
     "id": 487,
-    "categoryId": 9,
-    "name": "Ovo, de galinha, gema, cozida/10minutos"
+    "nome": "Cogumelos em Conserva",
+    "categoria_id": 12,
+    "categoria_nome": "Enlatados e Conservas"
   },
   {
     "id": 488,
-    "categoryId": 9,
-    "name": "Ovo, de galinha, inteiro, cozido/10minutos"
+    "nome": "Pimentão em Conserva",
+    "categoria_id": 12,
+    "categoria_nome": "Enlatados e Conservas"
   },
   {
     "id": 489,
-    "categoryId": 9,
-    "name": "Ovo, de galinha, inteiro, cru"
+    "nome": "Peixe Sardinha",
+    "categoria_id": 12,
+    "categoria_nome": "Enlatados e Conservas"
   },
   {
     "id": 490,
-    "categoryId": 9,
-    "name": "Ovo, de galinha, inteiro, frito"
+    "nome": "Conservas",
+    "categoria_id": 12,
+    "categoria_nome": "Enlatados e Conservas"
   },
   {
     "id": 491,
-    "categoryId": 10,
-    "name": "Achocolatado, pó"
+    "nome": "Conserva de Alho",
+    "categoria_id": 12,
+    "categoria_nome": "Enlatados e Conservas"
   },
   {
     "id": 492,
-    "categoryId": 10,
-    "name": "Açúcar, cristal"
+    "nome": "Conserva de Cebola",
+    "categoria_id": 12,
+    "categoria_nome": "Enlatados e Conservas"
   },
   {
     "id": 493,
-    "categoryId": 10,
-    "name": "Açúcar, mascavo"
+    "nome": "Conserva de Cenoura",
+    "categoria_id": 12,
+    "categoria_nome": "Enlatados e Conservas"
   },
   {
     "id": 494,
-    "categoryId": 10,
-    "name": "Açúcar, refinado"
+    "nome": "Conserva de Pepino (Pickles)",
+    "categoria_id": 12,
+    "categoria_nome": "Enlatados e Conservas"
   },
   {
     "id": 495,
-    "categoryId": 10,
-    "name": "Chocolate, ao leite"
+    "nome": "Conserva de Rabanete",
+    "categoria_id": 12,
+    "categoria_nome": "Enlatados e Conservas"
   },
   {
     "id": 496,
-    "categoryId": 10,
-    "name": "Chocolate, ao leite, com castanha do Pará"
+    "nome": "Conserva de Couve-flor",
+    "categoria_id": 12,
+    "categoria_nome": "Enlatados e Conservas"
   },
   {
     "id": 497,
-    "categoryId": 10,
-    "name": "Chocolate, ao leite, dietético"
+    "nome": "Conserva de Pimenta",
+    "categoria_id": 12,
+    "categoria_nome": "Enlatados e Conservas"
   },
   {
     "id": 498,
-    "categoryId": 10,
-    "name": "Chocolate, meio amargo"
+    "nome": "Conserva de Abobrinha",
+    "categoria_id": 12,
+    "categoria_nome": "Enlatados e Conservas"
   },
   {
     "id": 499,
-    "categoryId": 10,
-    "name": "Cocada branca"
+    "nome": "Conserva de Berinjela",
+    "categoria_id": 12,
+    "categoria_nome": "Enlatados e Conservas"
   },
   {
     "id": 500,
-    "categoryId": 10,
-    "name": "Doce, de abóbora, cremoso"
+    "nome": "Conserva de Beringela",
+    "categoria_id": 12,
+    "categoria_nome": "Enlatados e Conservas"
   },
   {
     "id": 501,
-    "categoryId": 10,
-    "name": "Doce, de leite, cremoso"
+    "nome": "Conserva de Jalapeño",
+    "categoria_id": 12,
+    "categoria_nome": "Enlatados e Conservas"
   },
   {
     "id": 502,
-    "categoryId": 10,
-    "name": "Geléia, mocotó, natural"
+    "nome": "Conserva de Limão",
+    "categoria_id": 12,
+    "categoria_nome": "Enlatados e Conservas"
   },
   {
     "id": 503,
-    "categoryId": 10,
-    "name": "Glicose de milho"
+    "nome": "Conserva de Pêssego",
+    "categoria_id": 12,
+    "categoria_nome": "Enlatados e Conservas"
   },
   {
     "id": 504,
-    "categoryId": 10,
-    "name": "Maria mole"
+    "nome": "Conserva de Uva",
+    "categoria_id": 12,
+    "categoria_nome": "Enlatados e Conservas"
   },
   {
     "id": 505,
-    "categoryId": 10,
-    "name": "Maria mole, coco queimado"
+    "nome": "Conserva de Maçã",
+    "categoria_id": 12,
+    "categoria_nome": "Enlatados e Conservas"
   },
   {
     "id": 506,
-    "categoryId": 10,
-    "name": "Marmelada"
+    "nome": "Banana seca",
+    "categoria_id": 13,
+    "categoria_nome": "Doces e Sobremesas"
   },
   {
     "id": 507,
-    "categoryId": 10,
-    "name": "Mel, de abelha"
+    "nome": "Açúcar",
+    "categoria_id": 13,
+    "categoria_nome": "Doces e Sobremesas"
   },
   {
     "id": 508,
-    "categoryId": 10,
-    "name": "Melado"
+    "nome": "Açúcar de Confeiteiro",
+    "categoria_id": 13,
+    "categoria_nome": "Doces e Sobremesas"
   },
   {
     "id": 509,
-    "categoryId": 10,
-    "name": "Quindim"
+    "nome": "Amido de Milho",
+    "categoria_id": 13,
+    "categoria_nome": "Doces e Sobremesas"
   },
   {
     "id": 510,
-    "categoryId": 10,
-    "name": "Rapadura"
+    "nome": "Baunilha (Extrato ou Essência)",
+    "categoria_id": 13,
+    "categoria_nome": "Doces e Sobremesas"
   },
   {
     "id": 511,
-    "categoryId": 11,
-    "name": "Café, pó, torrado"
+    "nome": "Bicarbonato de Sódio",
+    "categoria_id": 13,
+    "categoria_nome": "Doces e Sobremesas"
   },
   {
     "id": 512,
-    "categoryId": 11,
-    "name": "Capuccino, pó"
+    "nome": "Chocolate Amargo",
+    "categoria_id": 13,
+    "categoria_nome": "Doces e Sobremesas"
   },
   {
     "id": 513,
-    "categoryId": 11,
-    "name": "Fermento em pó, químico"
+    "nome": "Chocolate ao Leite",
+    "categoria_id": 13,
+    "categoria_nome": "Doces e Sobremesas"
   },
   {
     "id": 514,
-    "categoryId": 11,
-    "name": "Fermento, biológico, levedura, tablete"
+    "nome": "Chocolate Branco",
+    "categoria_id": 13,
+    "categoria_nome": "Doces e Sobremesas"
   },
   {
     "id": 515,
-    "categoryId": 11,
-    "name": "Gelatina, sabores variados, pó"
+    "nome": "Creme de Leite",
+    "categoria_id": 13,
+    "categoria_nome": "Doces e Sobremesas"
   },
   {
     "id": 516,
-    "categoryId": 11,
-    "name": "Sal, dietético"
+    "nome": "Doce de Leite",
+    "categoria_id": 13,
+    "categoria_nome": "Doces e Sobremesas"
   },
   {
     "id": 517,
-    "categoryId": 11,
-    "name": "Sal, grosso"
+    "nome": "Farinha de Amêndoa",
+    "categoria_id": 13,
+    "categoria_nome": "Doces e Sobremesas"
   },
   {
     "id": 518,
-    "categoryId": 11,
-    "name": "Shoyu"
+    "nome": "Farinha de Trigo",
+    "categoria_id": 13,
+    "categoria_nome": "Doces e Sobremesas"
   },
   {
     "id": 519,
-    "categoryId": 11,
-    "name": "Tempero a base de sal"
+    "nome": "Gelatina em Pó",
+    "categoria_id": 13,
+    "categoria_nome": "Doces e Sobremesas"
   },
   {
     "id": 520,
-    "categoryId": 12,
-    "name": "Azeitona, preta, conserva"
+    "nome": "Manteiga",
+    "categoria_id": 13,
+    "categoria_nome": "Doces e Sobremesas"
   },
   {
     "id": 521,
-    "categoryId": 12,
-    "name": "Azeitona, verde, conserva"
+    "nome": "Mel",
+    "categoria_id": 13,
+    "categoria_nome": "Doces e Sobremesas"
   },
   {
     "id": 522,
-    "categoryId": 12,
-    "name": "Chantilly, spray, com gordura vegetal"
+    "nome": "Nutella",
+    "categoria_id": 13,
+    "categoria_nome": "Doces e Sobremesas"
   },
   {
     "id": 523,
-    "categoryId": 12,
-    "name": "Leite, de coco"
+    "nome": "Leite Condensado",
+    "categoria_id": 13,
+    "categoria_nome": "Doces e Sobremesas"
   },
   {
     "id": 524,
-    "categoryId": 12,
-    "name": "Maionese, tradicional com ovos"
+    "nome": "Raspas de Limão",
+    "categoria_id": 13,
+    "categoria_nome": "Doces e Sobremesas"
   },
   {
     "id": 525,
-    "categoryId": 13,
-    "name": "Acarajé"
+    "nome": "Raspas de Laranja",
+    "categoria_id": 13,
+    "categoria_nome": "Doces e Sobremesas"
   },
   {
     "id": 526,
-    "categoryId": 13,
-    "name": "Arroz carreteiro"
+    "nome": "Sorvete",
+    "categoria_id": 13,
+    "categoria_nome": "Doces e Sobremesas"
   },
   {
     "id": 527,
-    "categoryId": 13,
-    "name": "Baião de dois, arroz e feijão-de-corda"
+    "nome": "Stévia",
+    "categoria_id": 13,
+    "categoria_nome": "Doces e Sobremesas"
   },
   {
     "id": 528,
-    "categoryId": 13,
-    "name": "Barreado"
+    "nome": "Uvas Passas",
+    "categoria_id": 13,
+    "categoria_nome": "Doces e Sobremesas"
   },
   {
     "id": 529,
-    "categoryId": 13,
-    "name": "Bife à cavalo, com contra filé"
+    "nome": "Iogurte",
+    "categoria_id": 13,
+    "categoria_nome": "Doces e Sobremesas"
   },
   {
     "id": 530,
-    "categoryId": 13,
-    "name": "Bolinho de arroz"
+    "nome": "Coco Ralado",
+    "categoria_id": 13,
+    "categoria_nome": "Doces e Sobremesas"
   },
   {
     "id": 531,
-    "categoryId": 13,
-    "name": "Camarão à baiana"
+    "nome": "Damasco seco",
+    "categoria_id": 13,
+    "categoria_nome": "Doces e Sobremesas"
   },
   {
     "id": 532,
-    "categoryId": 13,
-    "name": "Charuto, de repolho"
+    "nome": "Morango seco",
+    "categoria_id": 13,
+    "categoria_nome": "Doces e Sobremesas"
   },
   {
     "id": 533,
-    "categoryId": 13,
-    "name": "Cuscuz, de milho, cozido com sal"
+    "nome": "Limão",
+    "categoria_id": 13,
+    "categoria_nome": "Doces e Sobremesas"
   },
   {
     "id": 534,
-    "categoryId": 13,
-    "name": "Cuscuz, paulista"
+    "nome": "Laranja",
+    "categoria_id": 13,
+    "categoria_nome": "Doces e Sobremesas"
   },
   {
     "id": 535,
-    "categoryId": 13,
-    "name": "Cuxá, molho"
+    "nome": "Creme de Avelã",
+    "categoria_id": 13,
+    "categoria_nome": "Doces e Sobremesas"
   },
   {
     "id": 536,
-    "categoryId": 13,
-    "name": "Dobradinha"
+    "nome": "Canela em Pó",
+    "categoria_id": 13,
+    "categoria_nome": "Doces e Sobremesas"
   },
   {
     "id": 537,
-    "categoryId": 13,
-    "name": "Estrogonofe de carne"
+    "nome": "Figo seco",
+    "categoria_id": 13,
+    "categoria_nome": "Doces e Sobremesas"
   },
   {
     "id": 538,
-    "categoryId": 13,
-    "name": "Estrogonofe de frango"
+    "nome": "Fanta Uva",
+    "categoria_id": 13,
+    "categoria_nome": "Bebidas"
   },
   {
     "id": 539,
-    "categoryId": 13,
-    "name": "Feijão tropeiro mineiro"
+    "nome": "Vinho Branco Seco",
+    "categoria_id": 14,
+    "categoria_nome": "Bebidas"
   },
   {
     "id": 540,
-    "categoryId": 13,
-    "name": "Feijoada"
+    "nome": "Água",
+    "categoria_id": 14,
+    "categoria_nome": "Bebidas"
   },
   {
     "id": 541,
-    "categoryId": 13,
-    "name": "Frango, com açafrão"
+    "nome": "Água de Coco",
+    "categoria_id": 14,
+    "categoria_nome": "Bebidas"
   },
   {
     "id": 542,
-    "categoryId": 13,
-    "name": "Macarrão, molho bolognesa"
+    "nome": "Bebida de Soja",
+    "categoria_id": 14,
+    "categoria_nome": "Bebidas"
   },
   {
     "id": 543,
-    "categoryId": 13,
-    "name": "Maniçoba"
+    "nome": "Café",
+    "categoria_id": 14,
+    "categoria_nome": "Bebidas"
   },
   {
     "id": 544,
-    "categoryId": 13,
-    "name": "Quibebe"
+    "nome": "Café com Leite",
+    "categoria_id": 14,
+    "categoria_nome": "Bebidas"
   },
   {
     "id": 545,
-    "categoryId": 13,
-    "name": "Salada, de legumes, com maionese"
+    "nome": "Chá Preto",
+    "categoria_id": 14,
+    "categoria_nome": "Bebidas"
   },
   {
     "id": 546,
-    "categoryId": 13,
-    "name": "Salada, de legumes, cozida no vapor"
+    "nome": "Chocolate Quente",
+    "categoria_id": 14,
+    "categoria_nome": "Bebidas"
   },
   {
     "id": 547,
-    "categoryId": 13,
-    "name": "Salpicão, de frango"
+    "nome": "Coca-Cola",
+    "categoria_id": 14,
+    "categoria_nome": "Bebidas"
   },
   {
     "id": 548,
-    "categoryId": 13,
-    "name": "Sarapatel"
+    "nome": "Guaraná",
+    "categoria_id": 14,
+    "categoria_nome": "Bebidas"
   },
   {
     "id": 549,
-    "categoryId": 13,
-    "name": "Tabule"
+    "nome": "Iced Tea (Chá Gelado)",
+    "categoria_id": 14,
+    "categoria_nome": "Bebidas"
   },
   {
     "id": 550,
-    "categoryId": 13,
-    "name": "Tacacá"
+    "nome": "Isotônico",
+    "categoria_id": 14,
+    "categoria_nome": "Bebidas"
   },
   {
     "id": 551,
-    "categoryId": 13,
-    "name": "Tapioca, com manteiga"
+    "nome": "Limonada",
+    "categoria_id": 14,
+    "categoria_nome": "Bebidas"
   },
   {
     "id": 552,
-    "categoryId": 13,
-    "name": "Tucupi, com pimenta-de-cheiro"
+    "nome": "Milkshake",
+    "categoria_id": 14,
+    "categoria_nome": "Bebidas"
   },
   {
     "id": 553,
-    "categoryId": 13,
-    "name": "Vaca atolada"
+    "nome": "Fanta Laranja",
+    "categoria_id": 14,
+    "categoria_nome": "Bebidas"
   },
   {
     "id": 554,
-    "categoryId": 13,
-    "name": "Vatapá"
+    "nome": "Smoothie",
+    "categoria_id": 14,
+    "categoria_nome": "Bebidas"
   },
   {
     "id": 555,
-    "categoryId": 13,
-    "name": "Virado à paulista"
+    "nome": "Suco de Laranja",
+    "categoria_id": 14,
+    "categoria_nome": "Bebidas"
   },
   {
     "id": 556,
-    "categoryId": 13,
-    "name": "Yakisoba"
+    "nome": "Suco Verde",
+    "categoria_id": 14,
+    "categoria_nome": "Bebidas"
   },
   {
     "id": 557,
-    "categoryId": 14,
-    "name": "Amendoim, grão, cru"
+    "nome": "Vinho Tinto Seco",
+    "categoria_id": 14,
+    "categoria_nome": "Bebidas"
   },
   {
     "id": 558,
-    "categoryId": 14,
-    "name": "Amendoim, torrado, salgado"
+    "nome": "Vodka",
+    "categoria_id": 14,
+    "categoria_nome": "Bebidas"
   },
   {
     "id": 559,
-    "categoryId": 14,
-    "name": "Ervilha, em vagem"
+    "nome": "Whisky",
+    "categoria_id": 14,
+    "categoria_nome": "Bebidas"
   },
   {
     "id": 560,
-    "categoryId": 14,
-    "name": "Ervilha, enlatada, drenada"
+    "nome": "Cerveja",
+    "categoria_id": 14,
+    "categoria_nome": "Bebidas"
   },
   {
     "id": 561,
-    "categoryId": 14,
-    "name": "Feijão, carioca, cozido"
+    "nome": "Caipirinha",
+    "categoria_id": 14,
+    "categoria_nome": "Bebidas"
   },
   {
     "id": 562,
-    "categoryId": 14,
-    "name": "Feijão, carioca, cru"
+    "nome": "Sangria",
+    "categoria_id": 14,
+    "categoria_nome": "Bebidas"
   },
   {
     "id": 563,
-    "categoryId": 14,
-    "name": "Feijão, fradinho, cozido"
+    "nome": "Batida de leite com fruta",
+    "categoria_id": 14,
+    "categoria_nome": "Bebidas"
   },
   {
     "id": 564,
-    "categoryId": 14,
-    "name": "Feijão, fradinho, cru"
+    "nome": "Aperol Spritz",
+    "categoria_id": 14,
+    "categoria_nome": "Bebidas"
   },
   {
     "id": 565,
-    "categoryId": 14,
-    "name": "Feijão, jalo, cozido"
+    "nome": "Água Tônica",
+    "categoria_id": 14,
+    "categoria_nome": "Bebidas"
   },
   {
     "id": 566,
-    "categoryId": 14,
-    "name": "Feijão, jalo, cru"
+    "nome": "Prosecco",
+    "categoria_id": 14,
+    "categoria_nome": "Bebidas"
   },
   {
     "id": 567,
-    "categoryId": 14,
-    "name": "Feijão, preto, cozido"
+    "nome": "Kombucha",
+    "categoria_id": 14,
+    "categoria_nome": "Bebidas"
   },
   {
     "id": 568,
-    "categoryId": 14,
-    "name": "Feijão, preto, cru"
+    "nome": "Mate",
+    "categoria_id": 14,
+    "categoria_nome": "Bebidas"
   },
   {
     "id": 569,
-    "categoryId": 14,
-    "name": "Feijão, rajado, cozido"
+    "nome": "Água com Gás",
+    "categoria_id": 14,
+    "categoria_nome": "Bebidas"
   },
   {
     "id": 570,
-    "categoryId": 14,
-    "name": "Feijão, rajado, cru"
+    "nome": "Vinho Branco Suave",
+    "categoria_id": 14,
+    "categoria_nome": "Bebidas"
   },
   {
     "id": 571,
-    "categoryId": 14,
-    "name": "Feijão, rosinha, cozido"
+    "nome": "Vinho Tinto Suave",
+    "categoria_id": 14,
+    "categoria_nome": "Bebidas"
   },
   {
     "id": 572,
-    "categoryId": 14,
-    "name": "Feijão, rosinha, cru"
+    "nome": "Acelga Congelada",
+    "categoria_id": 15,
+    "categoria_nome": "Produtos Congelados"
   },
   {
     "id": 573,
-    "categoryId": 14,
-    "name": "Feijão, roxo, cozido"
+    "nome": "Alface Congelada",
+    "categoria_id": 15,
+    "categoria_nome": "Produtos Congelados"
   },
   {
     "id": 574,
-    "categoryId": 14,
-    "name": "Feijão, roxo, cru"
+    "nome": "Bolo Congelado",
+    "categoria_id": 15,
+    "categoria_nome": "Produtos Congelados"
   },
   {
     "id": 575,
-    "categoryId": 14,
-    "name": "Grão-de-bico, cru"
+    "nome": "Brócolis Congelado",
+    "categoria_id": 15,
+    "categoria_nome": "Produtos Congelados"
   },
   {
     "id": 576,
-    "categoryId": 14,
-    "name": "Guandu, cru"
+    "nome": "Carne Moída Congelada",
+    "categoria_id": 15,
+    "categoria_nome": "Produtos Congelados"
   },
   {
     "id": 577,
-    "categoryId": 14,
-    "name": "Lentilha, cozida"
+    "nome": "Castanhas Congeladas",
+    "categoria_id": 15,
+    "categoria_nome": "Produtos Congelados"
   },
   {
     "id": 578,
-    "categoryId": 14,
-    "name": "Lentilha, crua"
+    "nome": "Frango Congelado",
+    "categoria_id": 15,
+    "categoria_nome": "Produtos Congelados"
   },
   {
     "id": 579,
-    "categoryId": 14,
-    "name": "Paçoca, amendoim"
+    "nome": "Polpa de Fruta Congelada",
+    "categoria_id": 15,
+    "categoria_nome": "Produtos Congelados"
   },
   {
     "id": 580,
-    "categoryId": 14,
-    "name": "Pé-de-moleque, amendoim"
+    "nome": "Sorvete",
+    "categoria_id": 15,
+    "categoria_nome": "Produtos Congelados"
   },
   {
     "id": 581,
-    "categoryId": 14,
-    "name": "Soja, farinha"
+    "nome": "Sopa Congelada",
+    "categoria_id": 15,
+    "categoria_nome": "Produtos Congelados"
   },
   {
     "id": 582,
-    "categoryId": 14,
-    "name": "Soja, extrato solúvel, natural, fluido"
+    "nome": "Torta Congelada",
+    "categoria_id": 15,
+    "categoria_nome": "Produtos Congelados"
   },
   {
     "id": 583,
-    "categoryId": 14,
-    "name": "Soja, extrato solúvel, pó"
+    "nome": "Vegetais Mistos Congelados",
+    "categoria_id": 15,
+    "categoria_nome": "Produtos Congelados"
   },
   {
     "id": 584,
-    "categoryId": 14,
-    "name": "Soja, queijo (tofu)"
+    "nome": "Aipim Congelado",
+    "categoria_id": 15,
+    "categoria_nome": "Produtos Congelados"
   },
   {
     "id": 585,
-    "categoryId": 14,
-    "name": "Tremoço, cru"
+    "nome": "Espinafre Congelado",
+    "categoria_id": 15,
+    "categoria_nome": "Produtos Congelados"
   },
   {
     "id": 586,
-    "categoryId": 14,
-    "name": "Tremoço, em conserva"
+    "nome": "Pão de Queijo Congelado",
+    "categoria_id": 15,
+    "categoria_nome": "Produtos Congelados"
   },
   {
     "id": 587,
-    "categoryId": 15,
-    "name": "Amêndoa, torrada, salgada"
+    "nome": "Palmito Congelado",
+    "categoria_id": 15,
+    "categoria_nome": "Produtos Congelados"
   },
   {
     "id": 588,
-    "categoryId": 15,
-    "name": "Castanha-de-caju, torrada, salgada"
+    "nome": "Hambúrguer de Carne",
+    "categoria_id": 15,
+    "categoria_nome": "Produtos Congelados"
   },
   {
     "id": 589,
-    "categoryId": 15,
-    "name": "Castanha-do-Brasil, crua"
+    "nome": "Batata Frita Congelada",
+    "categoria_id": 15,
+    "categoria_nome": "Produtos Congelados"
   },
   {
     "id": 590,
-    "categoryId": 15,
-    "name": "Coco, cru"
+    "nome": "Pêssego Congelado",
+    "categoria_id": 15,
+    "categoria_nome": "Produtos Congelados"
   },
   {
     "id": 591,
-    "categoryId": 15,
-    "name": "Coco,  verde, cru"
+    "nome": "Ragu Congelado",
+    "categoria_id": 15,
+    "categoria_nome": "Produtos Congelados"
   },
   {
     "id": 592,
-    "categoryId": 15,
-    "name": "Farinha, de mesocarpo de babaçu, crua"
+    "nome": "Frango Empanado Congelado",
+    "categoria_id": 15,
+    "categoria_nome": "Produtos Congelados"
   },
   {
     "id": 593,
-    "categoryId": 15,
-    "name": "Gergelim, semente"
+    "nome": "Empanada Congelada",
+    "categoria_id": 15,
+    "categoria_nome": "Produtos Congelados"
   },
   {
     "id": 594,
-    "categoryId": 15,
-    "name": "Linhaça, semente"
+    "nome": "Bolinho de Bacalhau Congelado",
+    "categoria_id": 15,
+    "categoria_nome": "Produtos Congelados"
   },
   {
     "id": 595,
-    "categoryId": 15,
-    "name": "Pinhão, cozido"
+    "nome": "Nuggets de Frango Congelados",
+    "categoria_id": 15,
+    "categoria_nome": "Produtos Congelados"
   },
   {
     "id": 596,
-    "categoryId": 15,
-    "name": "Pupunha, cozida"
+    "nome": "Waffle Congelado",
+    "categoria_id": 15,
+    "categoria_nome": "Produtos Congelados"
   },
   {
     "id": 597,
-    "categoryId": 15,
-    "name": "Noz, crua"
+    "nome": "Hambúrguer de Frango",
+    "categoria_id": 15,
+    "categoria_nome": "Produtos Congelados"
   },
-    {
-      "id": 598,
-      "categoryId": 16,
-      "name": "Vodka"
-    },
-    {
-      "id": 599,
-      "categoryId": 16,
-      "name": "Rum"
-    },
-    {
-      "id": 600,
-      "categoryId": 16,
-      "name": "Gin"
-    },
-    {
-      "id": 601,
-      "categoryId": 16,
-      "name": "Tequila"
-    },
-    {
-      "id": 602,
-      "categoryId": 16,
-      "name": "Whiskey"
-    },
-    {
-      "id": 603,
-      "categoryId": 16,
-      "name": "Cachaça"
-    },
-    {
-      "id": 604,
-      "categoryId": 16,
-      "name": "Triple Sec"
-    },
-    {
-      "id": 605,
-      "categoryId": 16,
-      "name": "Vermute"
-    },
-    {
-      "id": 606,
-      "categoryId": 16,
-      "name": "Licor de Café"
-    },
-    {
-      "id": 607,
-      "categoryId": 16,
-      "name": "Licor de Amêndoa"
-    },
-    {
-      "id": 608,
-      "categoryId": 16,
-      "name": "Sake"
-    },
-    {
-      "id": 609,
-      "categoryId": 16,
-      "name": "Champagne"
-    },
-    {
-      "id": 610,
-      "categoryId": 16,
-      "name": "Vinho Tinto"
-    },
-    {
-      "id": 611,
-      "categoryId": 16,
-      "name": "Vinho Branco"
-    },
-    {
-      "id": 612,
-      "categoryId": 16,
-      "name": "Cerveja"
-    },
-    {
-      "id": 613,
-      "categoryId": 16,
-      "name": "Suco de Limão"
-    },
-    {
-      "id": 614,
-      "categoryId": 16,
-      "name": "Suco de Laranja"
-    },
-    {
-      "id": 615,
-      "categoryId": 16,
-      "name": "Suco de Abacaxi"
-    },
-    {
-      "id": 616,
-      "categoryId": 16,
-      "name": "Água"
-    },
-    {
-      "id": 617,
-      "categoryId": 16,
-      "name": "Água Tônica"
-    },
-    {
-      "id": 618,
-      "categoryId": 16,
-      "name": "Água com Gás"
-    },
-    {
-      "id": 619,
-      "categoryId": 16,
-      "name": "Suco de Maçã"
-    },
-    {
-      "id": 620,
-      "categoryId": 16,
-      "name": "Suco de Uva"
-    },
-    {
-      "id": 621,
-      "categoryId": 16,
-      "name": "Água de Coco"
-    },
-    {
-      "id": 622,
-      "categoryId": 16,
-      "name": "Soda"
-    },
-    {
-      "id": 623,
-      "categoryId": 16,
-      "name": "Guaraná"
-    },
-    {
-      "id": 624,
-      "categoryId": 16,
-      "name": "Café"
-    },
-    {
-      "id": 625,
-      "categoryId": 16,
-      "name": "Chá Preto"
-    },
-    {
-      "id": 626,
-      "categoryId": 16,
-      "name": "Chá Verde"
-    },
-    {
-      "id": 627,
-      "categoryId": 16,
-      "name": "Chá de Hortelã"
-    },
-    {
-      "id": 628,
-      "categoryId": 16,
-      "name": "Leite"
-    },
-    {
-      "id": 629,
-      "categoryId": 16,
-      "name": "Leite de Amêndoas"
-    },
-    {
-      "id": 630,
-      "categoryId": 16,
-      "name": "Leite de Coco"
-    } 
+  {
+    "id": 598,
+    "nome": "Hambúrguer de Costela",
+    "categoria_id": 15,
+    "categoria_nome": "Produtos Congelados"
+  },
+  {
+    "id": 599,
+    "nome": "Hambúrguer Vegano",
+    "categoria_id": 15,
+    "categoria_nome": "Produtos Congelados"
+  },
+  {
+    "id": 600,
+    "nome": "Alho",
+    "categoria_id": 16,
+    "categoria_nome": "Temperos"
+  },
+  {
+    "id": 601,
+    "nome": "Alho-poró",
+    "categoria_id": 16,
+    "categoria_nome": "Temperos"
+  },
+  {
+    "id": 602,
+    "nome": "Bacon",
+    "categoria_id": 16,
+    "categoria_nome": "Temperos"
+  },
+  {
+    "id": 603,
+    "nome": "Caldo de Galinha",
+    "categoria_id": 16,
+    "categoria_nome": "Temperos"
+  },
+  {
+    "id": 604,
+    "nome": "Canela em Pau",
+    "categoria_id": 16,
+    "categoria_nome": "Temperos"
+  },
+  {
+    "id": 605,
+    "nome": "Curry",
+    "categoria_id": 16,
+    "categoria_nome": "Temperos"
+  },
+  {
+    "id": 606,
+    "nome": "Farinha de Centeio",
+    "categoria_id": 16,
+    "categoria_nome": "Temperos"
+  },
+  {
+    "id": 607,
+    "nome": "Farinha de Milho",
+    "categoria_id": 16,
+    "categoria_nome": "Temperos"
+  },
+  {
+    "id": 608,
+    "nome": "Gengibre",
+    "categoria_id": 16,
+    "categoria_nome": "Temperos"
+  },
+  {
+    "id": 609,
+    "nome": "Molho Shoyu",
+    "categoria_id": 16,
+    "categoria_nome": "Temperos"
+  },
+  {
+    "id": 610,
+    "nome": "Mostarda",
+    "categoria_id": 16,
+    "categoria_nome": "Temperos"
+  },
+  {
+    "id": 611,
+    "nome": "Noz-Moscada",
+    "categoria_id": 16,
+    "categoria_nome": "Temperos"
+  },
+  {
+    "id": 612,
+    "nome": "Pimenta-do-Reino",
+    "categoria_id": 16,
+    "categoria_nome": "Temperos"
+  },
+  {
+    "id": 613,
+    "nome": "Pimenta Vermelha",
+    "categoria_id": 16,
+    "categoria_nome": "Temperos"
+  },
+  {
+    "id": 614,
+    "nome": "Sal",
+    "categoria_id": 16,
+    "categoria_nome": "Temperos"
+  },
+  {
+    "id": 615,
+    "nome": "Sal Grosso",
+    "categoria_id": 16,
+    "categoria_nome": "Temperos"
+  },
+  {
+    "id": 616,
+    "nome": "Sal de Alho",
+    "categoria_id": 16,
+    "categoria_nome": "Temperos"
+  },
+  {
+    "id": 617,
+    "nome": "Sal de Limão",
+    "categoria_id": 16,
+    "categoria_nome": "Temperos"
+  },
+  {
+    "id": 618,
+    "nome": "Salsinha",
+    "categoria_id": 16,
+    "categoria_nome": "Temperos"
+  },
+  {
+    "id": 619,
+    "nome": "Salsa",
+    "categoria_id": 16,
+    "categoria_nome": "Temperos"
+  },
+  {
+    "id": 620,
+    "nome": "Caldo Vegetal",
+    "categoria_id": 16,
+    "categoria_nome": "Temperos"
+  },
+  {
+    "id": 621,
+    "nome": "Tempero Baiano",
+    "categoria_id": 16,
+    "categoria_nome": "Temperos"
+  },
+  {
+    "id": 622,
+    "nome": "Vinagre de Maça",
+    "categoria_id": 16,
+    "categoria_nome": "Temperos"
+  },
+  {
+    "id": 623,
+    "nome": "Vinagre de Limão",
+    "categoria_id": 16,
+    "categoria_nome": "Temperos"
+  },
+  {
+    "id": 624,
+    "nome": "Gema de Ovo",
+    "categoria_id": 16,
+    "categoria_nome": "Temperos"
+  },
+  {
+    "id": 625,
+    "nome": "Leite de Cabra",
+    "categoria_id": 16,
+    "categoria_nome": "Temperos"
+  },
+  {
+    "id": 626,
+    "nome": "Manteiga de Amendoim",
+    "categoria_id": 16,
+    "categoria_nome": "Temperos"
+  },
+  {
+    "id": 627,
+    "nome": "Pasta de Tahine",
+    "categoria_id": 16,
+    "categoria_nome": "Temperos"
+  },
+  {
+    "id": 628,
+    "nome": "Açúcar Mascavo",
+    "categoria_id": 16,
+    "categoria_nome": "Temperos"
+  },
+  {
+    "id": 629,
+    "nome": "Chá Verde",
+    "categoria_id": 14,
+    "categoria_nome": "Bebidas"
+  },
+  {
+    "id": 630,
+    "nome": "Chá de Camomila",
+    "categoria_id": 14,
+    "categoria_nome": "Bebidas"
+  },
+  {
+    "id": 631,
+    "nome": "Alga Nori",
+    "categoria_id": 17,
+    "categoria_nome": "Japonês"
+  },
+  {
+    "id": 632,
+    "nome": "Alga Wakame",
+    "categoria_id": 17,
+    "categoria_nome": "Japonês"
+  },
+  {
+    "id": 633,
+    "nome": "Alga Kombu",
+    "categoria_id": 17,
+    "categoria_nome": "Japonês"
+  },
+  {
+    "id": 634,
+    "nome": "Alga Nori",
+    "categoria_id": 17,
+    "categoria_nome": "Japonês"
+  },
+  {
+    "id": 635,
+    "nome": "Alga Wakame",
+    "categoria_id": 17,
+    "categoria_nome": "Japonês"
+  },
+  {
+    "id": 636,
+    "nome": "Alga Kombu",
+    "categoria_id": 17,
+    "categoria_nome": "Japonês"
+  },
+  {
+    "id": 637,
+    "nome": "Molho de Soja",
+    "categoria_id": 17,
+    "categoria_nome": "Japonês"
+  },
+  {
+    "id": 638,
+    "nome": "Pasta de Gergelim (Tahine)",
+    "categoria_id": 17,
+    "categoria_nome": "Japonês"
+  },
+  {
+    "id": 639,
+    "nome": "Suco de Morango",
+    "categoria_id": 14,
+    "categoria_nome": "Bebidas"
+  },
+  {
+    "id": 640,
+    "nome": "H20",
+    "categoria_id": 14,
+    "categoria_nome": "Bebidas"
+  },
+  {
+    "id": 641,
+    "nome": "Suco de Uva",
+    "categoria_id": 14,
+    "categoria_nome": "Bebidas"
+  },
+  {
+    "id": 642,
+    "nome": "Suco de Limão",
+    "categoria_id": 14,
+    "categoria_nome": "Bebidas"
+  },
+  {
+    "id": 643,
+    "nome": "Tempero para Salada",
+    "categoria_id": 16,
+    "categoria_nome": "Temperos"
+  },
+  {
+    "id": 644,
+    "nome": "Vinagre",
+    "categoria_id": 16,
+    "categoria_nome": "Temperos"
+  },
+  {
+    "id": 645,
+    "nome": "Leite Desnatado",
+    "categoria_id": 16,
+    "categoria_nome": "Temperos"
+  },
+  {
+    "id": 646,
+    "nome": "Leite Vegetal",
+    "categoria_id": 16,
+    "categoria_nome": "Temperos"
+  },
+  {
+    "id": 647,
+    "nome": "Leite de Soja",
+    "categoria_id": 16,
+    "categoria_nome": "Temperos"
+  },
+  {
+    "id": 648,
+    "nome": "Chocolate em Pó",
+    "categoria_id": 13,
+    "categoria_nome": "Doces e Sobremesas"
+  }
 ]

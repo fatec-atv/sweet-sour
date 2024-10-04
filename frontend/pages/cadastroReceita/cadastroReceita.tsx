@@ -10,7 +10,7 @@ import { useNavigation, NavigationProp } from '@react-navigation/native';
 
 interface Ingrediente {
   id: string;
-  name: string;
+  nome: string;
 }
 
 interface Receita {
@@ -124,7 +124,7 @@ const CadastroReceita: React.FC = () => {
   useEffect(() => {
     const fetchIngredientes = () => {
       const ingredientesDataFormatted = ingredientesData.map((produto) => ({
-        label: produto.name,
+        label: produto.nome,
         value: produto.id.toString(),
       }));
       setIngredientes(ingredientesDataFormatted);
