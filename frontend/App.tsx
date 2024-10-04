@@ -10,12 +10,15 @@ import CadastroUsuario from './pages/cadastroUsuario/cadastroUsuario';
 import Login from './pages/login/login';
 import MeuPerfil from './pages/meuPerfil/meuPerfil';
 import MinhasReceitas from './pages/minhasReceitas/minhasReceitas';
+import Comentar from './pages/comentario/comentar';
+import ComentariosReceita from './components/comentarios';
+import TelaComentarios from './pages/comentario/comentarios';
 
 export type RootStackParamList = {
   Home: undefined;
   CadastroReceita: undefined;
   ListagemReceitas: undefined;
-  VisualizacaoReceita: { id: string }; // Adicione esta linha
+  VisualizacaoReceita: { id: string }; 
 };
 
 const Stack = createStackNavigator<RootStackParamList>();
@@ -32,6 +35,8 @@ const App: React.FC = () => {
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="MeuPerfil" component={MeuPerfil} />
         <Stack.Screen name="MinhasReceitas" component={MinhasReceitas} />
+        <Stack.Screen name="Comentar" component={Comentar} />
+        <Stack.Screen name="Comentarios" component={TelaComentarios} />
       </Stack.Navigator>
     </NavigationContainer>
   );

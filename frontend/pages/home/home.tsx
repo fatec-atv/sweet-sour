@@ -28,27 +28,9 @@ const Home: React.FC = () => {
     <View style={styles.container}>
       <TouchableOpacity
         style={styles.button}
-        onPress={() => navigation.navigate('CadastroReceita')}
-      >
-        <Text style={styles.buttonText}>Cadastrar receitas</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        style={styles.button}
         onPress={() => navigation.navigate('ListagemReceitas')}
       >
         <Text style={styles.buttonText}>Listar receitas</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        style={styles.button}
-        onPress={() => navigation.navigate('CadastroUsuario')}
-      >
-        <Text style={styles.buttonText}>Cadastrar usuário</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        style={styles.button}
-        onPress={() => navigation.navigate('Login')}
-      >
-        <Text style={styles.buttonText}>Login</Text>
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.button}
@@ -95,7 +77,7 @@ const styles = StyleSheet.create({
   },
   logoutButton: {
     marginTop: 20,
-    backgroundColor: '#555', // Cor diferente para o botão de logout
+    backgroundColor: '#555',
     padding: 15,
     borderRadius: 25,
     alignItems: 'center',

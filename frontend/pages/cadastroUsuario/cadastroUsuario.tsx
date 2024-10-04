@@ -1,7 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import { View, Text, TextInput, StyleSheet, Alert, ScrollView } from 'react-native';
-import { collection, query, where, getDocs } from 'firebase/firestore';
+import React, { useState } from 'react';
+import { View, Text, TextInput, TouchableOpacity, Alert, StyleSheet, ScrollView } from 'react-native';
+import { Picker } from '@react-native-picker/picker';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { collection, addDoc } from 'firebase/firestore';
 import { authFirebase, db } from '../../config';
+
 interface Usuario {
   nome: string;
   email: string;
@@ -12,112 +15,170 @@ interface Usuario {
   restricoesAlimentares: string[];
 }
 
-const MeuPerfil: React.FC = () => {
-  const [usuario, setUsuario] = useState<Usuario | null>(null);
-  const [loading, setLoading] = useState<boolean>(true);
+const restricoesOpcoes = ['Intolerância à Glúten', 'Intolerância à Lactose', 'Vegetarianismo', 'Veganismo'];
 
-  useEffect(() => {
-    const fetchUserProfile = async () => {
-      try {
-        // Obtendo o usuário autenticado
-        const user = authFirebase.currentUser;
-        if (!user) {
-          console.log('Nenhum usuário autenticado.');
-          Alert.alert('Erro', 'Nenhum usuário autenticado.');
-          return;
-        }
+const CadastroUsuario: React.FC = () => {
+  const [usuario, setUsuario] = useState<Usuario>({
+    nome: '',
+    email: '',
+    cpf: '',
+    telefone: '',
+    senha: '',
+    confirmarSenha: '',
+    restricoesAlimentares: [],
+  });
 
-        console.log('UID do usuário autenticado:', user.uid);
+  const handleChange = (name: string, value: any) => {
+    setUsuario({
+      ...usuario,
+      [name]: value,
+    });
+  };
 
-        // Query para encontrar o documento do usuário onde o campo `uid` corresponde
-        const usuariosRef = collection(db, 'usuarios');
-        const q = query(usuariosRef, where('uid', '==', user.uid));
-        const querySnapshot = await getDocs(q);
+  const validarCPF = (cpf: string) => {
+    return /^[0-9]{11}$/.test(cpf);
+  };
+  
+  const validarEmail = (email: string) => {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  };
 
-        // Verificando se algum documento foi encontrado
-        if (!querySnapshot.empty) {
-          // Iterando sobre os resultados (mesmo que só tenha um)
-          querySnapshot.forEach((doc) => {
-            console.log('Usuário encontrado:', doc.data());
-            setUsuario(doc.data() as Usuario);
-          });
-        } else {
-          console.log('Nenhum usuário encontrado com o UID:', user.uid);
-          Alert.alert('Erro', 'Nenhum usuário encontrado com o UID.');
-          setUsuario(null);
-        }
-      } catch (error) {
-        console.error('Erro ao buscar perfil do usuário:', error);
-        Alert.alert('Erro', 'Não foi possível buscar os detalhes do perfil.');
-      } finally {
-        setLoading(false);
-      }
-    };
+  const toggleRestricao = (restricao: string) => {
+    setUsuario((prevState) => {
+      const restricoes = prevState.restricoesAlimentares.includes(restricao)
+        ? prevState.restricoesAlimentares.filter((r) => r !== restricao)
+        : [...prevState.restricoesAlimentares, restricao];
 
-    fetchUserProfile();
-  }, []);
+      return { ...prevState, restricoesAlimentares: restricoes };
+    });
+  };
 
-  if (loading) {
-    return (
-      <View style={styles.loadingContainer}>
-        <Text>Carregando...</Text>
-      </View>
-    );
-  }
+  const handleSubmit = async () => {
+    if (!usuario.nome || !usuario.email || !usuario.cpf || !usuario.telefone || !usuario.senha || !usuario.confirmarSenha) {
+      Alert.alert('Erro', 'Por favor, preencha todos os campos.');
+      return;
+    }
 
-  if (!usuario) {
-    return (
-      <View style={styles.container}>
-        <Text>Usuário não encontrado</Text>
-      </View>
-    );
-  }
+    if (usuario.senha !== usuario.confirmarSenha) {
+      Alert.alert('Erro', 'As senhas não coincidem.');
+      return;
+    }
+
+    if (!validarCPF(usuario.cpf)) {
+      Alert.alert('Erro', 'CPF inválido.');
+      return;
+    }
+    
+    if (!validarEmail(usuario.email)) {
+      Alert.alert('Erro', 'E-mail inválido.');
+      return;
+    }    
+
+    try {
+      // 1. Registrar usuário no Firebase Auth
+      const userCredential = await createUserWithEmailAndPassword(authFirebase, usuario.email, usuario.senha);
+      const user = userCredential.user;
+
+      // 2. Salvar dados adicionais no Firestore
+      await addDoc(collection(db, 'usuarios'), {
+        uid: user.uid,
+        nome: usuario.nome,
+        email: usuario.email,
+        cpf: usuario.cpf,
+        telefone: usuario.telefone,
+        restricoesAlimentares: usuario.restricoesAlimentares,
+      });
+
+      Alert.alert('Sucesso', 'Usuário cadastrado com sucesso!');
+    } catch (error) {
+      console.error("Erro ao cadastrar usuário:", error);
+      Alert.alert('Erro', 'Ocorreu um erro ao cadastrar o usuário.');
+    }
+  };
 
   return (
-    <ScrollView style={styles.container}>
-      <Text style={styles.title}>Meu Perfil</Text>
-
-      <View style={styles.field}>
+    <ScrollView contentContainerStyle={styles.container}>
+      <Text style={styles.title}>Cadastro de Usuário</Text>
+      <View style={styles.form}>
+        {/* Campos de entrada */}
         <Text style={styles.label}>Nome:</Text>
-        <TextInput style={styles.input} value={usuario.nome} editable={false} />
-      </View>
-
-      <View style={styles.field}>
-        <Text style={styles.label}>Email:</Text>
-        <TextInput style={styles.input} value={usuario.email} editable={false} />
-      </View>
-
-      <View style={styles.field}>
-        <Text style={styles.label}>Telefone:</Text>
-        <TextInput style={styles.input} value={usuario.telefone} editable={false} />
-      </View>
-
-      <View style={styles.field}>
+        <TextInput
+          style={styles.input}
+          placeholder="Nome"
+          value={usuario.nome}
+          onChangeText={(text) => handleChange('nome', text)}
+        />
+        <Text style={styles.label}>E-mail:</Text>
+        <TextInput
+          style={styles.input}
+          placeholder="E-mail"
+          value={usuario.email}
+          onChangeText={(text) => handleChange('email', text)}
+          keyboardType="email-address"
+        />
         <Text style={styles.label}>CPF:</Text>
-        <TextInput style={styles.input} value={usuario.cpf} editable={false} />
-      </View>
-
-      <View style={styles.field}>
+        <TextInput
+          style={styles.input}
+          placeholder="CPF"
+          value={usuario.cpf}
+          onChangeText={(text) => handleChange('cpf', text)}
+          keyboardType="numeric"
+        />
+        <Text style={styles.label}>Telefone:</Text>
+        <TextInput
+          style={styles.input}
+          placeholder="Telefone"
+          value={usuario.telefone}
+          onChangeText={(text) => handleChange('telefone', text)}
+          keyboardType="phone-pad"
+        />
         <Text style={styles.label}>Senha:</Text>
         <TextInput
           style={styles.input}
-          value="••••••••" // Exibir bolinhas no lugar da senha
+          placeholder="Senha"
+          value={usuario.senha}
+          onChangeText={(text) => handleChange('senha', text)}
           secureTextEntry={true}
-          editable={false}
         />
-      </View>
+        <Text style={styles.label}>Confirmar Senha:</Text>
+        <TextInput
+          style={styles.input}
+          placeholder="Confirmar Senha"
+          value={usuario.confirmarSenha}
+          onChangeText={(text) => handleChange('confirmarSenha', text)}
+          secureTextEntry={true}
+        />
 
-      <View style={styles.field}>
         <Text style={styles.label}>Restrições Alimentares:</Text>
-        {usuario.restricoesAlimentares && usuario.restricoesAlimentares.length > 0 ? (
-          usuario.restricoesAlimentares.map((restricao, index) => (
-            <Text key={index} style={styles.restricao}>
-              - {restricao}
-            </Text>
-          ))
-        ) : (
-          <Text>Nenhuma restrição alimentar cadastrada</Text>
-        )}
+        <View style={styles.pickerContainer}>
+          <Picker
+            style={styles.picker}
+            selectedValue=""
+            onValueChange={(value) => {
+              if (value) toggleRestricao(value);
+            }}
+          >
+            <Picker.Item label="Selecione uma restrição" value="" />
+            {restricoesOpcoes.map((opcao) => (
+              <Picker.Item key={opcao} label={opcao} value={opcao} />
+            ))}
+          </Picker>
+        </View>
+
+        <View style={styles.selectedItemsContainer}>
+          {usuario.restricoesAlimentares.map((restricao, index) => (
+            <View key={index} style={styles.selectedItemContainer}>
+              <Text style={styles.selectedItem}>{restricao}</Text>
+              <TouchableOpacity onPress={() => toggleRestricao(restricao)}>
+                <Text style={styles.removeItem}>X</Text>
+              </TouchableOpacity>
+            </View>
+          ))}
+        </View>
+
+        <TouchableOpacity style={styles.button} onPress={handleSubmit}>
+          <Text style={styles.buttonText}>Cadastrar Usuário</Text>
+        </TouchableOpacity>
       </View>
     </ScrollView>
   );
@@ -125,41 +186,85 @@ const MeuPerfil: React.FC = () => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flexGrow: 1,
     padding: 20,
-    backgroundColor: '#f5f5f5',
-  },
-  loadingContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    backgroundColor: '#FFFAFB',
   },
   title: {
-    fontSize: 24,
+    fontSize: 28,
     fontWeight: 'bold',
+    color: '#2E282A',
     marginBottom: 20,
+    textAlign: 'center',
   },
-  field: {
-    marginBottom: 15,
+  form: {
+    flex: 1,
+    flexDirection: 'column',
   },
   label: {
     fontSize: 16,
     fontWeight: 'bold',
+    marginBottom: 5,
+    color: '#A1A1A1',
   },
   input: {
-    fontSize: 16,
-    padding: 10,
-    backgroundColor: '#fff',
+    height: 50,
+    borderColor: '#C5C5C5',
     borderWidth: 1,
-    borderColor: '#ddd',
-    borderRadius: 5,
-    marginTop: 5,
+    borderRadius: 10,
+    paddingHorizontal: 15,
+    marginBottom: 10,
+    fontSize: 16,
+    backgroundColor: '#F5F5F5',
   },
-  restricao: {
-    fontSize: 14,
-    color: '#333',
-    marginVertical: 2,
+  pickerContainer: {
+    borderColor: '#ccc',
+    borderWidth: 1,
+    borderRadius: 25,
+    marginBottom: 15,
+    backgroundColor: '#fff',
+  },
+  picker: {
+    height: 50,
+  },
+  selectedItemsContainer: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    marginBottom: 15,
+  },
+  selectedItemContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#FDD2DD',
+    borderRadius: 15,
+    padding: 5,
+    margin: 5,
+    borderColor: '#FC7493',
+    borderWidth: 1,
+  },
+  selectedItem: {
+    marginRight: 10,
+    marginLeft: 5,
+    fontWeight: 'bold',
+    color: '#FC7493',
+  },
+  removeItem: {
+    color: '#FC7493',
+    fontWeight: 'bold',
+    marginRight: 5,
+  },
+  button: {
+    backgroundColor: '#FC7493',
+    padding: 15,
+    borderRadius: 25,
+    alignItems: 'center',
+    marginTop: 20,
+  },
+  buttonText: {
+    color: '#fff',
+    fontSize: 16,
+    fontWeight: 'bold',
   },
 });
 
-export default MeuPerfil;
+export default CadastroUsuario;

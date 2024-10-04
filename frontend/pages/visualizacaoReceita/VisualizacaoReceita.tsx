@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, Alert, Image, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, Alert, Image, ScrollView, TouchableOpacity } from 'react-native';
 import { doc, getDoc } from 'firebase/firestore';
 import { db } from '../../config';
 import { collection, query, where, getDocs } from 'firebase/firestore';
+import { Modal } from 'react-native';
+import ModalReceita from '../../components/modal';
 
 interface Receita {
   id: string;
@@ -24,6 +26,8 @@ const VisualizacaoReceita: React.FC = ({ route }: any) => {
   const [receita, setReceita] = useState<Receita | null>(null);
   const [usuarioNome, setUsuarioNome] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
+  const [modalVisible, setModalVisible] = useState<boolean>(false);
+  const [uidUsuario, setUidUsuario] = useState<string | null>(null); // Adicionando estado para UID do usuário
 
   useEffect(() => {
     const fetchReceita = async () => {
@@ -37,13 +41,15 @@ const VisualizacaoReceita: React.FC = ({ route }: any) => {
 
           console.log('UID do usuário na receita:', receitaData.uid);
 
+          // Definindo o UID do usuário
+          setUidUsuario(receitaData.uid); // Armazenando o UID do usuário
+
           if (!receitaData.uid) {
             console.log('UID do usuário não encontrado na receita.');
             setUsuarioNome(null);
             return;
           }
 
-          // Query para encontrar o documento do usuário onde o campo `uid` corresponde
           const usuariosRef = collection(db, 'usuarios');
           const q = query(usuariosRef, where('uid', '==', receitaData.uid));
           const querySnapshot = await getDocs(q);
@@ -57,7 +63,6 @@ const VisualizacaoReceita: React.FC = ({ route }: any) => {
             console.log("Nenhum usuário encontrado com o UID:", receitaData.uid);
             setUsuarioNome(null);
           }
-
         } else {
           console.log("Receita não encontrada com o ID:", id);
         }
@@ -71,6 +76,9 @@ const VisualizacaoReceita: React.FC = ({ route }: any) => {
     fetchReceita();
   }, [id]);
 
+  const toggleModal = () => {
+    setModalVisible(!modalVisible);
+  };
 
   if (loading) {
     return (
@@ -118,6 +126,22 @@ const VisualizacaoReceita: React.FC = ({ route }: any) => {
       <Text style={styles.detail}>{receita.dificuldade}</Text>
       <Text style={styles.title2}>Modo de Preparo:</Text>
       <Text style={styles.detail}>{receita.modoPreparo}</Text>
+      <View style={styles.footerSpacing} />
+
+      <TouchableOpacity
+        style={styles.fab}
+        onPress={toggleModal}
+      >
+        <Text style={styles.fabText}>+</Text>
+      </TouchableOpacity>
+
+      <ModalReceita
+        modalVisible={modalVisible}
+        toggleModal={toggleModal}
+        idReceita={id}
+        uidUsuario={uidUsuario}
+      />
+
       <View style={styles.footerSpacing} />
     </ScrollView>
   );
@@ -171,6 +195,27 @@ const styles = StyleSheet.create({
   },
   footerSpacing: {
     paddingBottom: 20,
+  },
+  addButtonText: {
+    fontSize: 30,
+    color: 'white',
+  },
+  fab: {
+    position: 'absolute',
+    bottom: 0,
+    right: 0,
+    width: 60,
+    height: 60,
+    backgroundColor: '#FC7493',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 10,
+    elevation: 5,
+  },
+  fabText: {
+    color: 'white',
+    fontSize: 30,
+    lineHeight: 30,
   },
 });
 
