@@ -44,6 +44,14 @@ const Home: React.FC = () => {
       >
         <Text style={styles.buttonText}>Minhas receitas</Text>
       </TouchableOpacity>
+
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => navigation.navigate('Listas')}
+      >
+        <Text style={styles.buttonText}>Minhas listas</Text>
+      </TouchableOpacity>
+
       {/* Botão de Logout */}
       <TouchableOpacity
         style={styles.logoutButton}
