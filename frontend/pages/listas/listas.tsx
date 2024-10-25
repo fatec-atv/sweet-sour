@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, FlatList, TouchableOpacity, StyleSheet, Alert, TextInput } from 'react-native';
-import { collection, query, where, getDocs, addDoc } from 'firebase/firestore';
+import { collection, query, where, getDocs, addDoc, deleteDoc, doc } from 'firebase/firestore';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Modal from 'react-native-modal';
 import { useNavigation } from '@react-navigation/native';
 import { db } from '../../config';
+import { FontAwesome } from '@expo/vector-icons';
 
 const Listas: React.FC = () => {
     const [listas, setListas] = useState<any[]>([]);
@@ -20,7 +21,7 @@ const Listas: React.FC = () => {
             if (storedUserId) {
                 setUidUsuario(storedUserId);
                 fetchListas(storedUserId);
-                fetchFavoritos(storedUserId); // Chama a função para buscar favoritos
+                fetchFavoritos(storedUserId);
             }
         };
         fetchUserIdAndListas();
@@ -45,26 +46,20 @@ const Listas: React.FC = () => {
         setListas(listasData);
     };
 
-    
     const fetchFavoritos = async (uid: string) => {
         const favoritosQuery = query(collection(db, 'favoritos'), where('usuarioId', '==', uid));
         const querySnapshot = await getDocs(favoritosQuery);
         const favoritosData = [];
-    
-        // O total de receitas é igual ao número de documentos encontrados
         const totalReceitas = querySnapshot.size;
-    
-        // Agora, vamos criar um único objeto de favoritos que inclui o total de receitas
+
         favoritosData.push({
-            id: 'favoritos', // Um ID único para a seção de favoritos
+            id: 'favoritos',
             nome: 'Favoritos',
             totalReceitas: totalReceitas,
         });
-    
+
         setFavoritos(favoritosData);
     };
-    
-    
 
     const criarLista = async () => {
         if (!nomeLista) {
@@ -86,31 +81,40 @@ const Listas: React.FC = () => {
         }
     };
 
+    const excluirLista = async (listaId: string) => {
+        try {
+            await deleteDoc(doc(db, 'listas', listaId));
+            setListas((prevListas) => prevListas.filter((lista) => lista.id !== listaId));
+            Alert.alert('Sucesso', 'Lista excluída com sucesso.');
+        } catch (error) {
+            console.error('Erro ao excluir lista:', error);
+            Alert.alert('Erro', 'Não foi possível excluir a lista.');
+        }
+    };
+
     const navegarParaReceitas = (listaId: string) => {
         navigation.navigate('Receitas da lista', { listaId });
     };
 
     const navegarParaReceitasFavoritas = () => {
-        navigation.navigate('Receitas favoritas', { uid: uidUsuario }); // Navega para a página de Receitas Favoritas
+        navigation.navigate('Receitas favoritas', { uid: uidUsuario });
     };
-    
 
     return (
         <View style={styles.container}>
-            {/* Se houver listas de favoritos, exibe a seção de favoritos */}
             {favoritos.length > 0 && (
-            <>
-                <Text style={styles.sectionTitle}>Favoritos</Text>
-                <FlatList
-                    data={favoritos}
-                    keyExtractor={item => item.id}
-                    renderItem={({ item }) => (
-                        <TouchableOpacity onPress={navegarParaReceitasFavoritas} style={styles.listaItem}>
-                        <Text style={styles.listaNome}>{favoritos[0].nome}</Text>
-                        <Text style={styles.listaCount}>
-                            {favoritos[0].totalReceitas} {favoritos[0].totalReceitas === 1 ? 'receita' : 'receitas'}
-                        </Text>
-                    </TouchableOpacity>
+                <>
+                    <Text style={styles.sectionTitle}>Favoritos</Text>
+                    <FlatList
+                        data={favoritos}
+                        keyExtractor={item => item.id}
+                        renderItem={({ item }) => (
+                            <TouchableOpacity onPress={navegarParaReceitasFavoritas} style={styles.listaItem}>
+                                <Text style={styles.listaNome}>{favoritos[0].nome}</Text>
+                                <Text style={styles.listaCount}>
+                                    {favoritos[0].totalReceitas} {favoritos[0].totalReceitas === 1 ? 'receita' : 'receitas'}
+                                </Text>
+                            </TouchableOpacity>
                         )}
                     />
                 </>
@@ -121,10 +125,15 @@ const Listas: React.FC = () => {
                 data={listas}
                 keyExtractor={item => item.id}
                 renderItem={({ item }) => (
-                    <TouchableOpacity onPress={() => navegarParaReceitas(item.id)} style={styles.listaItem}>
-                        <Text style={styles.listaNome}>{item.nome}</Text>
-                        <Text style={styles.listaCount}>{item.totalReceitas} {item.totalReceitas === 1 ? 'receita' : 'receitas'}</Text>
-                    </TouchableOpacity>
+                    <View style={styles.listaItemContainer}>
+                        <TouchableOpacity onPress={() => navegarParaReceitas(item.id)} style={styles.listaItem}>
+                            <Text style={styles.listaNome}>{item.nome}</Text>
+                            <Text style={styles.listaCount}>{item.totalReceitas} {item.totalReceitas === 1 ? 'receita' : 'receitas'}</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={() => excluirLista(item.id)} style={styles.deleteButton}>
+                            <FontAwesome name="trash" size={24} color="black" />
+                        </TouchableOpacity>
+                    </View>
                 )}
             />
 
@@ -166,10 +175,16 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         marginVertical: 10,
     },
+    listaItemContainer: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+    },
     listaItem: {
         padding: 15,
         borderBottomWidth: 1,
         borderBottomColor: '#ddd',
+        flex: 1,
     },
     listaNome: {
         fontSize: 18,
@@ -177,6 +192,15 @@ const styles = StyleSheet.create({
     listaCount: {
         fontSize: 14,
         color: '#888',
+    },
+    deleteButton: {
+        padding: 15,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    deleteButtonText: {
+        fontSize: 18,
+        color: 'red',
     },
     fab: {
         position: 'absolute',
