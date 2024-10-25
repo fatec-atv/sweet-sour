@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, FlatList, TouchableOpacity, StyleSheet, Alert, TextInput } from 'react-native';
-import { collection, query, where, getDocs, addDoc, deleteDoc, doc } from 'firebase/firestore';
+import { collection, query, where, getDocs, addDoc, deleteDoc, doc, updateDoc } from 'firebase/firestore';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Modal from 'react-native-modal';
 import { useNavigation } from '@react-navigation/native';
@@ -13,6 +13,8 @@ const Listas: React.FC = () => {
     const [uidUsuario, setUidUsuario] = useState<string | null>(null);
     const [modalVisible, setModalVisible] = useState(false);
     const [nomeLista, setNomeLista] = useState('');
+    const [editingListaId, setEditingListaId] = useState<string | null>(null);
+    const [nomeListaEditando, setNomeListaEditando] = useState(''); // Estado separado para o nome sendo editado
     const navigation = useNavigation();
 
     useEffect(() => {
@@ -92,6 +94,33 @@ const Listas: React.FC = () => {
         }
     };
 
+    const iniciarEdicao = (listaId: string, nome: string) => {
+        setEditingListaId(listaId);
+        setNomeListaEditando(nome);
+    };
+
+    const finalizarEdicao = async () => {
+        if (!nomeListaEditando) {
+            Alert.alert('Erro', 'Por favor, insira um nome válido para a lista.');
+            return;
+        }
+        try {
+            const listaRef = doc(db, 'listas', editingListaId!);
+            await updateDoc(listaRef, { nome: nomeListaEditando });
+            setListas((prevListas) =>
+                prevListas.map((lista) =>
+                    lista.id === editingListaId ? { ...lista, nome: nomeListaEditando } : lista
+                )
+            );
+            setEditingListaId(null);
+            setNomeListaEditando('');
+            Alert.alert('Sucesso', 'Lista editada com sucesso.');
+        } catch (error) {
+            console.error('Erro ao editar lista:', error);
+            Alert.alert('Erro', 'Não foi possível editar a lista.');
+        }
+    };
+
     const navegarParaReceitas = (listaId: string) => {
         navigation.navigate('Receitas da lista', { listaId });
     };
@@ -127,12 +156,32 @@ const Listas: React.FC = () => {
                 renderItem={({ item }) => (
                     <View style={styles.listaItemContainer}>
                         <TouchableOpacity onPress={() => navegarParaReceitas(item.id)} style={styles.listaItem}>
-                            <Text style={styles.listaNome}>{item.nome}</Text>
-                            <Text style={styles.listaCount}>{item.totalReceitas} {item.totalReceitas === 1 ? 'receita' : 'receitas'}</Text>
+                            {editingListaId === item.id ? (
+                                <TextInput
+                                    value={nomeListaEditando}
+                                    onChangeText={setNomeListaEditando}
+                                    style={styles.input}
+                                    onSubmitEditing={finalizarEdicao} // Finaliza a edição ao pressionar "Enter"
+                                />
+                            ) : (
+                                <>
+                                    <Text style={styles.listaNome}>{item.nome}</Text>
+                                    <Text style={styles.listaCount}>{item.totalReceitas} {item.totalReceitas === 1 ? 'receita' : 'receitas'}</Text>
+                                </>
+                            )}
                         </TouchableOpacity>
                         <TouchableOpacity onPress={() => excluirLista(item.id)} style={styles.deleteButton}>
                             <FontAwesome name="trash" size={24} color="black" />
                         </TouchableOpacity>
+                        {editingListaId === item.id ? (
+                            <TouchableOpacity onPress={finalizarEdicao} style={styles.editButton}>
+                                <Text style={styles.editButtonText}>Salvar</Text>
+                            </TouchableOpacity>
+                        ) : (
+                            <TouchableOpacity onPress={() => iniciarEdicao(item.id, item.nome)} style={styles.editButton}>
+                                <FontAwesome name="pencil" size={24} color="black" />
+                            </TouchableOpacity>
+                        )}
                     </View>
                 )}
             />
@@ -181,43 +230,40 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     listaItem: {
-        padding: 15,
-        borderBottomWidth: 1,
-        borderBottomColor: '#ddd',
         flex: 1,
+        padding: 10,
+        borderBottomWidth: 1,
+        borderBottomColor: '#ccc',
     },
     listaNome: {
         fontSize: 18,
     },
     listaCount: {
-        fontSize: 14,
-        color: '#888',
+        color: '#666',
     },
     deleteButton: {
-        padding: 15,
-        justifyContent: 'center',
-        alignItems: 'center',
+        padding: 10,
     },
-    deleteButtonText: {
-        fontSize: 18,
-        color: 'red',
+    editButton: {
+        padding: 10,
+    },
+    editButtonText: {
+        color: 'black',
     },
     fab: {
         position: 'absolute',
-        bottom: 30,
         right: 20,
+        bottom: 20,
+        backgroundColor: '#FC7493',
+        borderRadius: 50,
         width: 60,
         height: 60,
-        backgroundColor: '#FC7493',
         justifyContent: 'center',
         alignItems: 'center',
-        borderRadius: 13,
-        elevation: 5,
     },
     fabText: {
-        color: 'white',
         fontSize: 30,
-        lineHeight: 30,
+        color: '#fff',
     },
     modalContainer: {
         backgroundColor: 'white',
@@ -226,26 +272,26 @@ const styles = StyleSheet.create({
     },
     modalTitle: {
         fontSize: 20,
-        marginBottom: 10,
-    },
-    input: {
-        height: 40,
-        borderColor: '#ccc',
-        borderWidth: 1,
-        marginBottom: 10,
-        paddingHorizontal: 10,
+        fontWeight: 'bold',
+        marginBottom: 20,
     },
     modalButton: {
         backgroundColor: '#FC7493',
-        padding: 10,
-        borderRadius: 5,
-        alignItems: 'center',
+        padding: 15,
+        borderRadius: 10,
         marginTop: 10,
-        alignSelf: 'center',
-        width: 100,
     },
     modalButtonText: {
-        color: '#fff',
+        color: 'white',
+        textAlign: 'center',
+        fontWeight: 'bold',
+    },
+    input: {
+        borderColor: '#ccc',
+        borderWidth: 1,
+        padding: 10,
+        borderRadius: 5,
+        marginBottom: 10,
     },
 });
 
