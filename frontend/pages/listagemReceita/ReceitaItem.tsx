@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 
 interface Receita {
   id: string;
   titulo: string;
   categoria: string;
+  imagem: string | null;
 }
 
 interface ReceitaItemProps {
@@ -23,8 +24,16 @@ const ReceitaItem: React.FC<ReceitaItemProps> = ({ item, onPress }) => {
       onPressOut={() => setIsHovered(false)}
     >
       <View style={styles.cardContent}>
-        <Text style={styles.cardTitle}>{item.titulo}</Text>
-        <Text style={styles.cardCategory}>{item.categoria}</Text>
+        {/* Layout com imagem à esquerda e texto à direita */}
+        {item.imagem ? (
+          <Image source={{ uri: item.imagem }} style={styles.cardImage} />
+        ) : (
+          <Text style={styles.noImageText}>Imagem não disponível</Text>
+        )}
+        <View style={styles.textContainer}>
+          <Text style={styles.cardTitle}>{item.titulo}</Text>
+          <Text style={styles.cardCategory}>{item.categoria}</Text>
+        </View>
       </View>
     </TouchableOpacity>
   );
@@ -47,7 +56,23 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.4,
   },
   cardContent: {
-    flex: 1,
+    flexDirection: 'row', // Define a orientação da imagem e texto
+    alignItems: 'center', // Alinha verticalmente o conteúdo
+    height: 100, // Altura do card
+  },
+  cardImage: {
+    width: 150, // Ajusta o tamanho da imagem
+    height: 100,
+    borderRadius: 8,
+    marginRight: 16, // Espaço entre a imagem e o texto
+  },
+  noImageText: {
+    fontSize: 12,
+    color: '#888',
+    marginRight: 16,
+  },
+  textContainer: {
+    flex: 1, // Faz o texto ocupar o espaço restante
   },
   cardTitle: {
     fontSize: 18,
