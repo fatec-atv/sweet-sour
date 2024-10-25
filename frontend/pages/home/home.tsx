@@ -114,6 +114,12 @@ const styles = StyleSheet.create({
   },
   logoContainer: {
     justifyContent: 'center',
+  },
+  logoutButton: {
+    marginTop: 20,
+    backgroundColor: '#555',
+    padding: 15,
+    borderRadius: 25,
     alignItems: 'center',
     marginBottom: 550, // Puxa o logo mais para cima
   },

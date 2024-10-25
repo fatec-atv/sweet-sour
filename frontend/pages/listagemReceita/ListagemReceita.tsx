@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, FlatList, StyleSheet, Alert } from 'react-native';
-import axios from 'axios';
-import { API_URL } from '../../config/api';
+import { collection, getDocs } from 'firebase/firestore';
 import { useNavigation, NavigationProp } from '@react-navigation/native';
 import { RootStackParamList } from '../../App';
 import ReceitaItem from './ReceitaItem';
+import { db } from '../../config';
 
 interface Receita {
   id: string;
@@ -20,8 +20,18 @@ const ListagemReceitas: React.FC = () => {
   useEffect(() => {
     const fetchReceitas = async () => {
       try {
-        const response = await axios.get(`${API_URL}/listar/receitas`);
-        setReceitas(response.data);
+        const receitasRef = collection(db, 'receitas');
+        const snapshot = await getDocs(receitasRef);
+        const listaReceitas: Receita[] = [];
+        
+        snapshot.forEach((doc) => {
+          listaReceitas.push({
+            id: doc.id,
+            ...doc.data(),
+          } as Receita);
+        });
+
+        setReceitas(listaReceitas);
       } catch (error) {
         console.error('Erro ao buscar receitas:', error);
         Alert.alert('Erro', 'Não foi possível buscar as receitas.');
