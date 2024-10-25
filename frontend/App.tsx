@@ -13,6 +13,10 @@ import MinhasReceitas from './pages/minhasReceitas/minhasReceitas';
 import Comentar from './pages/comentario/comentar';
 import ComentariosReceita from './components/comentarios';
 import TelaComentarios from './pages/comentario/comentarios';
+import AdicionarListas from './pages/listas/adicionarLista';
+import Listas from './pages/listas/listas';
+import ReceitasListas from './pages/listas/receitasListas';
+import ReceitasFavoritas from './pages/listas/favoritos';
 
 export type RootStackParamList = {
   Home: undefined;
@@ -38,6 +42,10 @@ const App: React.FC = () => {
         <Stack.Screen name="MinhasReceitas" component={MinhasReceitas} />
         <Stack.Screen name="Comentar" component={Comentar} />
         <Stack.Screen name="Comentarios" component={TelaComentarios} />
+        <Stack.Screen name="Adicionar à Lista" component={AdicionarListas} />
+        <Stack.Screen name="Listas" component={Listas} />
+        <Stack.Screen name="Receitas da lista" component={ReceitasListas} />
+        <Stack.Screen name="Receitas favoritas" component={ReceitasFavoritas} />
       </Stack.Navigator>
     </View>
     </NavigationContainer>

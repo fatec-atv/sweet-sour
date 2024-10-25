@@ -3,7 +3,6 @@ import { View, Text, StyleSheet, Alert, Image, ScrollView, TouchableOpacity } fr
 import { doc, getDoc } from 'firebase/firestore';
 import { db } from '../../config';
 import { collection, query, where, getDocs } from 'firebase/firestore';
-import { Modal } from 'react-native';
 import ModalReceita from '../../components/modal';
 
 interface Receita {
@@ -27,7 +26,7 @@ const VisualizacaoReceita: React.FC = ({ route }: any) => {
   const [usuarioNome, setUsuarioNome] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [modalVisible, setModalVisible] = useState<boolean>(false);
-  const [uidUsuario, setUidUsuario] = useState<string | null>(null); // Adicionando estado para UID do usuário
+  const [uidUsuario, setUidUsuario] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchReceita = async () => {
@@ -38,17 +37,7 @@ const VisualizacaoReceita: React.FC = ({ route }: any) => {
         if (receitaSnap.exists()) {
           const receitaData = receitaSnap.data() as Receita;
           setReceita(receitaData);
-
-          console.log('UID do usuário na receita:', receitaData.uid);
-
-          // Definindo o UID do usuário
-          setUidUsuario(receitaData.uid); // Armazenando o UID do usuário
-
-          if (!receitaData.uid) {
-            console.log('UID do usuário não encontrado na receita.');
-            setUsuarioNome(null);
-            return;
-          }
+          setUidUsuario(receitaData.uid);
 
           const usuariosRef = collection(db, 'usuarios');
           const q = query(usuariosRef, where('uid', '==', receitaData.uid));
@@ -56,18 +45,15 @@ const VisualizacaoReceita: React.FC = ({ route }: any) => {
 
           if (!querySnapshot.empty) {
             querySnapshot.forEach((doc) => {
-              console.log("Usuário encontrado:", doc.data());
               setUsuarioNome(doc.data().nome);
             });
           } else {
-            console.log("Nenhum usuário encontrado com o UID:", receitaData.uid);
             setUsuarioNome(null);
           }
         } else {
           console.log("Receita não encontrada com o ID:", id);
         }
       } catch (error) {
-        console.error('Erro ao buscar receita:', error);
         Alert.alert('Erro', 'Não foi possível buscar os detalhes da receita.');
       } finally {
         setLoading(false);
@@ -97,36 +83,38 @@ const VisualizacaoReceita: React.FC = ({ route }: any) => {
   }
 
   return (
-    <ScrollView style={styles.container}>
-      <Text style={styles.title}>{receita.titulo}</Text>
-      {receita.imagem ? (
-        <Image source={{ uri: receita.imagem }} style={styles.image} />
-      ) : (
-        <Text style={styles.detail}>Imagem não disponível</Text>
-      )}
-      <Text style={styles.title2}>Autor:</Text>
-      <Text style={styles.detail}>{usuarioNome || 'Nome não disponível'}</Text>
-      <Text style={styles.title2}>Categoria:</Text>
-      <Text style={styles.detail}>{receita.categoria}</Text>
-      <Text style={styles.title2}>Descrição:</Text>
-      <Text style={styles.detail}>{receita.descricao}</Text>
-      <Text style={styles.title2}>Restrições Alimentares:</Text>
-      {receita.restricoesAlimentares.map((restricao, index) => (
-        <Text style={styles.lista} key={`${restricao}-${index}`}>{restricao}</Text>
-      ))}
-      <Text style={styles.title2}>Ingredientes:</Text>
-      {receita.ingredientes.map((ingrediente) => (
-        <Text style={styles.lista} key={ingrediente.id}>{ingrediente.name}</Text>
-      ))}
-      <Text style={styles.title2}>Tempo de Preparo:</Text>
-      <Text style={styles.detail}>{receita.tempoPreparo}</Text>
-      <Text style={styles.title2}>Número de Porções:</Text>
-      <Text style={styles.detail}>{receita.porcoes}</Text>
-      <Text style={styles.title2}>Dificuldade:</Text>
-      <Text style={styles.detail}>{receita.dificuldade}</Text>
-      <Text style={styles.title2}>Modo de Preparo:</Text>
-      <Text style={styles.detail}>{receita.modoPreparo}</Text>
-      <View style={styles.footerSpacing} />
+    <View style={styles.container}>
+      <ScrollView style={styles.scroll}>
+        <Text style={styles.title}>{receita.titulo}</Text>
+        {receita.imagem ? (
+          <Image source={{ uri: receita.imagem }} style={styles.image} />
+        ) : (
+          <Text style={styles.detail}>Imagem não disponível</Text>
+        )}
+        <Text style={styles.title2}>Autor:</Text>
+        <Text style={styles.detail}>{usuarioNome || 'Nome não disponível'}</Text>
+        <Text style={styles.title2}>Categoria:</Text>
+        <Text style={styles.detail}>{receita.categoria}</Text>
+        <Text style={styles.title2}>Descrição:</Text>
+        <Text style={styles.detail}>{receita.descricao}</Text>
+        <Text style={styles.title2}>Restrições Alimentares:</Text>
+        {receita.restricoesAlimentares.map((restricao, index) => (
+          <Text style={styles.lista} key={`${restricao}-${index}`}>{restricao}</Text>
+        ))}
+        <Text style={styles.title2}>Ingredientes:</Text>
+        {receita.ingredientes.map((ingrediente) => (
+          <Text style={styles.lista} key={ingrediente.id}>{ingrediente.name}</Text>
+        ))}
+        <Text style={styles.title2}>Tempo de Preparo:</Text>
+        <Text style={styles.detail}>{receita.tempoPreparo}</Text>
+        <Text style={styles.title2}>Número de Porções:</Text>
+        <Text style={styles.detail}>{receita.porcoes}</Text>
+        <Text style={styles.title2}>Dificuldade:</Text>
+        <Text style={styles.detail}>{receita.dificuldade}</Text>
+        <Text style={styles.title2}>Modo de Preparo:</Text>
+        <Text style={styles.detail}>{receita.modoPreparo}</Text>
+        <View style={styles.footerSpacing} />
+      </ScrollView>
 
       <TouchableOpacity
         style={styles.fab}
@@ -141,17 +129,17 @@ const VisualizacaoReceita: React.FC = ({ route }: any) => {
         idReceita={id}
         uidUsuario={uidUsuario}
       />
-
-      <View style={styles.footerSpacing} />
-    </ScrollView>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 16,
     backgroundColor: '#FFFAFB',
+  },
+  scroll: {
+    padding: 16,
   },
   loadingContainer: {
     flex: 1,
@@ -196,20 +184,16 @@ const styles = StyleSheet.create({
   footerSpacing: {
     paddingBottom: 20,
   },
-  addButtonText: {
-    fontSize: 30,
-    color: 'white',
-  },
   fab: {
     position: 'absolute',
-    bottom: 50,
-    right: 0,
+    bottom: 30,
+    right: 20,
     width: 60,
     height: 60,
     backgroundColor: '#FC7493',
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: 10,
+    borderRadius: 13,
     elevation: 5,
   },
   fabText: {
