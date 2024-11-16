@@ -45,6 +45,7 @@ const Home: React.FC = () => {
             <TouchableOpacity style={styles.menuItem} onPress={() => navigation.navigate('Listas')}>
               <Icon name="plus" size={20} color="#fff" />
               <Text style={styles.menuItemText}>Listas e Favoritos</Text>
+            </TouchableOpacity>
             <TouchableOpacity style={styles.menuItem} onPress={() => navigation.navigate('MinhasReceitas')}>
               <Icon name="book" size={20} color="#fff" />
               <Text style={styles.menuItemText}>Minhas Receitas</Text>

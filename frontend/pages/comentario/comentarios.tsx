@@ -1,10 +1,16 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import { useRoute } from '@react-navigation/native';
+import { useRoute, RouteProp } from '@react-navigation/native';
 import ComentariosReceita from '../../components/comentarios';
 
+type RootStackParamList = {
+  TelaComentarios: { idReceita: string };
+};
+
+type TelaComentariosRouteProp = RouteProp<RootStackParamList, 'TelaComentarios'>;
+
 const TelaComentarios: React.FC = () => {
-  const route = useRoute();
+  const route = useRoute<TelaComentariosRouteProp>();
   const { idReceita } = route.params;
 
   return (

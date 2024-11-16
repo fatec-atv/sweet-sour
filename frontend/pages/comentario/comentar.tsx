@@ -1,13 +1,29 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, Alert } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, Alert, KeyboardAvoidingView, TouchableWithoutFeedback, Keyboard, Image } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { db } from '../../config'; // Importando a configuração do Firebase
 import { collection, addDoc } from 'firebase/firestore';
+import * as ImagePicker from 'expo-image-picker';
+import { RouteProp } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
 
-const Comentar = ({ route, navigation }) => {
+type RootStackParamList = {
+    Comentar: { idReceita: string };
+};
+
+type ComentarScreenRouteProp = RouteProp<RootStackParamList, 'Comentar'>;
+type ComentarScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Comentar'>;
+
+type Props = {
+    route: ComentarScreenRouteProp;
+    navigation: ComentarScreenNavigationProp;
+};
+
+const Comentar: React.FC<Props> = ({ route, navigation }) => {
     const { idReceita } = route.params || {}; // Recebendo apenas o ID da receita
     const [comentario, setComentario] = useState('');
     const [uidUsuario, setUidUsuario] = useState<string | null>(null); // Estado para armazenar o UID do usuário
+    const [imagem, setImagem] = useState<string | null>(null); // Estado para armazenar a imagem selecionada
 
     useEffect(() => {
         const fetchUserId = async () => {
@@ -27,14 +43,27 @@ const Comentar = ({ route, navigation }) => {
         fetchUserId();
     }, []);
 
+    const selecionarImagem = async () => {
+        let result = await ImagePicker.launchImageLibraryAsync({
+            mediaTypes: ImagePicker.MediaTypeOptions.Images,
+            allowsEditing: true,
+            aspect: [4, 4],
+            quality: 1,
+        });
+
+        if (!result.canceled && result.assets && result.assets.length > 0) {
+            setImagem(result.assets[0].uri);
+        }
+    };
+
     const enviarComentario = async () => {
         if (!idReceita || !uidUsuario) {
             Alert.alert('Erro', 'ID da receita ou UID do usuário não encontrado.');
             return;
         }
 
-        if (comentario.trim() === '') {
-            Alert.alert('Erro', 'Por favor, escreva um comentário.');
+        if (comentario.trim() === '' && !imagem) {
+            Alert.alert('Erro', 'Por favor, escreva um comentário ou selecione uma imagem.');
             return;
         }
 
@@ -43,13 +72,15 @@ const Comentar = ({ route, navigation }) => {
                 receitaId: idReceita,
                 usuarioId: uidUsuario,
                 comentario: comentario,
+                imagem: imagem || null,
                 createdAt: new Date(),
             });
 
-            console.log('Comentário enviado com sucesso!, comentario:', comentario, uidUsuario, idReceita);
+            console.log('Comentário enviado com sucesso!, comentario:', comentario, uidUsuario, idReceita, imagem);
 
             Alert.alert('Sucesso', 'Comentário enviado com sucesso!');
             setComentario('');
+            setImagem(null);
             navigation.goBack();
         } catch (error) {
             console.error('Erro ao enviar comentário:', error);
@@ -58,20 +89,28 @@ const Comentar = ({ route, navigation }) => {
     };
 
     return (
-        <View style={styles.container}>
-            <Text style={styles.title}>Comentário:</Text>
-            <TextInput
-                style={[styles.input, styles.textArea]}
-                multiline
-                numberOfLines={4}
-                placeholder="Escreva seu comentário aqui..."
-                value={comentario}
-                onChangeText={setComentario}
-            />
-            <TouchableOpacity style={styles.button} onPress={enviarComentario}>
-                <Text style={styles.buttonText}>Enviar Comentário</Text>
-            </TouchableOpacity>
-        </View>
+        <KeyboardAvoidingView style={{ flex: 1 }} behavior="padding">
+            <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+                <View style={styles.container}>
+                    <Text style={styles.title}>Comentário:</Text>
+                    <TextInput
+                        style={[styles.input, styles.textArea]}
+                        multiline
+                        numberOfLines={4}
+                        placeholder="Escreva seu comentário aqui..."
+                        value={comentario}
+                        onChangeText={setComentario}
+                    />
+                    <TouchableOpacity style={styles.button} onPress={selecionarImagem}>
+                        <Text style={styles.buttonText}>Selecionar Imagem</Text>
+                    </TouchableOpacity>
+                    {imagem && <Image source={{ uri: imagem }} style={styles.image} />}
+                    <TouchableOpacity style={styles.button} onPress={enviarComentario}>
+                        <Text style={styles.buttonText}>Enviar Comentário</Text>
+                    </TouchableOpacity>
+                </View>
+            </TouchableWithoutFeedback>
+        </KeyboardAvoidingView>
     );
 };
 
@@ -79,7 +118,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         padding: 20,
-        justifyContent: 'center',
+        justifyContent: 'flex-start', // Alinha o conteúdo no topo
     },
     title: {
         fontSize: 24,
@@ -118,7 +157,12 @@ const styles = StyleSheet.create({
         fontSize: 16,
         fontWeight: 'bold',
     },
+    image: {
+        width: 200,
+        height: 200,
+        alignSelf: 'center',
+        marginTop: 20,
+    },
 });
 
 export default Comentar;
-[]
