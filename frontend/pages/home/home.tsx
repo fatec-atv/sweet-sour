@@ -3,8 +3,8 @@ import { View, Text, StyleSheet, TouchableOpacity, Dimensions, Image } from 'rea
 import { useNavigation, NavigationProp } from '@react-navigation/native';
 import { RootStackParamList } from '../../App';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import SweetSour from '../../assets/images/sweet_sour.png';
-import Logo from '../../assets/images/logo.png';
+import SweetSour from '../../assets/images/sweet_sour.png'; //não mexer para não quebrar o app
+import Logo from '../../assets/images/logo.png'; //não mexer para não quebrar o app
 
 const { width } = Dimensions.get('window');
 
@@ -53,6 +53,10 @@ const Home: React.FC = () => {
             <TouchableOpacity style={styles.menuItem} onPress={() => navigation.navigate('PlannerRefeicao')}>
               <Icon name="calendar" size={20} color="#fff" />
               <Text style={styles.menuItemText}>Planner de Refeição</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.menuItem} onPress={() => navigation.navigate('Despensa')}>
+              <Icon name="shopping-basket" size={20} color="#fff" />
+              <Text style={styles.menuItemText}>Despensa</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.menuItem} onPress={() => navigation.navigate('Logout')}>
               <Icon name="sign-out" size={20} color="#fff" />
