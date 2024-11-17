@@ -20,12 +20,19 @@ interface Meal {
   description: string;
   userId: string;
   date: string;
+  receitas: Receita[];
 }
 
 interface Receita {
   id: string;
   titulo: string;
   descricao: string;
+  ingredientes: Ingrediente[];
+}
+
+interface Ingrediente {
+  id: string;
+  name: string;
 }
 
 interface DayMeals {
@@ -50,7 +57,7 @@ const PlannerRefeicao: React.FC = () => {
   const [userId, setUserId] = useState<string | null>(null);
   const [receitas, setReceitas] = useState<Receita[]>([]);
   const [selectedPicker, setSelectedPicker] = useState<string | null>(null);
-  const [selectedReceita, setSelectedReceita] = useState<Receita | null>(null);
+  const [selectedReceitas, setSelectedReceitas] = useState<Receita[]>([]);
   const [viewingMeal, setViewingMeal] = useState<Meal | null>(null);
 
   useEffect(() => {
@@ -132,6 +139,7 @@ const PlannerRefeicao: React.FC = () => {
         description: meal.description,
         userId: meal.userId,
         date: meal.date,
+        receitas: meal.receitas,
       });
     } catch (error) {
       console.error('Erro ao atualizar a refeição:', error);
@@ -164,6 +172,7 @@ const PlannerRefeicao: React.FC = () => {
       description: mealDescription,
       userId: userId,
       date: selectedDate,
+      receitas: selectedReceitas,
     };
 
     const updatedMeals = {
@@ -177,14 +186,14 @@ const PlannerRefeicao: React.FC = () => {
     setMealName('');
     setMealDescription('');
     setEditingMeal(null);
-    setSelectedReceita(null);
+    setSelectedReceitas([]);
   };
 
   const editMeal = (meal: Meal) => {
     setMealName(meal.name);
     setMealDescription(meal.description);
     setEditingMeal(meal);
-    setSelectedReceita(receitas.find(receita => receita.titulo === meal.name) || null);
+    setSelectedReceitas(meal.receitas);
     setModalVisible(true);
   };
 
@@ -194,7 +203,7 @@ const PlannerRefeicao: React.FC = () => {
       return;
     }
 
-    const updatedMeal = { ...editingMeal, name: mealName, description: mealDescription };
+    const updatedMeal = { ...editingMeal, name: mealName, description: mealDescription, receitas: selectedReceitas };
 
     const updatedMeals = {
       ...meals,
@@ -209,7 +218,7 @@ const PlannerRefeicao: React.FC = () => {
     setMealName('');
     setMealDescription('');
     setEditingMeal(null);
-    setSelectedReceita(null);
+    setSelectedReceitas([]);
   };
 
   const deleteMeal = (mealId: string) => {
@@ -240,10 +249,26 @@ const PlannerRefeicao: React.FC = () => {
   };
 
   const viewMeal = (meal: Meal) => {
+    console.log(`Visualizando refeição: ${meal.name}`);
+    console.log(`Receitas: ${JSON.stringify(meal.receitas)}`);
     setViewingMeal(meal);
     setViewModalVisible(true);
   };
 
+  const getIngredientsList = (receitas: Receita[]): string[] => {
+    const ingredientsSet = new Set<string>();
+    receitas.forEach(receita => {
+      if (Array.isArray(receita.ingredientes)) {
+        console.log(`Processando ingredientes da receita: ${receita.titulo}`);
+        receita.ingredientes.forEach(ingrediente => {
+          console.log(`Adicionando ingrediente: ${ingrediente.name}`);
+          ingredientsSet.add(ingrediente.name);
+        });
+      }
+    });
+    return Array.from(ingredientsSet);
+  };
+  
   const renderMeal = ({ item }: { item: Meal }) => (
     <TouchableOpacity onPress={() => viewMeal(item)}>
       <View style={styles.mealContainer}>
@@ -265,7 +290,13 @@ const PlannerRefeicao: React.FC = () => {
     <ScrollView style={styles.pickerContainer}>
       {items.map((item) => (
         <TouchableOpacity key={item.id} onPress={() => {
-          setSelectedReceita(item);
+          setSelectedReceitas(prev => {
+            if (prev.find(receita => receita.id === item.id)) {
+              return prev.filter(receita => receita.id !== item.id);
+            } else {
+              return [...prev, item];
+            }
+          });
           setSelectedPicker(null);
         }}>
           <Text style={styles.pickerItem}>{item.titulo}</Text>
@@ -328,12 +359,14 @@ const PlannerRefeicao: React.FC = () => {
                     numberOfLines={4}
                   />
                   <TouchableOpacity style={styles.modalButton} onPress={() => setSelectedPicker('receitas')}>
-                    <Text style={styles.modalButtonText}>Selecionar Receita</Text>
+                    <Text style={styles.modalButtonText}>Selecionar Receitas</Text>
                   </TouchableOpacity>
-                  {selectedReceita && (
-                    <View style={styles.selectedReceitaContainer}>
-                      <Text style={styles.selectedReceitaTitle}>Receita Selecionada:</Text>
-                      <Text style={styles.selectedReceitaText}>{selectedReceita.titulo}</Text>
+                  {selectedReceitas.length > 0 && (
+                    <View style={styles.selectedReceitasContainer}>
+                      <Text style={styles.selectedReceitasTitle}>Receitas Selecionadas:</Text>
+                      {selectedReceitas.map(receita => (
+                        <Text key={receita.id} style={styles.selectedReceitaText}>{receita.titulo}</Text>
+                      ))}
                     </View>
                   )}
                   {selectedPicker === 'receitas' && renderPickerItems(receitas)}
@@ -364,6 +397,14 @@ const PlannerRefeicao: React.FC = () => {
                     <Text style={styles.viewText}>{viewingMeal.name}</Text>
                     <Text style={styles.label}>Descrição da Refeição</Text>
                     <Text style={styles.viewText}>{viewingMeal.description}</Text>
+                    <Text style={styles.label}>Receitas</Text>
+                    {viewingMeal.receitas && viewingMeal.receitas.map(receita => (
+                      <Text key={receita.id} style={styles.viewText}>{receita.titulo}</Text>
+                    ))}
+                    <Text style={styles.label}>Ingredientes</Text>
+                    {viewingMeal.receitas && getIngredientsList(viewingMeal.receitas).map((ingrediente, index) => (
+                      <Text key={index} style={styles.viewText}>{ingrediente}</Text>
+                    ))}
                     <TouchableOpacity style={[styles.modalButton, styles.cancelButton]} onPress={() => setViewModalVisible(false)}>
                       <Text style={styles.modalButtonText}>Fechar</Text>
                     </TouchableOpacity>
@@ -509,14 +550,14 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: '#ddd',
   },
-  selectedReceitaContainer: {
+  selectedReceitasContainer: {
     marginTop: 10,
     padding: 10,
     backgroundColor: '#F5F5F5',
     borderRadius: 10,
     width: '100%',
   },
-  selectedReceitaTitle: {
+  selectedReceitasTitle: {
     fontSize: 16,
     fontWeight: 'bold',
   },
@@ -527,7 +568,7 @@ const styles = StyleSheet.create({
   viewText: {
     fontSize: 16,
     color: '#000',
-    marginBottom: 10,
+    marginBottom: 10
   },
 });
 
