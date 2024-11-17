@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, FlatList, StyleSheet, Alert, TouchableOpacity } from 'react-native';
-import { collection, query, where, getDocs } from 'firebase/firestore';
+import { collection, query, where, getDocs, deleteDoc, doc } from 'firebase/firestore';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation, NavigationProp } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
@@ -13,6 +13,8 @@ interface Receita {
   titulo: string;
   descricao: string;
   uid: string;
+  categoria: string;
+  imagem: string | null;
 }
 
 const MinhasReceitas: React.FC = () => {
@@ -36,10 +38,10 @@ const MinhasReceitas: React.FC = () => {
 
         const listaReceitas: Receita[] = [];
         if (!querySnapshot.empty) {
-          querySnapshot.forEach((doc) => {
-            const receitaData = doc.data() as Receita;
+          querySnapshot.forEach((docSnapshot) => {
+            const receitaData = docSnapshot.data() as Omit<Receita, 'id'>;
             listaReceitas.push({
-              id: doc.id,
+              id: docSnapshot.id,
               ...receitaData,
             });
           });
@@ -58,11 +60,55 @@ const MinhasReceitas: React.FC = () => {
     fetchMinhasReceitas();
   }, []);
 
+  const editarReceita = (id: string) => {
+    navigation.navigate('EditarReceita', { id });
+  };
+
+  const deletarReceita = async (id: string) => {
+    try {
+      await deleteDoc(doc(db, 'receitas', id));
+      setReceitas(receitas.filter(receita => receita.id !== id));
+      Alert.alert('Sucesso', 'Receita deletada com sucesso!');
+    } catch (error) {
+      console.error('Erro ao deletar receita:', error);
+      Alert.alert('Erro', 'Não foi possível deletar a receita. Tente novamente.');
+    }
+  };
+
+  const confirmarDelecaoReceita = (id: string) => {
+    Alert.alert(
+      'Confirmar Deleção',
+      'Você tem certeza que deseja deletar esta receita?',
+      [
+        {
+          text: 'Cancelar',
+          style: 'cancel',
+        },
+        {
+          text: 'Deletar',
+          onPress: () => deletarReceita(id),
+          style: 'destructive',
+        },
+      ],
+      { cancelable: true }
+    );
+  };
+
   const renderItem = ({ item }: { item: Receita }) => (
-    <ReceitaItem
-      item={item}
-      onPress={() => navigation.navigate('VisualizacaoReceita', { id: item.id })} // Navega para a visualização
-    />
+    <View style={styles.receitaCard}>
+      <ReceitaItem
+        item={item}
+        onPress={() => navigation.navigate('VisualizacaoReceita', { id: item.id })} // Navega para a visualização
+      />
+      <View style={styles.iconContainer}>
+        <TouchableOpacity onPress={() => editarReceita(item.id)}>
+          <Icon name="edit" size={24} color="black" />
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => confirmarDelecaoReceita(item.id)}>
+          <Icon name="delete" size={24} color="black" />
+        </TouchableOpacity>
+      </View>
+    </View>
   );
 
   return (
@@ -138,6 +184,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderRadius: 10,
     elevation: 5, 
+  },
+  iconContainer: {
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    marginTop: 10,
   },
 });
 

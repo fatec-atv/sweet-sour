@@ -6,6 +6,8 @@ import * as ImagePicker from 'expo-image-picker';
 import { API_URL } from '../../config/api';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation, NavigationProp } from '@react-navigation/native';
+import { doc, getDoc, updateDoc } from 'firebase/firestore';
+import { db } from '../../config';
 
 type RootStackParamList = {
   MinhasReceitas: undefined;
@@ -30,27 +32,14 @@ interface Receita {
   userId: string | null;
 }
 
-const CadastroReceita: React.FC = () => {
+const EditarReceita: React.FC = ({ route }: any) => {
+  const { id } = route.params;
   const [userId, setUserId] = useState<string | null>(null);
-  const [receita, setReceita] = useState<Receita>({
-    titulo: '',
-    descricao: '',
-    tempoPreparo: '',
-    porcoes: '',
-    dificuldade: '',
-    categoria: '',
-    restricoesAlimentares: [],
-    ingredientes: [],
-    modoPreparo: '',
-    imagem: null,
-    userId: null,
-  });
-
+  const [receita, setReceita] = useState<Receita | null>(null);
   const [ingredientes, setIngredientes] = useState<{ label: string; value: string }[]>([]);
   const [modalVisible, setModalVisible] = useState(false);
   const [selectedPicker, setSelectedPicker] = useState<string | null>(null);
   const navigation = useNavigation<NavigationProp<RootStackParamList>>();
-  const [searchText, setSearchText] = useState('');
 
   useEffect(() => {
     const fetchUserId = async () => {
@@ -82,11 +71,33 @@ const CadastroReceita: React.FC = () => {
     fetchIngredientes();
   }, []);
 
+  useEffect(() => {
+    const fetchReceita = async () => {
+      try {
+        const receitaRef = doc(db, 'receitas', id);
+        const receitaSnap = await getDoc(receitaRef);
+
+        if (receitaSnap.exists()) {
+          const receitaData = receitaSnap.data() as Receita;
+          setReceita(receitaData);
+        } else {
+          console.log("Receita não encontrada com o ID:", id);
+        }
+      } catch (error) {
+        Alert.alert('Erro', 'Não foi possível buscar os detalhes da receita.');
+      }
+    };
+
+    fetchReceita();
+  }, [id]);
+
   const handleChange = (name: string, value: any) => {
-    setReceita({
-      ...receita,
-      [name]: value,
-    });
+    if (receita) {
+      setReceita({
+        ...receita,
+        [name]: value,
+      });
+    }
   };
 
   const pickImage = async () => {
@@ -105,13 +116,13 @@ const CadastroReceita: React.FC = () => {
       quality: 1,
     });
 
-    if (!result.canceled) {
+    if (!result.canceled && receita) {
       handleChange('imagem', result.assets[0].uri);
     }
   };
 
   const handleSubmit = async () => {
-    if (!receita.titulo || !receita.descricao || !receita.tempoPreparo || !receita.porcoes || !receita.dificuldade || !receita.categoria || receita.ingredientes.length === 0 || !receita.modoPreparo) {
+    if (!receita || !receita.titulo || !receita.descricao || !receita.tempoPreparo || !receita.porcoes || !receita.dificuldade || !receita.categoria || receita.ingredientes.length === 0 || !receita.modoPreparo) {
       Alert.alert('Erro', 'Por favor, preencha todos os campos obrigatórios.');
       return;
     }
@@ -119,8 +130,7 @@ const CadastroReceita: React.FC = () => {
     console.log('userId:', userId);
 
     try {
-      const formData = new FormData();
-      formData.append('dados', JSON.stringify({
+      await updateDoc(doc(db, 'receitas', id), {
         titulo: receita.titulo,
         descricao: receita.descricao,
         tempoPreparo: receita.tempoPreparo,
@@ -130,42 +140,17 @@ const CadastroReceita: React.FC = () => {
         restricoesAlimentares: receita.restricoesAlimentares,
         ingredientes: receita.ingredientes,
         modoPreparo: receita.modoPreparo,
-        uid: userId,
-      }));
-
-      if (receita.imagem) {
-        const filename = receita.imagem.split('/').pop()!;
-        const match = /\.(\w+)$/.exec(filename);
-        const type = match ? `image/${match[1]}` : `image`;
-        formData.append('imagem', {
-          uri: receita.imagem,
-          name: filename,
-          type: type,
-        } as any);
-      }
-
-      const response = await axios.post(`${API_URL}/cadastrar/receitas`, formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
+        imagem: receita.imagem,
       });
 
-      if (response.data && response.data.id) {
-        Alert.alert(
-          'Sucesso', 
-          'Receita cadastrada com sucesso', 
-          [{ text: 'OK',
-            onPress: () => navigation.navigate('MinhasReceitas') }] 
-        );
-      } else {
-        alert('Erro ao cadastrar receita: Dados inválidos ou incompletos.');
-      }
+      Alert.alert(
+        'Sucesso', 
+        'Receita atualizada com sucesso', 
+        [{ text: 'OK',
+          onPress: () => navigation.navigate('MinhasReceitas') }] 
+      );
     } catch (error) {
-      if (axios.isAxiosError(error)) {
-        alert('Erro ao cadastrar receita: ' + (error.response ? error.response.data.erro : error.message));
-      } else {
-        alert('Erro ao cadastrar receita: ' + (error instanceof Error ? error.message : 'Erro desconhecido'));
-      }
+      Alert.alert('Erro', 'Não foi possível atualizar a receita.');
     }
   };
 
@@ -181,12 +166,12 @@ const CadastroReceita: React.FC = () => {
       renderItem={({ item }) => (
         <TouchableOpacity onPress={() => {
           if (selectedPicker === 'restricoesAlimentares') {
-            const newSelected = receita.restricoesAlimentares.includes(item.value)
+            const newSelected = receita?.restricoesAlimentares.includes(item.value)
               ? receita.restricoesAlimentares.filter((value) => value !== item.value)
               : [...receita.restricoesAlimentares, item.value];
             handleChange('restricoesAlimentares', newSelected);
           } else if (selectedPicker === 'ingredientes') {
-            const newSelected = receita.ingredientes.some((ing) => ing.id === item.value)
+            const newSelected = receita?.ingredientes.some((ing) => ing.id === item.value)
               ? receita.ingredientes.filter((ing) => ing.id !== item.value)
               : [...receita.ingredientes, { id: item.value, name: item.label }];
             handleChange('ingredientes', newSelected);
@@ -203,15 +188,23 @@ const CadastroReceita: React.FC = () => {
 
   const removeSelectedItem = (type: string, value: string) => {
     if (type === 'restricoesAlimentares') {
-      handleChange('restricoesAlimentares', receita.restricoesAlimentares.filter(item => item !== value));
+      handleChange('restricoesAlimentares', receita?.restricoesAlimentares.filter(item => item !== value));
     } else if (type === 'ingredientes') {
-      handleChange('ingredientes', receita.ingredientes.filter(item => item.id !== value));
+      handleChange('ingredientes', receita?.ingredientes.filter(item => item.id !== value));
     }
   };
 
+  if (!receita) {
+    return (
+      <View style={styles.loadingContainer}>
+        <Text style={styles.loadingText}>Carregando...</Text>
+      </View>
+    );
+  }
+
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      <Text style={styles.title}>Cadastro de Receita</Text>
+      <Text style={styles.title}>Editar Receita</Text>
       <View style={styles.form}>
         <Text style={styles.label}>Título:</Text>
         <TextInput
@@ -297,7 +290,7 @@ const CadastroReceita: React.FC = () => {
           numberOfLines={4}
         />
         <TouchableOpacity style={styles.button} onPress={handleSubmit}>
-          <Text style={styles.buttonText}>Cadastrar Receita</Text>
+          <Text style={styles.buttonText}>Atualizar Receita</Text>
         </TouchableOpacity>
       </View>
       <Modal
@@ -307,7 +300,7 @@ const CadastroReceita: React.FC = () => {
         onRequestClose={() => setModalVisible(false)}
       >
         <View style={styles.modalContainer}>
-          <View style={[styles.modalContent, selectedPicker === 'ingredientes' && styles.ingredientesModalContent]}>
+          <View style={styles.modalContent}>
             <Text style={styles.modalTitle}>Selecione uma opção</Text>
             {selectedPicker === 'tempoPreparo' && renderPickerItems([
               { label: '15 minutos', value: '15 minutos' },
@@ -339,17 +332,7 @@ const CadastroReceita: React.FC = () => {
               { label: 'Vegetariano', value: 'Vegetariano' },
               { label: 'Vegano', value: 'Vegano' },
             ])}
-            {selectedPicker === 'ingredientes' && (
-              <>
-                <TextInput
-                  style={styles.searchInput}
-                  placeholder="Pesquisar ingredientes"
-                  value={searchText}
-                  onChangeText={setSearchText}
-                />
-                {renderPickerItems(ingredientes.filter(item => item.label.toLowerCase().includes(searchText.toLowerCase())))}
-              </>
-            )}
+            {selectedPicker === 'ingredientes' && renderPickerItems(ingredientes)}
             <TouchableOpacity style={styles.modalCloseButton} onPress={() => setModalVisible(false)}>
               <Text style={styles.modalCloseButtonText}>Fechar</Text>
             </TouchableOpacity>
@@ -482,11 +465,6 @@ const styles = StyleSheet.create({
     padding: 20,
     alignItems: 'center',
   },
-  ingredientesModalContent: {
-    height: '60%', // Ajuste a altura conforme necessário
-    marginTop: '20%',
-    marginBottom: '20%',
-  },
   modalTitle: {
     fontSize: 18,
     fontWeight: 'bold',
@@ -503,16 +481,6 @@ const styles = StyleSheet.create({
     padding: 10,
     borderRadius: 10,
   },
-  searchInput: {
-    height: 40,
-    borderColor: '#C5C5C5',
-    borderWidth: 1,
-    borderRadius: 10,
-    paddingHorizontal: 15,
-    marginBottom: 10,
-    fontSize: 16,
-    backgroundColor: '#F5F5F5',
-  },
   modalCloseButtonText: {
     color: '#fff',
     fontSize: 16,
@@ -520,4 +488,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default CadastroReceita;
+export default EditarReceita;

@@ -17,12 +17,24 @@ import AdicionarListas from './pages/listas/adicionarLista';
 import Listas from './pages/listas/listas';
 import ReceitasListas from './pages/listas/receitasListas';
 import ReceitasFavoritas from './pages/listas/favoritos';
+import EditarReceita from './pages/editarReceita/editarReceita';
 
 export type RootStackParamList = {
   Home: undefined;
   CadastroReceita: undefined;
   ListagemReceitas: undefined;
   VisualizacaoReceita: { id: string };
+  EditarReceita: { id: string };
+  CadastroUsuario: undefined;
+  Login: undefined;
+  MeuPerfil: undefined;
+  MinhasReceitas: undefined;
+  Comentar: { idReceita: string };
+  Comentarios: { idReceita: string };
+  'Adicionar à Lista': { idReceita: string };
+  Listas: undefined;
+  'Receitas da lista': { idLista: string };
+  'Receitas favoritas': undefined;
 };
 
 const Stack = createStackNavigator<RootStackParamList>();
@@ -46,6 +58,7 @@ const App: React.FC = () => {
         <Stack.Screen name="Listas" component={Listas} />
         <Stack.Screen name="Receitas da lista" component={ReceitasListas} />
         <Stack.Screen name="Receitas favoritas" component={ReceitasFavoritas} />
+        <Stack.Screen name="EditarReceita" component={EditarReceita} />
       </Stack.Navigator>
     </View>
     </NavigationContainer>
