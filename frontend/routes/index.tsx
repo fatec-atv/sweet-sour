@@ -7,6 +7,7 @@ import CadastroUsuario from '../pages/cadastroUsuario/cadastroUsuario';
 import Login from '../pages/login/login';
 import MeuPerfil from '../pages/meuPerfil/meuPerfil';
 import MinhasReceitas from '../pages/minhasReceitas/minhasReceitas';
+import PlannerRefeicao from '../pages/plannerRefeicao/plannerRefeicao';
 
 
 const AppRoutes: React.FC = () => {
@@ -20,6 +21,7 @@ const AppRoutes: React.FC = () => {
         <Route path="/Home" element={<Home />} />
         <Route path="/meu-perfil" element={<MeuPerfil />} />
         <Route path="/minhas-receitas" element={<MinhasReceitas />} />
+        <Route path="/planner-refeicao" element={<PlannerRefeicao />} />
       </Routes>
     </NativeRouter>
   );

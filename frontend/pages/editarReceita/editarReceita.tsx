@@ -167,14 +167,14 @@ const EditarReceita: React.FC = ({ route }: any) => {
       renderItem={({ item }) => (
         <TouchableOpacity onPress={() => {
           if (selectedPicker === 'restricoesAlimentares') {
-            const newSelected = receita?.restricoesAlimentares.includes(item.value)
+            const newSelected = receita && receita.restricoesAlimentares.includes(item.value)
               ? receita.restricoesAlimentares.filter((value) => value !== item.value)
-              : [...receita.restricoesAlimentares, item.value];
+              : receita ? [...receita.restricoesAlimentares, item.value] : [];
             handleChange('restricoesAlimentares', newSelected);
           } else if (selectedPicker === 'ingredientes') {
             const newSelected = receita?.ingredientes.some((ing) => ing.id === item.value)
               ? receita.ingredientes.filter((ing) => ing.id !== item.value)
-              : [...receita.ingredientes, { id: item.value, name: item.label }];
+              : [...(receita?.ingredientes || []), { id: item.value, name: item.label }];
             handleChange('ingredientes', newSelected);
           } else {
             handleChange(selectedPicker!, item.value);
@@ -511,6 +511,17 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: 16,
     fontWeight: 'bold',
+  },
+  loadingContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#FFFAFB',
+  },
+  loadingText: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: '#2E282A',
   },
 });
 

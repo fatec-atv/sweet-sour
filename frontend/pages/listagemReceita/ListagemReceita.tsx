@@ -10,6 +10,7 @@ interface Receita {
   id: string;
   titulo: string;
   categoria: string;
+  imagem: string | null;
 }
 
 const ListagemReceitas: React.FC = () => {

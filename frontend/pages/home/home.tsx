@@ -50,6 +50,10 @@ const Home: React.FC = () => {
               <Icon name="book" size={20} color="#fff" />
               <Text style={styles.menuItemText}>Minhas Receitas</Text>
             </TouchableOpacity>
+            <TouchableOpacity style={styles.menuItem} onPress={() => navigation.navigate('PlannerRefeicao')}>
+              <Icon name="calendar" size={20} color="#fff" />
+              <Text style={styles.menuItemText}>Planner de Refeição</Text>
+            </TouchableOpacity>
             <TouchableOpacity style={styles.menuItem} onPress={() => navigation.navigate('Logout')}>
               <Icon name="sign-out" size={20} color="#fff" />
               <Text style={styles.menuItemText}>Logout</Text>

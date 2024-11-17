@@ -9,6 +9,7 @@ import { useNavigation, NavigationProp } from '@react-navigation/native';
 
 type RootStackParamList = {
   MinhasReceitas: undefined;
+  PlannerRefeicao: undefined;
 };
 
 interface Ingrediente {
@@ -270,6 +271,9 @@ const CadastroReceita: React.FC = () => {
               <TouchableOpacity onPress={() => removeSelectedItem('restricoesAlimentares', item)}>
                 <Text style={styles.removeItem}>X</Text>
               </TouchableOpacity>
+                <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('PlannerRefeicao')}>
+                  <Text style={styles.buttonText}>Planejador de Refeições</Text>
+                </TouchableOpacity>
             </View>
           ))}
         </View>
