@@ -39,6 +39,7 @@ const EditarReceita: React.FC = ({ route }: any) => {
   const [ingredientes, setIngredientes] = useState<{ label: string; value: string }[]>([]);
   const [modalVisible, setModalVisible] = useState(false);
   const [selectedPicker, setSelectedPicker] = useState<string | null>(null);
+  const [searchText, setSearchText] = useState('');
   const navigation = useNavigation<NavigationProp<RootStackParamList>>();
 
   useEffect(() => {
@@ -298,47 +299,57 @@ const EditarReceita: React.FC = ({ route }: any) => {
         transparent={true}
         visible={modalVisible}
         onRequestClose={() => setModalVisible(false)}
-      >
+        >
         <View style={styles.modalContainer}>
-          <View style={styles.modalContent}>
+            <View style={[styles.modalContent, selectedPicker === 'ingredientes' && styles.ingredientesModalContent]}>
             <Text style={styles.modalTitle}>Selecione uma opção</Text>
             {selectedPicker === 'tempoPreparo' && renderPickerItems([
-              { label: '15 minutos', value: '15 minutos' },
-              { label: '30 minutos', value: '30 minutos' },
-              { label: '45 minutos', value: '45 minutos' },
-              { label: '1 hora', value: '1 hora' },
-              { label: '1 hora e 30 minutos', value: '1 hora e 30 minutos' },
-              { label: '2 horas', value: '2 horas' },
-              { label: '2 horas e 30 minutos', value: '2 horas e 30 minutos' },
-              { label: '3 horas', value: '3 horas' },
-              { label: '3 horas e 30 minutos', value: '3 horas e 30 minutos' },
-              { label: '4 horas', value: '4 horas' },
-              { label: '4 horas e 30 minutos', value: '4 horas e 30 minutos' },
-              { label: '5 horas', value: '5 horas' },
+                { label: '15 minutos', value: '15 minutos' },
+                { label: '30 minutos', value: '30 minutos' },
+                { label: '45 minutos', value: '45 minutos' },
+                { label: '1 hora', value: '1 hora' },
+                { label: '1 hora e 30 minutos', value: '1 hora e 30 minutos' },
+                { label: '2 horas', value: '2 horas' },
+                { label: '2 horas e 30 minutos', value: '2 horas e 30 minutos' },
+                { label: '3 horas', value: '3 horas' },
+                { label: '3 horas e 30 minutos', value: '3 horas e 30 minutos' },
+                { label: '4 horas', value: '4 horas' },
+                { label: '4 horas e 30 minutos', value: '4 horas e 30 minutos' },
+                { label: '5 horas', value: '5 horas' },
             ])}
             {selectedPicker === 'dificuldade' && renderPickerItems([
-              { label: 'Fácil', value: 'Fácil' },
-              { label: 'Médio', value: 'Médio' },
-              { label: 'Difícil', value: 'Difícil' },
+                { label: 'Fácil', value: 'Fácil' },
+                { label: 'Médio', value: 'Médio' },
+                { label: 'Difícil', value: 'Difícil' },
             ])}
             {selectedPicker === 'categoria' && renderPickerItems([
-              { label: 'Entrada', value: 'Entrada' },
-              { label: 'Prato Principal', value: 'Prato Principal' },
-              { label: 'Sobremesa', value: 'Sobremesa' },
+                { label: 'Entrada', value: 'Entrada' },
+                { label: 'Prato Principal', value: 'Prato Principal' },
+                { label: 'Sobremesa', value: 'Sobremesa' },
             ])}
             {selectedPicker === 'restricoesAlimentares' && renderPickerItems([
-              { label: 'Sem Glúten', value: 'Sem Glúten' },
-              { label: 'Sem Lactose', value: 'Sem Lactose' },
-              { label: 'Vegetariano', value: 'Vegetariano' },
-              { label: 'Vegano', value: 'Vegano' },
+                { label: 'Sem Glúten', value: 'Sem Glúten' },
+                { label: 'Sem Lactose', value: 'Sem Lactose' },
+                { label: 'Vegetariano', value: 'Vegetariano' },
+                { label: 'Vegano', value: 'Vegano' },
             ])}
-            {selectedPicker === 'ingredientes' && renderPickerItems(ingredientes)}
+            {selectedPicker === 'ingredientes' && (
+                <>
+                <TextInput
+                    style={styles.searchInput}
+                    placeholder="Pesquisar ingredientes"
+                    value={searchText}
+                    onChangeText={setSearchText}
+                />
+                {renderPickerItems(ingredientes.filter(item => item.label.toLowerCase().includes(searchText.toLowerCase())))}
+                </>
+            )}
             <TouchableOpacity style={styles.modalCloseButton} onPress={() => setModalVisible(false)}>
-              <Text style={styles.modalCloseButtonText}>Fechar</Text>
+                <Text style={styles.modalCloseButtonText}>Fechar</Text>
             </TouchableOpacity>
-          </View>
+            </View>
         </View>
-      </Modal>
+        </Modal>
     </ScrollView>
   );
 };
@@ -367,6 +378,21 @@ const styles = StyleSheet.create({
     color: '#A1A1A1',
   },
   input: {
+    height: 40,
+    borderColor: '#C5C5C5',
+    borderWidth: 1,
+    borderRadius: 10,
+    paddingHorizontal: 15,
+    marginBottom: 10,
+    fontSize: 16,
+    backgroundColor: '#F5F5F5',
+  },
+  ingredientesModalContent: {
+    height: '60%', // Ajuste a altura conforme necessário
+    marginTop: '20%',
+    marginBottom: '20%',
+  },
+  searchInput: {
     height: 40,
     borderColor: '#C5C5C5',
     borderWidth: 1,
