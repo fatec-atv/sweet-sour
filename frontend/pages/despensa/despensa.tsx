@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, FlatList, Modal, Alert, Keyboard, TouchableWithoutFeedback } from 'react-native';
-import { collection, query, where, getDocs, addDoc } from 'firebase/firestore';
+import { collection, query, where, getDocs, addDoc, doc, updateDoc, deleteDoc } from 'firebase/firestore';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { db } from '../../config';
 import ingredientesData from '../../assets/data/ingredientes.json';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 interface Ingrediente {
   id: string;
@@ -27,6 +28,8 @@ const Despensa: React.FC = () => {
   const [quantidade, setQuantidade] = useState('');
   const [unidade, setUnidade] = useState(unidadesMedida[0]);
   const [searchText, setSearchText] = useState('');
+  const [isEditing, setIsEditing] = useState(false);
+  const [editingIngrediente, setEditingIngrediente] = useState<IngredienteDespensa | null>(null);
 
   useEffect(() => {
     const fetchUserId = async () => {
@@ -73,17 +76,70 @@ const Despensa: React.FC = () => {
     }
   };
 
+  const updateIngrediente = async (ingrediente: IngredienteDespensa) => {
+    try {
+      if (userId) {
+        const docRef = doc(db, 'despensa', ingrediente.id);
+        await updateDoc(docRef, { quantidade: ingrediente.quantidade, unidade: ingrediente.unidade });
+        loadDespensa(userId);
+      }
+    } catch (error) {
+      console.error('Erro ao atualizar o ingrediente:', error);
+    }
+  };
+
   const addIngrediente = () => {
     if (selectedIngrediente && quantidade && unidade) {
       const newIngrediente = { id: selectedIngrediente.id, name: selectedIngrediente.name, quantidade, unidade };
-      setIngredientes([...ingredientes, newIngrediente]);
-      saveIngrediente(newIngrediente);
+      if (isEditing && editingIngrediente) {
+        const updatedIngredientes = ingredientes.map(ingrediente =>
+          ingrediente.id === editingIngrediente.id ? { ...ingrediente, quantidade, unidade } : ingrediente
+        );
+        setIngredientes(updatedIngredientes);
+        updateIngrediente({ ...editingIngrediente, quantidade, unidade });
+      } else {
+        setIngredientes([...ingredientes, newIngrediente]);
+        saveIngrediente(newIngrediente);
+      }
       setModalVisible(false);
       setSelectedIngrediente(null);
       setQuantidade('');
       setUnidade(unidadesMedida[0]);
+      setIsEditing(false);
+      setEditingIngrediente(null);
     } else {
       Alert.alert('Erro', 'Por favor, preencha todos os campos.');
+    }
+  };
+
+  const handleEdit = (ingrediente: IngredienteDespensa) => {
+    setIsEditing(true);
+    setEditingIngrediente(ingrediente);
+    setModalVisible(true);
+    setSelectedIngrediente({ id: ingrediente.id, name: ingrediente.name });
+    setQuantidade(ingrediente.quantidade);
+    setUnidade(ingrediente.unidade);
+  };
+
+  const confirmDelete = (id: string) => {
+    Alert.alert(
+      'Confirmar Exclusão',
+      'Você tem certeza que deseja excluir este ingrediente?',
+      [
+        { text: 'Cancelar', style: 'cancel' },
+        { text: 'Excluir', onPress: () => handleDelete(id) },
+      ],
+      { cancelable: true }
+    );
+  };
+
+  const handleDelete = async (id: string) => {
+    try {
+      const docRef = doc(db, 'despensa', id);
+      await deleteDoc(docRef);
+      setIngredientes(ingredientes.filter(ingrediente => ingrediente.id !== id));
+    } catch (error) {
+      console.error('Erro ao excluir o ingrediente:', error);
     }
   };
 
@@ -113,6 +169,14 @@ const Despensa: React.FC = () => {
             <View style={styles.ingredienteContainer}>
               <Text style={styles.ingredienteText}>{item.name}</Text>
               <Text style={styles.ingredienteText}>{item.quantidade} {item.unidade}</Text>
+              <View style={styles.actionButtons}>
+                <TouchableOpacity onPress={() => handleEdit(item)} style={styles.iconButton}>
+                  <Icon name="edit" size={24} color="#000" />
+                </TouchableOpacity>
+                <TouchableOpacity onPress={() => confirmDelete(item.id)} style={styles.iconButton}>
+                  <Icon name="delete" size={24} color="#000" />
+                </TouchableOpacity>
+              </View>
             </View>
           )}
         />
@@ -125,16 +189,7 @@ const Despensa: React.FC = () => {
           <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
             <View style={styles.modalContainer}>
               <View style={styles.modalContent}>
-                <Text style={styles.modalTitle}>Adicionar Ingrediente</Text>
-                <TextInput
-                  style={styles.searchInput}
-                  placeholder="Pesquisar ingredientes"
-                  value={searchText}
-                  onChangeText={setSearchText}
-                />
-                {renderPickerItems(ingredientesData
-                  .filter(item => item.nome.toLowerCase().includes(searchText.toLowerCase()))
-                  .map(item => ({ id: item.id.toString(), name: item.nome })))}
+                <Text style={styles.modalTitle}>{isEditing ? 'Editar Ingrediente' : 'Adicionar Ingrediente'}</Text>
                 {selectedIngrediente && (
                   <>
                     <Text style={styles.label}>Quantidade:</Text>
@@ -160,7 +215,7 @@ const Despensa: React.FC = () => {
                       ))}
                     </View>
                     <TouchableOpacity style={styles.modalButton} onPress={addIngrediente}>
-                      <Text style={styles.modalButtonText}>Adicionar</Text>
+                      <Text style={styles.modalButtonText}>{isEditing ? 'Atualizar' : 'Adicionar'}</Text>
                     </TouchableOpacity>
                   </>
                 )}
@@ -204,12 +259,20 @@ const styles = StyleSheet.create({
   ingredienteContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+    alignItems: 'center',
     padding: 15,
     borderBottomWidth: 1,
     borderBottomColor: '#ccc',
   },
   ingredienteText: {
     fontSize: 16,
+    flex: 1,
+  },
+  actionButtons: {
+    flexDirection: 'row',
+  },
+  iconButton: {
+    marginHorizontal: 5,
   },
   modalContainer: {
     flex: 1,
