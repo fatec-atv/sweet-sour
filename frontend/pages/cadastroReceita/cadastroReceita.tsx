@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, TextInput, ScrollView, TouchableOpacity, Alert, StyleSheet, Platform, Image, Modal, FlatList } from 'react-native';
+import { View, Text, TextInput, ScrollView, TouchableOpacity, Alert, StyleSheet, Platform, Image, Modal, FlatList, ActivityIndicator } from 'react-native';
 import ingredientesData from '../../assets/data/ingredientes.json';
 import axios from 'axios';
 import * as ImagePicker from 'expo-image-picker';
@@ -52,6 +52,7 @@ const CadastroReceita: React.FC = () => {
   const [selectedPicker, setSelectedPicker] = useState<string | null>(null);
   const navigation = useNavigation<NavigationProp<RootStackParamList>>();
   const [searchText, setSearchText] = useState('');
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const fetchUserId = async () => {
@@ -118,6 +119,7 @@ const CadastroReceita: React.FC = () => {
     }
 
     console.log('userId:', userId);
+    setLoading(true);
 
     try {
       const formData = new FormData();
@@ -153,10 +155,12 @@ const CadastroReceita: React.FC = () => {
 
       if (response.data && response.data.id) {
         Alert.alert(
-          'Sucesso', 
-          'Receita cadastrada com sucesso', 
-          [{ text: 'OK',
-            onPress: () => navigation.navigate('MinhasReceitas') }] 
+          'Sucesso',
+          'Receita cadastrada com sucesso',
+          [{
+            text: 'OK',
+            onPress: () => navigation.navigate('MinhasReceitas')
+          }]
         );
       } else {
         alert('Erro ao cadastrar receita: Dados inválidos ou incompletos.');
@@ -167,6 +171,8 @@ const CadastroReceita: React.FC = () => {
       } else {
         alert('Erro ao cadastrar receita: ' + (error instanceof Error ? error.message : 'Erro desconhecido'));
       }
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -271,9 +277,6 @@ const CadastroReceita: React.FC = () => {
               <TouchableOpacity onPress={() => removeSelectedItem('restricoesAlimentares', item)}>
                 <Text style={styles.removeItem}>X</Text>
               </TouchableOpacity>
-                <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('PlannerRefeicao')}>
-                  <Text style={styles.buttonText}>Planejador de Refeições</Text>
-                </TouchableOpacity>
             </View>
           ))}
         </View>
@@ -300,8 +303,8 @@ const CadastroReceita: React.FC = () => {
           multiline={true}
           numberOfLines={4}
         />
-        <TouchableOpacity style={styles.button} onPress={handleSubmit}>
-          <Text style={styles.buttonText}>Cadastrar Receita</Text>
+        <TouchableOpacity style={[styles.button, loading && styles.buttonDisabled]} onPress={handleSubmit} disabled={loading}>
+          {loading ? <ActivityIndicator color="#fff" /> : <Text style={styles.buttonText}>Cadastrar Receita</Text>}
         </TouchableOpacity>
       </View>
       <Modal
@@ -450,6 +453,9 @@ const styles = StyleSheet.create({
     borderRadius: 25,
     alignItems: 'center',
     marginTop: 20,
+  },
+  buttonDisabled: {
+    backgroundColor: '#F5A5B8',
   },
   buttonText: {
     color: '#fff',
