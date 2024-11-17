@@ -11,7 +11,7 @@ const Login = () => {
         password: ""
     });
 
-    const navigate = useNavigation();
+    const navigate = useNavigation<any>();
 
     const handleLogin = async () => {
         try {
@@ -24,15 +24,22 @@ const Login = () => {
             navigate.navigate("Home");
 
         } catch (error) {
-            console.error("Erro ao tentar realizar o login:", error.message);
-            Alert.alert("Erro ao tentar realizar o login", error.message);
+            if (error instanceof Error) {
+                console.error("Erro ao tentar realizar o login:", error.message);
+                Alert.alert("Erro ao tentar realizar o login", error.message);
+            } else {
+                console.error("Erro ao tentar realizar o login:", error);
+                Alert.alert("Erro ao tentar realizar o login", "Unknown error occurred");
+            }
         }
     };
 
     useEffect(() => {
         const checkUserId = async () => {
             const storedUserId = await AsyncStorage.getItem('uid');
-            console.log("UID armazenado no AsyncStorage:", storedUserId);
+            if (storedUserId) {
+                navigate.navigate("Home");
+            }
         };
 
         checkUserId();
@@ -113,6 +120,9 @@ const styles = StyleSheet.create({
         marginBottom: 10,
         fontSize: 16,
         backgroundColor: '#F5F5F5',
+    },
+    inputContainer: {
+        marginBottom: 15,
     },
     passwordInput: {
         marginTop: 0,

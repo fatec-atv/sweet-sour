@@ -5,6 +5,7 @@ import { RootStackParamList } from '../../App';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import SweetSour from '../../assets/images/sweet_sour.png'; //não mexer para não quebrar o app
 import Logo from '../../assets/images/logo.png'; //não mexer para não quebrar o app
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const { width } = Dimensions.get('window');
 
@@ -14,6 +15,11 @@ const Home: React.FC = () => {
 
   const toggleMenu = () => {
     setMenuVisible(!menuVisible);
+  };
+
+  const handleLogout = async () => {
+    await AsyncStorage.removeItem('uid');
+    navigation.navigate("Login");
   };
 
   return (
@@ -30,25 +36,21 @@ const Home: React.FC = () => {
             <Icon name="close" size={30} color="white" />
           </TouchableOpacity>
           <View style={styles.menuItemsContainer}>
-            <TouchableOpacity style={styles.menuItem} onPress={() => navigation.navigate('ListagemReceitas')}>
-              <Icon name="list" size={20} color="#fff" />
-              <Text style={styles.menuItemText}>Listagem Receitas</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.menuItem} onPress={() => navigation.navigate('Login')}>
-              <Icon name="sign-in" size={20} color="#fff" />
-              <Text style={styles.menuItemText}>Login</Text>
-            </TouchableOpacity>
             <TouchableOpacity style={styles.menuItem} onPress={() => navigation.navigate('MeuPerfil')}>
               <Icon name="user" size={20} color="#fff" />
               <Text style={styles.menuItemText}>Meu Perfil</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.menuItem} onPress={() => navigation.navigate('Listas')}>
-              <Icon name="plus" size={20} color="#fff" />
-              <Text style={styles.menuItemText}>Listas e Favoritos</Text>
+            <TouchableOpacity style={styles.menuItem} onPress={() => navigation.navigate('ListagemReceitas')}>
+              <Icon name="list" size={20} color="#fff" />
+              <Text style={styles.menuItemText}>Listagem Receitas</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.menuItem} onPress={() => navigation.navigate('MinhasReceitas')}>
               <Icon name="book" size={20} color="#fff" />
               <Text style={styles.menuItemText}>Minhas Receitas</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.menuItem} onPress={() => navigation.navigate('Listas')}>
+              <Icon name="plus" size={20} color="#fff" />
+              <Text style={styles.menuItemText}>Listas e Favoritos</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.menuItem} onPress={() => navigation.navigate('PlannerRefeicao')}>
               <Icon name="calendar" size={20} color="#fff" />
@@ -58,7 +60,7 @@ const Home: React.FC = () => {
               <Icon name="shopping-basket" size={20} color="#fff" />
               <Text style={styles.menuItemText}>Despensa</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.menuItem} onPress={() => navigation.navigate('Logout')}>
+            <TouchableOpacity style={styles.menuItem} onPress={handleLogout}>
               <Icon name="sign-out" size={20} color="#fff" />
               <Text style={styles.menuItemText}>Logout</Text>
             </TouchableOpacity>
