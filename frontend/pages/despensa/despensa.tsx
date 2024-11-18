@@ -30,6 +30,7 @@ const Despensa: React.FC = () => {
   const [searchText, setSearchText] = useState('');
   const [isEditing, setIsEditing] = useState(false);
   const [editingIngrediente, setEditingIngrediente] = useState<IngredienteDespensa | null>(null);
+  const [ingredientesList, setIngredientesList] = useState<Ingrediente[]>([]);
 
   useEffect(() => {
     const fetchUserId = async () => {
@@ -47,7 +48,16 @@ const Despensa: React.FC = () => {
     };
 
     fetchUserId();
+    loadIngredientes();
   }, []);
+
+  const loadIngredientes = () => {
+    const formattedIngredientes = ingredientesData.map((item: any) => ({
+      id: item.id.toString(),
+      name: item.nome,
+    }));
+    setIngredientesList(formattedIngredientes);
+  };
 
   const loadDespensa = async (userId: string) => {
     try {
@@ -89,17 +99,20 @@ const Despensa: React.FC = () => {
   };
 
   const addIngrediente = () => {
-    if (selectedIngrediente && quantidade && unidade) {
-      const newIngrediente = { id: selectedIngrediente.id, name: selectedIngrediente.name, quantidade, unidade };
+    if (quantidade && unidade) {
       if (isEditing && editingIngrediente) {
         const updatedIngredientes = ingredientes.map(ingrediente =>
           ingrediente.id === editingIngrediente.id ? { ...ingrediente, quantidade, unidade } : ingrediente
         );
         setIngredientes(updatedIngredientes);
         updateIngrediente({ ...editingIngrediente, quantidade, unidade });
-      } else {
+      } else if (selectedIngrediente) {
+        const newIngrediente = { id: selectedIngrediente.id, name: selectedIngrediente.name, quantidade, unidade };
         setIngredientes([...ingredientes, newIngrediente]);
         saveIngrediente(newIngrediente);
+      } else {
+        Alert.alert('Erro', 'Por favor, selecione um ingrediente.');
+        return;
       }
       setModalVisible(false);
       setSelectedIngrediente(null);
@@ -116,7 +129,6 @@ const Despensa: React.FC = () => {
     setIsEditing(true);
     setEditingIngrediente(ingrediente);
     setModalVisible(true);
-    setSelectedIngrediente({ id: ingrediente.id, name: ingrediente.name });
     setQuantidade(ingrediente.quantidade);
     setUnidade(ingrediente.unidade);
   };
@@ -159,7 +171,10 @@ const Despensa: React.FC = () => {
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <View style={styles.container}>
         <Text style={styles.title}>Despensa</Text>
-        <TouchableOpacity style={styles.addButton} onPress={() => setModalVisible(true)}>
+        <TouchableOpacity style={styles.addButton} onPress={() => {
+          setIsEditing(false);
+          setModalVisible(true);
+        }}>
           <Text style={styles.addButtonText}>Adicionar Ingrediente</Text>
         </TouchableOpacity>
         <FlatList
@@ -190,7 +205,7 @@ const Despensa: React.FC = () => {
             <View style={styles.modalContainer}>
               <View style={styles.modalContent}>
                 <Text style={styles.modalTitle}>{isEditing ? 'Editar Ingrediente' : 'Adicionar Ingrediente'}</Text>
-                {selectedIngrediente && (
+                {isEditing ? (
                   <>
                     <Text style={styles.label}>Quantidade:</Text>
                     <TextInput
@@ -215,8 +230,47 @@ const Despensa: React.FC = () => {
                       ))}
                     </View>
                     <TouchableOpacity style={styles.modalButton} onPress={addIngrediente}>
-                      <Text style={styles.modalButtonText}>{isEditing ? 'Atualizar' : 'Adicionar'}</Text>
+                      <Text style={styles.modalButtonText}>Atualizar</Text>
                     </TouchableOpacity>
+                  </>
+                ) : (
+                  <>
+                    <TextInput
+                      style={styles.searchInput}
+                      placeholder="Buscar Ingrediente"
+                      value={searchText}
+                      onChangeText={setSearchText}
+                    />
+                    {renderPickerItems(ingredientesList.filter(item => item.name.toLowerCase().includes(searchText.toLowerCase())))}
+                    {selectedIngrediente && (
+                      <>
+                        <Text style={styles.label}>Quantidade:</Text>
+                        <TextInput
+                          style={styles.input}
+                          placeholder="Quantidade"
+                          value={quantidade}
+                          onChangeText={setQuantidade}
+                          keyboardType="numeric"
+                        />
+                        <Text style={styles.label}>Unidade de Medida:</Text>
+                        <View style={styles.unidadeContainer}>
+                          {unidadesMedida.map((unidadeItem, index) => (
+                            <TouchableOpacity
+                              key={index}
+                              onPress={() => setUnidade(unidadeItem)}
+                              style={[styles.unidadeButton, unidade === unidadeItem && styles.unidadeButtonSelected]}
+                            >
+                              <Text style={[styles.unidadeText, unidade === unidadeItem && styles.unidadeTextSelected]}>
+                                {unidadeItem}
+                              </Text>
+                            </TouchableOpacity>
+                          ))}
+                        </View>
+                        <TouchableOpacity style={styles.modalButton} onPress={addIngrediente}>
+                          <Text style={styles.modalButtonText}>Adicionar</Text>
+                        </TouchableOpacity>
+                      </>
+                    )}
                   </>
                 )}
                 <TouchableOpacity style={styles.modalCloseButton} onPress={() => setModalVisible(false)}>
