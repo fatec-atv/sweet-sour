@@ -7,7 +7,7 @@ dotenv.config();
 const app = express();
 const cors = require('cors');
 const PORT = parseInt(process.env.PORT || '3000', 10); 
-const HOST = '192.168.9.186'; 
+const HOST = '192.168.0.177'; 
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

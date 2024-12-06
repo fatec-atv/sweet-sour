@@ -20,6 +20,7 @@ import ReceitasFavoritas from './pages/listas/favoritos';
 import EditarReceita from './pages/editarReceita/editarReceita';
 import PlannerRefeicao from './pages/plannerRefeicao/plannerRefeicao';
 import Despensa from './pages/despensa/despensa';
+import ShoppingListPage from './pages/listaCompras/listaCompras';
 
 export type RootStackParamList = {
   Home: undefined;
@@ -66,6 +67,7 @@ const App: React.FC = () => {
         <Stack.Screen name="EditarReceita" component={EditarReceita} />
         <Stack.Screen name="PlannerRefeicao" component={PlannerRefeicao} />
         <Stack.Screen name="Despensa" component={Despensa} />
+        <Stack.Screen name="Lista de Compras" component={ShoppingListPage} />
       </Stack.Navigator>
     </View>
     </NavigationContainer>
