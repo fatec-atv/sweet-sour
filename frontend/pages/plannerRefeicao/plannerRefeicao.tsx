@@ -5,6 +5,7 @@ import { getAuth } from 'firebase/auth';
 import { collection, query, where, getDocs, deleteDoc, doc, addDoc, updateDoc } from 'firebase/firestore';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { db } from '../../config'; // Certifique-se de ter o arquivo de configuração do Firebase
+import { startOfWeek, endOfWeek, parseISO } from 'date-fns';
 
 interface DateObject {
   dateString: string;
@@ -59,6 +60,33 @@ const PlannerRefeicao: React.FC = () => {
   const [selectedPicker, setSelectedPicker] = useState<string | null>(null);
   const [selectedReceitas, setSelectedReceitas] = useState<Receita[]>([]);
   const [viewingMeal, setViewingMeal] = useState<Meal | null>(null);
+  const isDateInCurrentWeek = (date: string): boolean => {
+    const today = new Date();
+    const startOfThisWeek = startOfWeek(today, { weekStartsOn: 1 }); // Segunda-feira
+    const endOfThisWeek = endOfWeek(today, { weekStartsOn: 1 }); // Domingo
+    const mealDate = parseISO(date); // Converte a string da data para objeto Date
+    return mealDate >= startOfThisWeek && mealDate <= endOfThisWeek;
+  };
+  
+  // Função para gerar a lista de compras
+  const generateShoppingList = () => {
+    const shoppingListSet = new Set<string>(); // Conjunto para garantir que ingredientes não se repitam
+    const receitasDaSemana = Object.values(meals).flat().filter(meal => isDateInCurrentWeek(meal.date));
+  
+    receitasDaSemana.forEach(meal => {
+      meal.receitas.forEach(receita => {
+        receita.ingredientes.forEach(ingrediente => {
+          shoppingListSet.add(ingrediente.name); // Adiciona o ingrediente ao conjunto
+        });
+      });
+    });
+  
+    return Array.from(shoppingListSet); // Retorna a lista de ingredientes únicos
+  };
+  
+  // Exemplo de como você pode usar a função generateShoppingList
+  const shoppingList = generateShoppingList();
+  console.log('Lista de compras:', shoppingList);
 
   useEffect(() => {
     const fetchUserId = async () => {
