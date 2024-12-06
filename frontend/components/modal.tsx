@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Modal, View, Text, TouchableOpacity, StyleSheet, Alert } from 'react-native';
+import { Modal, View, Text, TouchableOpacity, StyleSheet, Alert, Share } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { collection, addDoc, query, where, getDocs, deleteDoc } from 'firebase/firestore';
@@ -10,6 +10,9 @@ const ModalReceita: React.FC<{ modalVisible: boolean; toggleModal: () => void; i
     const [isFavorited, setIsFavorited] = useState(false);
     const [uidUsuario, setUidUsuario] = useState<string | null>(null);
     const navigation = useNavigation();
+
+    // Substitua pelo endereço IP local do seu notebook
+    const localServerIP = '192.168.9.186'; // Exemplo de endereço IP local
 
     // Função para recuperar o UID do usuário armazenado
     useEffect(() => {
@@ -91,6 +94,27 @@ const ModalReceita: React.FC<{ modalVisible: boolean; toggleModal: () => void; i
         }
     };
 
+    // Função para compartilhar o link da receita
+    const handleShare = async () => {
+        try {
+            const result = await Share.share({
+                message: `Confira esta receita incrível: http://${localServerIP}:3000/receita/${idReceita}`,
+            });
+            if (result.action === Share.sharedAction) {
+                if (result.activityType) {
+                    console.log('Compartilhado com atividade:', result.activityType);
+                } else {
+                    console.log('Compartilhado');
+                }
+            } else if (result.action === Share.dismissedAction) {
+                console.log('Compartilhamento cancelado');
+            }
+        } catch (error) {
+            console.error('Erro ao compartilhar:', error);
+            Alert.alert('Erro', 'Não foi possível compartilhar o link. Tente novamente.');
+        }
+    };
+
     return (
         <Modal
             animationType="slide"
@@ -118,10 +142,14 @@ const ModalReceita: React.FC<{ modalVisible: boolean; toggleModal: () => void; i
                             <Text style={styles.iconLabel}>Adicionar à Lista</Text>
                         </TouchableOpacity>
 
-
                         <TouchableOpacity onPress={() => navigation.navigate('Comentar', { idReceita, uidUsuario })} style={styles.iconButton}>
                             <Icon name="comment" size={30} color="#FC7493" />
                             <Text style={styles.iconLabel}>Comentar</Text>
+                        </TouchableOpacity>
+
+                        <TouchableOpacity style={styles.iconButton} onPress={handleShare}>
+                            <Icon name="share" size={30} color="#FC7493" />
+                            <Text style={styles.iconLabel}>Compartilhar</Text>
                         </TouchableOpacity>
                     </View>
 

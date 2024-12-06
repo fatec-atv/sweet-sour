@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, Alert, Image, ScrollView, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, Alert, Image, ScrollView, TouchableOpacity, Modal } from 'react-native';
 import { doc, getDoc } from 'firebase/firestore';
 import { db } from '../../config';
 import { collection, query, where, getDocs } from 'firebase/firestore';
@@ -27,6 +27,8 @@ const VisualizacaoReceita: React.FC = ({ route }: any) => {
   const [loading, setLoading] = useState<boolean>(true);
   const [modalVisible, setModalVisible] = useState<boolean>(false);
   const [uidUsuario, setUidUsuario] = useState<string | null>(null);
+  const [imageModalVisible, setImageModalVisible] = useState<boolean>(false);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchReceita = async () => {
@@ -66,6 +68,16 @@ const VisualizacaoReceita: React.FC = ({ route }: any) => {
     setModalVisible(!modalVisible);
   };
 
+  const openImageModal = (image: string) => {
+    setSelectedImage(image);
+    setImageModalVisible(true);
+  };
+
+  const closeImageModal = () => {
+    setImageModalVisible(false);
+    setSelectedImage(null);
+  };
+
   if (loading) {
     return (
       <View style={styles.loadingContainer}>
@@ -87,7 +99,9 @@ const VisualizacaoReceita: React.FC = ({ route }: any) => {
       <ScrollView style={styles.scroll}>
         <Text style={styles.title}>{receita.titulo}</Text>
         {receita.imagem ? (
-          <Image source={{ uri: receita.imagem }} style={styles.image} />
+          <TouchableOpacity onPress={() => openImageModal(receita.imagem)}>
+            <Image source={{ uri: receita.imagem }} style={styles.image} />
+          </TouchableOpacity>
         ) : (
           <Text style={styles.detail}>Imagem não disponível</Text>
         )}
@@ -129,6 +143,22 @@ const VisualizacaoReceita: React.FC = ({ route }: any) => {
         idReceita={id}
         uidUsuario={uidUsuario}
       />
+
+      <Modal
+        visible={imageModalVisible}
+        transparent={true}
+        animationType="slide"
+        onRequestClose={closeImageModal}
+      >
+        <View style={styles.imageModalContainer}>
+          <TouchableOpacity style={styles.imageModalCloseButton} onPress={closeImageModal}>
+            <Text style={styles.imageModalCloseText}>X</Text>
+          </TouchableOpacity>
+          {selectedImage && (
+            <Image source={{ uri: selectedImage }} style={styles.imageModal} />
+          )}
+        </View>
+      </Modal>
     </View>
   );
 };
@@ -200,6 +230,27 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 30,
     lineHeight: 30,
+  },
+  imageModalContainer: {
+    flex: 1,
+    backgroundColor: 'rgba(0, 0, 0, 0.8)',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  imageModal: {
+    width: '90%',
+    height: '70%',
+    resizeMode: 'contain',
+  },
+  imageModalCloseButton: {
+    position: 'absolute',
+    top: 40,
+    right: 20,
+    zIndex: 1,
+  },
+  imageModalCloseText: {
+    color: 'white',
+    fontSize: 30,
   },
 });
 

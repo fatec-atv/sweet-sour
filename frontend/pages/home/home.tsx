@@ -1,17 +1,53 @@
-import React, { useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Dimensions, Image } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { View, Text, StyleSheet, TouchableOpacity, Dimensions, Image, FlatList } from 'react-native';
 import { useNavigation, NavigationProp } from '@react-navigation/native';
 import { RootStackParamList } from '../../App';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import SweetSour from '../../assets/images/sweet_sour.png'; //não mexer para não quebrar o app
 import Logo from '../../assets/images/logo.png'; //não mexer para não quebrar o app
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { collection, query, getDocs } from 'firebase/firestore';
+import { db } from '../../config';
+import { Receita } from '../../interfaces/Receita';
 
 const { width } = Dimensions.get('window');
 
 const Home: React.FC = () => {
   const navigation = useNavigation<NavigationProp<RootStackParamList>>();
   const [menuVisible, setMenuVisible] = useState(false);
+  const [ultimasReceitas, setUltimasReceitas] = useState<Receita[]>([]);
+
+  useEffect(() => {
+    const fetchUltimasReceitas = async () => {
+      try {
+        const receitasRef = collection(db, 'receitas');
+        const querySnapshot = await getDocs(receitasRef);
+        const receitas: Receita[] = [];
+        querySnapshot.forEach((doc) => {
+          const data = doc.data();
+          const [day, month, year] = data.created_at.split('/');
+          const isoDate = new Date(`${year}-${month}-${day}`).toISOString();
+          receitas.push({ id: doc.id, ...data, created_at: isoDate } as unknown as Receita);
+        });
+        receitas.sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime());
+        setUltimasReceitas(receitas.slice(0, 5));
+      } catch (error) {
+        console.error('Erro ao buscar as últimas receitas:', error);
+      }
+    };
+
+    fetchUltimasReceitas();
+  }, []);
+
+  const renderReceitaItem = ({ item }: { item: Receita }) => (
+    <TouchableOpacity style={styles.receitaItem} onPress={() => navigation.navigate('VisualizacaoReceita', { id: item.id })}>
+      <Image source={item.imagem ? { uri: item.imagem } : require('../../assets/images/default_image.png')} style={styles.receitaImage} />
+      <View style={styles.receitaTextContainer}>
+        <Text style={styles.receitaTitle}>{item.titulo}</Text>
+        <Text style={styles.receitaCategoria}>{item.categoria}</Text>
+      </View>
+    </TouchableOpacity>
+  );
 
   const toggleMenu = () => {
     setMenuVisible(!menuVisible);
@@ -36,6 +72,10 @@ const Home: React.FC = () => {
             <Icon name="close" size={30} color="white" />
           </TouchableOpacity>
           <View style={styles.menuItemsContainer}>
+            <TouchableOpacity style={styles.menuItem} onPress={() => navigation.navigate('Home')}>
+              <Icon name="home" size={20} color="#fff" />
+              <Text style={styles.menuItemText}>Home</Text>
+            </TouchableOpacity>
             <TouchableOpacity style={styles.menuItem} onPress={() => navigation.navigate('MeuPerfil')}>
               <Icon name="user" size={20} color="#fff" />
               <Text style={styles.menuItemText}>Meu Perfil</Text>
@@ -70,6 +110,22 @@ const Home: React.FC = () => {
       <View style={styles.logoContainer}>
         <Image source={Logo} style={styles.image} />
       </View>
+      <FlatList
+        data={ultimasReceitas}
+        renderItem={renderReceitaItem}
+        keyExtractor={(item) => item.id}
+        ListHeaderComponent={() => (
+          <View>
+            <Text style={styles.sectionTitle}>Últimas Receitas</Text>
+          </View>
+        )}
+        ListFooterComponent={() => (
+          <TouchableOpacity style={styles.verMaisButton} onPress={() => navigation.navigate('ListagemReceitas')}>
+            <Text style={styles.verMaisText}>Ver mais</Text>
+            <Icon name="arrow-right" size={20} color="#fff" />
+          </TouchableOpacity>
+        )}
+      />
     </View>
   );
 };
@@ -141,11 +197,65 @@ const styles = StyleSheet.create({
     width: 100,
     height: 100,
     marginBottom: 20,
+    marginTop: 100, 
   },
   imageText: {
     height: 40,
-    marginBottom: 10,
+    marginBottom:10,
     marginLeft: 30, // Move a imagem mais para a esquerda
+  },
+  sectionTitle: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 20,
+    textAlign: 'center',
+  },
+  verMaisButton: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 10,
+    backgroundColor: '#FC7493',
+    borderRadius: 25,
+    marginTop: 20,
+    marginBottom: 60,
+    marginHorizontal: 20,
+  },
+  verMaisText: {
+    color: '#fff',
+    fontSize: 16,
+    fontWeight: 'bold',
+    marginRight: 10,
+  },
+  receitaItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    width: width * 0.9,
+    padding: 15,
+    marginHorizontal: width * 0.05,
+    marginBottom: 10,
+    borderWidth: 1,
+    borderColor: '#F1F1F1',
+    borderRadius: 5,
+    backgroundColor: '#fff',
+  },
+  receitaImage: {
+    width: 135, 
+    height: 90, 
+    marginRight: 10,
+    borderRadius: 5, 
+  },
+  receitaTitle: {
+    fontSize: 18,
+    flexShrink: 1,
+    fontWeight: 'bold', 
+  },
+  receitaCategoria: {
+    fontSize: 14,
+    color: '#888', 
+  },
+  receitaTextContainer: {
+    justifyContent: 'flex-start', 
   },
 });
 
